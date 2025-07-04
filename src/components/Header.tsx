@@ -93,7 +93,7 @@ const Header: React.FC<HeaderProps> = ({ language, setLanguage }) => {
         <div className="flex items-center gap-8">
           <a href="/" className="-m-1.5 p-1.5">
             <img 
-              src="/logo.png" 
+              src={process.env.PUBLIC_URL + "/logo.png"} 
               alt="DemaşTeknoloji Logo" 
               className="h-10 w-auto"
             />
@@ -174,7 +174,7 @@ const Header: React.FC<HeaderProps> = ({ language, setLanguage }) => {
             <div className="flex items-center justify-between">
               <a href="/" className="-m-1.5 p-1.5">
                 <img 
-                  src="/logo.png" 
+                  src={process.env.PUBLIC_URL + "/logo.png"} 
                   alt="DemaşTeknoloji Logo" 
                   className="h-10 w-auto"
                 />

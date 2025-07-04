@@ -9,7 +9,7 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
     <section className="relative w-full min-h-screen flex items-center justify-start overflow-hidden">
       {/* Background image */}
       <img
-        src="/hero-bg.jpg"
+        src={process.env.PUBLIC_URL + "/hero-bg.jpg"}
         alt="Yapay Zeka Hero"
         className="absolute inset-0 w-full h-full object-cover object-center z-0"
       />
