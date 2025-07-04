@@ -128,9 +128,15 @@ const Footer: React.FC<FooterProps> = ({ language }) => {
             <ul className="space-y-2 text-gray-300">
               {currentContent.legalLinks.map((item) => (
                 <li key={item.label}>
-                  <a href={item.href === '#' ? 'javascript:void(0);' : item.href} className="hover:text-white transition-colors">
-                    {item.label}
-                  </a>
+                  {item.href === '#' ? (
+                    <button type="button" className="hover:text-white transition-colors">
+                      {item.label}
+                    </button>
+                  ) : (
+                    <a href={item.href} className="hover:text-white transition-colors">
+                      {item.label}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
