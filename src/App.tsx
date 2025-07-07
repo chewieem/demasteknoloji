@@ -21,8 +21,6 @@ const redirectToCorrectPath = () => {
   const l = window.location;
   const q = !l.pathname.includes('.') ? l.pathname.slice(1).split('/').slice(pathSegmentsToKeep).join('/').replace(/&/g, '~and~') : '';
   const s = l.search;
-  const s2 = q ? (s ? '&' + s.slice(1) : '') : s.slice(1);
-  const url = s2 ? (s ? s : '?') + s2.replace(/&/g, '~and~') : '';
   const h = l.hash;
   const g = '/' + q.replace(/~and~/g, '&');
   const newUrl = l.pathname.split('/').slice(0, 1 + pathSegmentsToKeep).join('/') + g + (s ? '?' + s.slice(1).replace(/~and~/g, '&') : '') + h;
