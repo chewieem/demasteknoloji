@@ -89,90 +89,16 @@ const Header: React.FC<HeaderProps> = ({ language, setLanguage }) => {
   };
 
   return (
-    <header className="bg-white shadow-sm fixed w-full top-0 z-50">
-      <nav className="mx-auto flex max-w-full items-center justify-between p-4 px-4 lg:px-24" aria-label="Global">
-        <div className="flex items-center gap-8">
-          <a href="/" className="p-0 m-0">
-            <img 
-              src={process.env.PUBLIC_URL + "/logo.png"} 
-              alt="DemaşTeknoloji Logo" 
-              className="h-10 w-auto"
-            />
-          </a>
-          <div className="hidden lg:flex lg:gap-x-8">
-            {navigation.map((item) => (
-              <div key={item.name} className="relative">
-                {item.dropdown ? (
-                  <div className="relative" ref={(el) => { dropdownRefs.current[item.name] = el; }}>
-                    <button
-                      onClick={(e) => { e.stopPropagation(); handleDropdownToggle(item.name); }}
-                      className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900 hover:text-primary-600 transition-colors"
-                    >
-                      {item.name}
-                      <ChevronDownIcon className={`h-4 w-4 transition-transform duration-200 ${openDropdown === item.name ? 'rotate-180' : ''}`} />
-                    </button>
-                    <div 
-                      className={`absolute left-0 z-10 mt-2 w-52 rounded-lg bg-white shadow-xl ring-1 ring-black ring-opacity-5 transition-all duration-200 ease-in-out ${
-                        openDropdown === item.name 
-                          ? 'opacity-100 scale-100 translate-y-0' 
-                          : 'opacity-0 scale-95 -translate-y-2 pointer-events-none'
-                      }`}
-                    >
-                      <div className="py-2">
-                        {item.dropdown.map((subItem) => (
-                          <a
-                            key={subItem.name}
-                            href={subItem.href}
-                            className="block px-4 py-3 text-base text-gray-700 hover:bg-gray-50 hover:text-gray-900 transition-colors font-medium"
-                          >
-                            {subItem.name}
-                          </a>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                ) : (
-                  <a
-                    href={item.href}
-                    className="text-sm font-semibold leading-6 text-gray-900 hover:text-primary-600 transition-colors"
-                  >
-                    {item.name}
-                  </a>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
-        
-        <div className="flex items-center gap-4">
-          <div className="hidden lg:flex">
-            <button
-              onClick={toggleLanguage}
-              className="flex items-center gap-2 text-sm font-semibold leading-6 text-gray-900 hover:text-primary-600 transition-colors px-3 py-2 rounded-lg hover:bg-gray-50"
-            >
-              <GlobeAltIcon className="h-5 w-5" />
-              {language === 'tr' ? 'EN' : 'TR'}
-            </button>
-          </div>
-          <div className="flex lg:hidden">
-            <button
-              type="button"
-              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-              onClick={() => setMobileMenuOpen(true)}
-            >
-              <span className="sr-only">Ana menüyü aç</span>
-              <Bars3Icon className="h-6 w-6" aria-hidden="true" />
-            </button>
-          </div>
-        </div>
-      </nav>
-      
-      {/* Mobile menu */}
+    <>
+      {/* Overlay for mobile menu */}
       {mobileMenuOpen && (
-        <div className="lg:hidden">
-          <div className="fixed inset-0 z-50" />
-          <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-            <div className="flex items-center justify-between px-4 lg:px-24 py-4">
+        <div className="fixed inset-0 bg-black bg-opacity-40 z-40 transition-opacity duration-300" />
+      )}
+      {/* Main content wrapper for animation */}
+      <div className={`transition-all duration-300 ${mobileMenuOpen ? 'transform scale-95 -translate-x-10 blur-sm' : ''}`}>
+        <header className="bg-white shadow-sm fixed w-full top-0 z-50">
+          <nav className="mx-auto flex max-w-full items-center justify-between p-4 px-4 lg:px-24" aria-label="Global">
+            <div className="flex items-center gap-8">
               <a href="/" className="p-0 m-0">
                 <img 
                   src={process.env.PUBLIC_URL + "/logo.png"} 
@@ -180,75 +106,152 @@ const Header: React.FC<HeaderProps> = ({ language, setLanguage }) => {
                   className="h-10 w-auto"
                 />
               </a>
-              <button
-                type="button"
-                className="-m-2.5 rounded-md p-2.5 text-gray-700"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                <span className="sr-only">Menüyü kapat</span>
-                <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-              </button>
-            </div>
-            <div className="mt-10 flow-root">
-              <div className="-my-10 divide-y divide-gray-500/10 pl-6">
-                <div className="space-y-2 py-2">
-                  {navigation.map((item) => (
-                    <div key={item.name}>
-                      {item.dropdown ? (
-                        <div>
-                          <button
-                            onClick={() => handleDropdownToggle(item.name)}
-                            className="block w-full text-left rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 flex items-center justify-between"
-                          >
-                            {item.name}
-                            <ChevronDownIcon className={`h-4 w-8 transition-transform duration-200 ${openDropdown === item.name ? 'rotate-180' : ''}`} />
-                          </button>
-                          <div 
-                            className={`overflow-hidden transition-all duration-200 ease-in-out ${
-                              openDropdown === item.name ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-                            }`}
-                          >
-                            <div className="ml-4 mt-2 space-y-2">
-                              {item.dropdown.map((subItem) => (
-                                <a
-                                  key={subItem.name}
-                                  href={subItem.href}
-                                  className="block rounded-lg px-3 py-2 text-sm leading-7 text-gray-600 hover:bg-gray-50"
-                                  onClick={() => setMobileMenuOpen(false)}
-                                >
-                                  {subItem.name}
-                                </a>
-                              ))}
-                            </div>
-                          </div>
-                        </div>
-                      ) : (
-                        <a
-                          href={item.href}
-                          className="block w-full text-left rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                          onClick={() => setMobileMenuOpen(false)}
+              <div className="hidden lg:flex lg:gap-x-8">
+                {navigation.map((item) => (
+                  <div key={item.name} className="relative">
+                    {item.dropdown ? (
+                      <div className="relative" ref={(el) => { dropdownRefs.current[item.name] = el; }}>
+                        <button
+                          onClick={(e) => { e.stopPropagation(); handleDropdownToggle(item.name); }}
+                          className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900 hover:text-primary-600 transition-colors"
                         >
                           {item.name}
-                        </a>
-                      )}
-                    </div>
-                  ))}
-                </div>
-                <div className="py-6">
-                  <button
-                    onClick={toggleLanguage}
-                    className="flex w-full items-center gap-2 rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                  >
-                    <GlobeAltIcon className="h-5 w-5" />
-                    {language === 'tr' ? 'English' : 'Türkçe'}
-                  </button>
-                </div>
+                          <ChevronDownIcon className={`h-4 w-4 transition-transform duration-200 ${openDropdown === item.name ? 'rotate-180' : ''}`} />
+                        </button>
+                        <div 
+                          className={`absolute left-0 z-10 mt-2 w-52 rounded-lg bg-white shadow-xl ring-1 ring-black ring-opacity-5 transition-all duration-200 ease-in-out ${
+                            openDropdown === item.name 
+                              ? 'opacity-100 scale-100 translate-y-0' 
+                              : 'opacity-0 scale-95 -translate-y-2 pointer-events-none'
+                          }`}
+                        >
+                          <div className="py-2">
+                            {item.dropdown.map((subItem) => (
+                              <a
+                                key={subItem.name}
+                                href={subItem.href}
+                                className="block px-4 py-3 text-base text-gray-700 hover:bg-gray-50 hover:text-gray-900 transition-colors font-medium"
+                              >
+                                {subItem.name}
+                              </a>
+                            ))}
+                          </div>
+                        </div>
+                      </div>
+                    ) : (
+                      <a
+                        href={item.href}
+                        className="text-sm font-semibold leading-6 text-gray-900 hover:text-primary-600 transition-colors"
+                      >
+                        {item.name}
+                      </a>
+                    )}
+                  </div>
+                ))}
               </div>
+            </div>
+            
+            <div className="flex items-center gap-4">
+              <div className="hidden lg:flex">
+                <button
+                  onClick={toggleLanguage}
+                  className="flex items-center gap-2 text-sm font-semibold leading-6 text-gray-900 hover:text-primary-600 transition-colors px-3 py-2 rounded-lg hover:bg-gray-50"
+                >
+                  <GlobeAltIcon className="h-5 w-5" />
+                  {language === 'tr' ? 'EN' : 'TR'}
+                </button>
+              </div>
+              <div className="flex lg:hidden">
+                <button
+                  type="button"
+                  className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+                  onClick={() => setMobileMenuOpen(true)}
+                >
+                  <span className="sr-only">Ana menüyü aç</span>
+                  <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+                </button>
+              </div>
+            </div>
+          </nav>
+        </header>
+      </div>
+      {/* Mobile menu */}
+      <div className={`lg:hidden fixed inset-y-0 right-0 z-50 w-full sm:max-w-sm bg-white transition-transform duration-300 ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+        <div className="flex items-center justify-between px-4 lg:px-24 py-4">
+          <a href="/" className="p-0 m-0">
+            <img 
+              src={process.env.PUBLIC_URL + "/logo.png"} 
+              alt="DemaşTeknoloji Logo" 
+              className="h-10 w-auto"
+            />
+          </a>
+          <button
+            type="button"
+            className="-m-2.5 rounded-md p-2.5 text-gray-700"
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            <span className="sr-only">Menüyü kapat</span>
+            <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+          </button>
+        </div>
+        <div className="mt-10 flow-root">
+          <div className="-my-10 divide-y divide-gray-500/10 pl-6">
+            <div className="space-y-2 py-2">
+              {navigation.map((item) => (
+                <div key={item.name}>
+                  {item.dropdown ? (
+                    <div>
+                      <button
+                        onClick={() => handleDropdownToggle(item.name)}
+                        className="block w-full text-left rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 flex items-center justify-between"
+                      >
+                        {item.name}
+                        <ChevronDownIcon className={`h-4 w-8 transition-transform duration-200 ${openDropdown === item.name ? 'rotate-180' : ''}`} />
+                      </button>
+                      <div 
+                        className={`overflow-hidden transition-all duration-200 ease-in-out ${
+                          openDropdown === item.name ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                        }`}
+                      >
+                        <div className="ml-4 mt-2 space-y-2">
+                          {item.dropdown.map((subItem) => (
+                            <a
+                              key={subItem.name}
+                              href={subItem.href}
+                              className="block rounded-lg px-3 py-2 text-sm leading-7 text-gray-600 hover:bg-gray-50"
+                              onClick={() => setMobileMenuOpen(false)}
+                            >
+                              {subItem.name}
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  ) : (
+                    <a
+                      href={item.href}
+                      className="block w-full text-left rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      {item.name}
+                    </a>
+                  )}
+                </div>
+              ))}
+            </div>
+            <div className="py-6">
+              <button
+                onClick={toggleLanguage}
+                className="flex w-full items-center gap-2 rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+              >
+                <GlobeAltIcon className="h-5 w-5" />
+                {language === 'tr' ? 'English' : 'Türkçe'}
+              </button>
             </div>
           </div>
         </div>
-      )}
-    </header>
+      </div>
+    </>
   );
 };
 
