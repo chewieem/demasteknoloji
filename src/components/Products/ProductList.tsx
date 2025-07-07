@@ -2,7 +2,7 @@ import React from 'react';
 import Header from '../Header';
 import Banner from './Banner';
 import Footer from '../Footer';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const products = [
   {
@@ -76,7 +76,6 @@ const content = {
 
 const ProductList: React.FC = () => {
   const location = useLocation();
-  const navigate = useNavigate();
   const language = location.pathname.startsWith('/en') ? 'en' : 'tr';
   const lang: 'en' | 'tr' = language;
   const page = content[lang];

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Routes, Route, Navigate, useParams, useNavigate, useLocation } from 'react-router-dom';
+import { Routes, Route, Navigate, useNavigate, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import FeaturedProducts from './components/FeaturedProducts';
@@ -18,7 +18,6 @@ import MobileApplications from './components/Products/MobileApplications';
 const App: React.FC = () => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  const params = useParams();
   const langFromUrl = pathname.startsWith('/en') ? 'en' : 'tr';
   const [language, setLanguage] = useState<'tr' | 'en'>(langFromUrl as 'tr' | 'en');
 
