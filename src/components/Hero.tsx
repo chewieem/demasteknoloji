@@ -36,7 +36,7 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
           </a>
           <a
             href="#contact"
-            className="flex-1 bg-white/10 hover:bg-white/20 text-white font-semibold py-3 rounded-lg border border-white/30 transition-colors text-base md:text-lg text-center"
+            className="flex-1 flex items-center justify-center bg-white/10 hover:bg-white/20 text-white font-semibold py-3 rounded-lg border border-white/30 transition-colors text-base md:text-lg text-center"
           >
             {language === 'tr' ? 'Bize Ulaşın' : 'Contact Us'}
           </a>
