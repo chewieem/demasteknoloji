@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Bars3Icon, XMarkIcon, ChevronDownIcon, GlobeAltIcon, HomeIcon } from '@heroicons/react/24/outline';
+import { Link } from 'react-router-dom';
 
 interface HeaderProps {
   language: 'tr' | 'en';
@@ -127,15 +128,37 @@ const Header: React.FC<HeaderProps> = ({ language, setLanguage }) => {
                           }`}
                         >
                           <div className="py-2">
-                            {item.dropdown.map((subItem) => (
-                              <a
-                                key={subItem.name}
-                                href={subItem.href}
-                                className="block px-4 py-3 text-base text-gray-700 hover:bg-gray-50 hover:text-gray-900 transition-colors font-medium"
-                              >
-                                {subItem.name}
-                              </a>
-                            ))}
+                            {item.dropdown.map((subItem) => {
+                              let route = '';
+                              if (subItem.name === (language === 'tr' ? 'Web Uygulamaları' : 'Web Applications')) {
+                                route = `/${language}/products/web-applications`;
+                              } else if (subItem.name === (language === 'tr' ? 'Mobil Uygulamalar' : 'Mobile Applications')) {
+                                route = `/${language}/products/mobile-applications`;
+                              } else if (subItem.name === (language === 'tr' ? 'E-ticaret Platformları' : 'E-commerce Platforms')) {
+                                route = `/${language}/products/ecommerce-platforms`;
+                              } else if (subItem.name === (language === 'tr' ? 'CRM Sistemleri' : 'CRM Systems')) {
+                                route = `/${language}/products/crm-systems`;
+                              } else if (subItem.name === (language === 'tr' ? 'ERP Çözümleri' : 'ERP Solutions')) {
+                                route = `/${language}/products/erp-solutions`;
+                              }
+                              return route ? (
+                                <Link
+                                  key={subItem.name}
+                                  to={route}
+                                  className="block px-4 py-3 text-base text-gray-700 hover:bg-gray-50 hover:text-gray-900 transition-colors font-medium"
+                                >
+                                  {subItem.name}
+                                </Link>
+                              ) : (
+                                <a
+                                  key={subItem.name}
+                                  href={subItem.href}
+                                  className="block px-4 py-3 text-base text-gray-700 hover:bg-gray-50 hover:text-gray-900 transition-colors font-medium"
+                                >
+                                  {subItem.name}
+                                </a>
+                              );
+                            })}
                           </div>
                         </div>
                       </div>
@@ -226,16 +249,39 @@ const Header: React.FC<HeaderProps> = ({ language, setLanguage }) => {
                         }`}
                       >
                         <div className="ml-4 mt-2 space-y-2">
-                          {item.dropdown.map((subItem) => (
-                            <a
-                              key={subItem.name}
-                              href={subItem.href}
-                              className="block rounded-lg px-3 py-2 text-sm leading-7 text-white"
-                              onClick={() => setMobileMenuOpen(false)}
-                            >
-                              {subItem.name}
-                            </a>
-                          ))}
+                          {item.dropdown.map((subItem) => {
+                            let route = '';
+                            if (subItem.name === (language === 'tr' ? 'Web Uygulamaları' : 'Web Applications')) {
+                              route = `/${language}/products/web-applications`;
+                            } else if (subItem.name === (language === 'tr' ? 'Mobil Uygulamalar' : 'Mobile Applications')) {
+                              route = `/${language}/products/mobile-applications`;
+                            } else if (subItem.name === (language === 'tr' ? 'E-ticaret Platformları' : 'E-commerce Platforms')) {
+                              route = `/${language}/products/ecommerce-platforms`;
+                            } else if (subItem.name === (language === 'tr' ? 'CRM Sistemleri' : 'CRM Systems')) {
+                              route = `/${language}/products/crm-systems`;
+                            } else if (subItem.name === (language === 'tr' ? 'ERP Çözümleri' : 'ERP Solutions')) {
+                              route = `/${language}/products/erp-solutions`;
+                            }
+                            return route ? (
+                              <Link
+                                key={subItem.name}
+                                to={route}
+                                className="block rounded-lg px-3 py-2 text-sm leading-7 text-white"
+                                onClick={() => setMobileMenuOpen(false)}
+                              >
+                                {subItem.name}
+                              </Link>
+                            ) : (
+                              <a
+                                key={subItem.name}
+                                href={subItem.href}
+                                className="block rounded-lg px-3 py-2 text-sm leading-7 text-white"
+                                onClick={() => setMobileMenuOpen(false)}
+                              >
+                                {subItem.name}
+                              </a>
+                            );
+                          })}
                         </div>
                       </div>
                     </div>

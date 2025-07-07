@@ -8,6 +8,12 @@ import ServicesCards from './components/ServicesCards';
 import BlogSection from './components/BlogSection';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import WebApplications from './components/Products/WebApplications';
+import ProductList from './components/Products/ProductList';
+import ERPSolutions from './components/Products/ERPSolutions';
+import CRMSystems from './components/Products/CRMSystems';
+import EcommercePlatforms from './components/Products/EcommercePlatforms';
+import MobileApplications from './components/Products/MobileApplications';
 
 const App: React.FC = () => {
   const navigate = useNavigate();
@@ -41,6 +47,12 @@ const App: React.FC = () => {
           <Footer language={language} />
         </>
       } />
+      <Route path=":lang/products/web-applications" element={<WebApplications />} />
+      <Route path=":lang/products/erp-solutions" element={<ERPSolutions />} />
+      <Route path=":lang/products/crm-systems" element={<CRMSystems />} />
+      <Route path=":lang/products/ecommerce-platforms" element={<EcommercePlatforms />} />
+      <Route path=":lang/products/mobile-applications" element={<MobileApplications />} />
+      <Route path=":lang/products" element={<ProductList />} />
       <Route path="*" element={<Navigate to="/tr" replace />} />
     </Routes>
   );
