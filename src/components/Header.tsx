@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Bars3Icon, XMarkIcon, ChevronDownIcon, GlobeAltIcon } from '@heroicons/react/24/outline';
+import { Bars3Icon, XMarkIcon, ChevronDownIcon, GlobeAltIcon, HomeIcon } from '@heroicons/react/24/outline';
 
 interface HeaderProps {
   language: 'tr' | 'en';
@@ -101,7 +101,7 @@ const Header: React.FC<HeaderProps> = ({ language, setLanguage }) => {
             <div className="flex items-center gap-8">
               <a href="/" className="p-0 m-0">
                 <img 
-                  src={process.env.PUBLIC_URL + "/logo.png"} 
+                  src={mobileMenuOpen ? process.env.PUBLIC_URL + "/logo-white.png" : process.env.PUBLIC_URL + "/logo.png"}
                   alt="DemaşTeknoloji Logo" 
                   className="h-10 w-auto"
                 />
@@ -161,10 +161,13 @@ const Header: React.FC<HeaderProps> = ({ language, setLanguage }) => {
                   {language === 'tr' ? 'EN' : 'TR'}
                 </button>
               </div>
-              <div className="flex lg:hidden">
+              <div className="flex lg:hidden items-center">
+                <a href="/" className="mr-2 p-2">
+                  <HomeIcon className={`h-6 w-6 ${mobileMenuOpen ? 'text-white' : 'text-gray-700'}`} />
+                </a>
                 <button
                   type="button"
-                  className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+                  className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-black"
                   onClick={() => setMobileMenuOpen(true)}
                 >
                   <span className="sr-only">Ana menüyü aç</span>
@@ -176,23 +179,31 @@ const Header: React.FC<HeaderProps> = ({ language, setLanguage }) => {
         </header>
       </div>
       {/* Mobile menu */}
-      <div className={`lg:hidden fixed inset-y-0 right-0 z-50 w-full sm:max-w-sm bg-white transition-transform duration-300 ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+      <div
+        className={`lg:hidden fixed inset-y-0 right-0 z-50 w-full sm:max-w-sm bg-white transition-transform duration-300 ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'} bg-cover bg-center`}
+        style={{ backgroundImage: `url(${process.env.PUBLIC_URL + "/mobile-menu.png"})` }}
+      >
         <div className="flex items-center justify-between px-4 lg:px-24 py-4">
           <a href="/" className="p-0 m-0">
             <img 
-              src={process.env.PUBLIC_URL + "/logo.png"} 
+              src={mobileMenuOpen ? process.env.PUBLIC_URL + "/logo-white.png" : process.env.PUBLIC_URL + "/logo.png"}
               alt="DemaşTeknoloji Logo" 
               className="h-10 w-auto"
             />
           </a>
-          <button
-            type="button"
-            className="-m-2.5 rounded-md p-2.5 text-gray-700"
-            onClick={() => setMobileMenuOpen(false)}
-          >
-            <span className="sr-only">Menüyü kapat</span>
-            <XMarkIcon className="h-6 w-6" aria-hidden="true" />
-          </button>
+          <div className="flex items-center gap-2">
+            <a href="/" className="p-2">
+              <HomeIcon className="h-6 w-6 text-white" />
+            </a>
+            <button
+              type="button"
+              className="-m-2.5 rounded-md p-2.5 text-white"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <span className="sr-only">Menüyü kapat</span>
+              <XMarkIcon className="h-6 w-6 text-white font-bold" aria-hidden="true" />
+            </button>
+          </div>
         </div>
         <div className="mt-10 flow-root">
           <div className="-my-10 divide-y divide-gray-500/10 pl-6">
@@ -203,7 +214,7 @@ const Header: React.FC<HeaderProps> = ({ language, setLanguage }) => {
                     <div>
                       <button
                         onClick={() => handleDropdownToggle(item.name)}
-                        className="block w-full text-left rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 flex items-center justify-between"
+                        className="block w-full text-left rounded-lg px-3 py-2 text-base font-bold text-white leading-7 flex items-center justify-between"
                       >
                         {item.name}
                         <ChevronDownIcon className={`h-4 w-8 transition-transform duration-200 ${openDropdown === item.name ? 'rotate-180' : ''}`} />
@@ -218,7 +229,7 @@ const Header: React.FC<HeaderProps> = ({ language, setLanguage }) => {
                             <a
                               key={subItem.name}
                               href={subItem.href}
-                              className="block rounded-lg px-3 py-2 text-sm leading-7 text-gray-600 hover:bg-gray-50"
+                              className="block rounded-lg px-3 py-2 text-sm leading-7 text-white"
                               onClick={() => setMobileMenuOpen(false)}
                             >
                               {subItem.name}
@@ -230,7 +241,7 @@ const Header: React.FC<HeaderProps> = ({ language, setLanguage }) => {
                   ) : (
                     <a
                       href={item.href}
-                      className="block w-full text-left rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                      className="block w-full text-left rounded-lg px-3 py-2 text-base font-bold text-white leading-7"
                       onClick={() => setMobileMenuOpen(false)}
                     >
                       {item.name}
@@ -242,9 +253,9 @@ const Header: React.FC<HeaderProps> = ({ language, setLanguage }) => {
             <div className="py-6">
               <button
                 onClick={toggleLanguage}
-                className="flex w-full items-center gap-2 rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                className="flex w-full items-center gap-2 rounded-lg px-3 py-2.5 text-base font-bold text-white leading-7"
               >
-                <GlobeAltIcon className="h-5 w-5" />
+                <GlobeAltIcon className="h-5 w-5 text-white" />
                 {language === 'tr' ? 'English' : 'Türkçe'}
               </button>
             </div>
