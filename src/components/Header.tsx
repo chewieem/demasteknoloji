@@ -128,7 +128,6 @@ const Header: React.FC<HeaderProps> = ({ language, setLanguage }) => {
                         >
                           <div className="py-2">
                             {item.dropdown.map((subItem) => {
-                              // Eğer href bir route ise Link kullan, yoksa normal anchor kullan
                               if (subItem.href.startsWith('/')) {
                                 return (
                                   <Link

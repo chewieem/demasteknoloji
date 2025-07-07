@@ -84,7 +84,6 @@ const WebApplications: React.FC = () => {
   const lang: 'en' | 'tr' = language;
   const page = content[lang];
 
-  // Dili değiştirince URL'yi güncelle
   const setLanguage = (newLang: 'en' | 'tr') => {
     let newPath = location.pathname;
     if (newLang === 'en' && !newPath.startsWith('/en')) {

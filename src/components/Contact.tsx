@@ -73,12 +73,10 @@ const Contact: React.FC<ContactProps> = ({ language }) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Burada form gönderme işlemi yapılacak
     console.log('Form data:', formData);
     setIsSubmitted(true);
     setFormData({ name: '', email: '', company: '', message: '' });
     
-    // 3 saniye sonra formu sıfırla
     setTimeout(() => setIsSubmitted(false), 3000);
   };
 
