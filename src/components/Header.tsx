@@ -107,7 +107,7 @@ const Header: React.FC<HeaderProps> = ({ language, setLanguage }) => {
                 />
               </a>
               <div className="hidden lg:flex lg:gap-x-8">
-                <a href="/" className="text-sm font-semibold leading-6 text-gray-900 hover:text-primary-600 transition-colors">Ana Sayfa</a>
+                <a href="/" className="text-sm font-semibold leading-6 text-gray-900 hover:text-primary-600 transition-colors">{language === 'tr' ? 'Ana Sayfa' : 'Home'}</a>
                 {navigation.map((item) => (
                   <div key={item.name} className="relative">
                     {item.dropdown ? (

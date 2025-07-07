@@ -84,7 +84,7 @@ const FeaturedProducts: React.FC<FeaturedProductsProps> = ({ language }) => {
       transition={{ duration: 0.7, ease: 'easeOut' }}
       viewport={{ once: false, amount: 0.2 }}
     >
-      <div className="max-w-full mx-auto pl-8 md:pl-28 pr-8 md:pr-20">
+      <div className="max-w-full mx-auto pl-8 md:pl-28 pr-8 md:pr-20 relative">
         <h2 className="text-3xl font-bold text-gray-900 mb-8 text-left">
           {language === 'tr' ? 'Öne Çıkan Ürünler' : 'Featured Products'}
         </h2>
@@ -112,7 +112,7 @@ const FeaturedProducts: React.FC<FeaturedProductsProps> = ({ language }) => {
                   className="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-black/40" />
-                <div className="relative z-10 p-8">
+                <div className="relative z-10 p-12">
                   <h3 className="text-3xl font-bold text-white mb-2 drop-shadow-lg">{product.title[language]}</h3>
                   <p className="text-lg text-white mb-6 drop-shadow-lg">{product.desc[language]}</p>
                   <div className="flex gap-3 flex-wrap">
