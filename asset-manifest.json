@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/demasteknoloji/static/css/main.6a3dc05d.css",
-    "main.js": "/demasteknoloji/static/js/main.ea16bd9f.js",
+    "main.js": "/demasteknoloji/static/js/main.e3383101.js",
     "static/js/453.17b8f42a.chunk.js": "/demasteknoloji/static/js/453.17b8f42a.chunk.js",
     "index.html": "/demasteknoloji/index.html",
     "main.6a3dc05d.css.map": "/demasteknoloji/static/css/main.6a3dc05d.css.map",
-    "main.ea16bd9f.js.map": "/demasteknoloji/static/js/main.ea16bd9f.js.map",
+    "main.e3383101.js.map": "/demasteknoloji/static/js/main.e3383101.js.map",
     "453.17b8f42a.chunk.js.map": "/demasteknoloji/static/js/453.17b8f42a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6a3dc05d.css",
-    "static/js/main.ea16bd9f.js"
+    "static/js/main.e3383101.js"
   ]
 }
