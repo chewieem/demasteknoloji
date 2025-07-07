@@ -14,7 +14,7 @@ const Banner: React.FC<BannerProps> = ({ title, description, image, breadcrumb }
       <div className="absolute inset-0 bg-black/60 z-0" />
       <div className="relative z-10 px-6 md:px-12 lg:px-24">
         {breadcrumb && (
-          <div className="mb-10 mt-6 text-sm flex items-center space-x-2">
+          <div className="mb-10 mt-12 md:mt-6 text-sm flex items-center space-x-2">
             {breadcrumb}
           </div>
         )}
