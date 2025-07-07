@@ -17,11 +17,11 @@ const Header: React.FC<HeaderProps> = ({ language, setLanguage }) => {
       name: language === 'tr' ? 'Ürünler' : 'Products',
       href: '#products',
       dropdown: [
-        { name: language === 'tr' ? 'Web Uygulamaları' : 'Web Applications', href: '#web-apps' },
-        { name: language === 'tr' ? 'Mobil Uygulamalar' : 'Mobile Applications', href: '#mobile-apps' },
-        { name: language === 'tr' ? 'E-ticaret Platformları' : 'E-commerce Platforms', href: '#ecommerce' },
-        { name: language === 'tr' ? 'CRM Sistemleri' : 'CRM Systems', href: '#crm' },
-        { name: language === 'tr' ? 'ERP Çözümleri' : 'ERP Solutions', href: '#erp' },
+        { name: language === 'tr' ? 'Web Uygulamaları' : 'Web Applications', href: `/${language}/products/web-applications` },
+        { name: language === 'tr' ? 'Mobil Uygulamalar' : 'Mobile Applications', href: `/${language}/products/mobile-applications` },
+        { name: language === 'tr' ? 'E-ticaret Platformları' : 'E-commerce Platforms', href: `/${language}/products/ecommerce-platforms` },
+        { name: language === 'tr' ? 'CRM Sistemleri' : 'CRM Systems', href: `/${language}/products/crm-systems` },
+        { name: language === 'tr' ? 'ERP Çözümleri' : 'ERP Solutions', href: `/${language}/products/erp-solutions` },
       ]
     },
     {
@@ -64,7 +64,6 @@ const Header: React.FC<HeaderProps> = ({ language, setLanguage }) => {
   // Click outside handler
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      // Sadece masaüstünde çalışsın
       if (window.innerWidth < 1024) return;
       if (openDropdown) {
         const dropdownElement = dropdownRefs.current[openDropdown];
@@ -129,35 +128,29 @@ const Header: React.FC<HeaderProps> = ({ language, setLanguage }) => {
                         >
                           <div className="py-2">
                             {item.dropdown.map((subItem) => {
-                              let route = '';
-                              if (subItem.name === (language === 'tr' ? 'Web Uygulamaları' : 'Web Applications')) {
-                                route = `/${language}/products/web-applications`;
-                              } else if (subItem.name === (language === 'tr' ? 'Mobil Uygulamalar' : 'Mobile Applications')) {
-                                route = `/${language}/products/mobile-applications`;
-                              } else if (subItem.name === (language === 'tr' ? 'E-ticaret Platformları' : 'E-commerce Platforms')) {
-                                route = `/${language}/products/ecommerce-platforms`;
-                              } else if (subItem.name === (language === 'tr' ? 'CRM Sistemleri' : 'CRM Systems')) {
-                                route = `/${language}/products/crm-systems`;
-                              } else if (subItem.name === (language === 'tr' ? 'ERP Çözümleri' : 'ERP Solutions')) {
-                                route = `/${language}/products/erp-solutions`;
+                              // Eğer href bir route ise Link kullan, yoksa normal anchor kullan
+                              if (subItem.href.startsWith('/')) {
+                                return (
+                                  <Link
+                                    key={subItem.name}
+                                    to={subItem.href}
+                                    className="block px-4 py-3 text-base text-gray-700 hover:bg-gray-50 hover:text-gray-900 transition-colors font-medium"
+                                    onClick={() => setOpenDropdown(null)}
+                                  >
+                                    {subItem.name}
+                                  </Link>
+                                );
+                              } else {
+                                return (
+                                  <a
+                                    key={subItem.name}
+                                    href={subItem.href}
+                                    className="block px-4 py-3 text-base text-gray-700 hover:bg-gray-50 hover:text-gray-900 transition-colors font-medium"
+                                  >
+                                    {subItem.name}
+                                  </a>
+                                );
                               }
-                              return route ? (
-                                <Link
-                                  key={subItem.name}
-                                  to={route}
-                                  className="block px-4 py-3 text-base text-gray-700 hover:bg-gray-50 hover:text-gray-900 transition-colors font-medium"
-                                >
-                                  {subItem.name}
-                                </Link>
-                              ) : (
-                                <a
-                                  key={subItem.name}
-                                  href={subItem.href}
-                                  className="block px-4 py-3 text-base text-gray-700 hover:bg-gray-50 hover:text-gray-900 transition-colors font-medium"
-                                >
-                                  {subItem.name}
-                                </a>
-                              );
                             })}
                           </div>
                         </div>
@@ -250,37 +243,32 @@ const Header: React.FC<HeaderProps> = ({ language, setLanguage }) => {
                       >
                         <div className="ml-4 mt-2 space-y-2">
                           {item.dropdown.map((subItem) => {
-                            let route = '';
-                            if (subItem.name === (language === 'tr' ? 'Web Uygulamaları' : 'Web Applications')) {
-                              route = `/${language}/products/web-applications`;
-                            } else if (subItem.name === (language === 'tr' ? 'Mobil Uygulamalar' : 'Mobile Applications')) {
-                              route = `/${language}/products/mobile-applications`;
-                            } else if (subItem.name === (language === 'tr' ? 'E-ticaret Platformları' : 'E-commerce Platforms')) {
-                              route = `/${language}/products/ecommerce-platforms`;
-                            } else if (subItem.name === (language === 'tr' ? 'CRM Sistemleri' : 'CRM Systems')) {
-                              route = `/${language}/products/crm-systems`;
-                            } else if (subItem.name === (language === 'tr' ? 'ERP Çözümleri' : 'ERP Solutions')) {
-                              route = `/${language}/products/erp-solutions`;
+                            if (subItem.href.startsWith('/')) {
+                              return (
+                                <Link
+                                  key={subItem.name}
+                                  to={subItem.href}
+                                  className="block rounded-lg px-3 py-2 text-sm leading-7 text-white"
+                                  onClick={() => {
+                                    setMobileMenuOpen(false);
+                                    setOpenDropdown(null);
+                                  }}
+                                >
+                                  {subItem.name}
+                                </Link>
+                              );
+                            } else {
+                              return (
+                                <a
+                                  key={subItem.name}
+                                  href={subItem.href}
+                                  className="block rounded-lg px-3 py-2 text-sm leading-7 text-white"
+                                  onClick={() => setMobileMenuOpen(false)}
+                                >
+                                  {subItem.name}
+                                </a>
+                              );
                             }
-                            return route ? (
-                              <Link
-                                key={subItem.name}
-                                to={route}
-                                className="block rounded-lg px-3 py-2 text-sm leading-7 text-white"
-                                onClick={() => setMobileMenuOpen(false)}
-                              >
-                                {subItem.name}
-                              </Link>
-                            ) : (
-                              <a
-                                key={subItem.name}
-                                href={subItem.href}
-                                className="block rounded-lg px-3 py-2 text-sm leading-7 text-white"
-                                onClick={() => setMobileMenuOpen(false)}
-                              >
-                                {subItem.name}
-                              </a>
-                            );
                           })}
                         </div>
                       </div>
