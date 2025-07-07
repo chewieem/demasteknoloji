@@ -63,10 +63,11 @@ const Header: React.FC<HeaderProps> = ({ language, setLanguage }) => {
   // Click outside handler
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
+      // Sadece masaüstünde çalışsın
+      if (window.innerWidth < 1024) return;
       if (openDropdown) {
         const dropdownElement = dropdownRefs.current[openDropdown];
         const target = event.target as Node;
-        
         if (dropdownElement && !dropdownElement.contains(target)) {
           setOpenDropdown(null);
         }
@@ -89,9 +90,9 @@ const Header: React.FC<HeaderProps> = ({ language, setLanguage }) => {
 
   return (
     <header className="bg-white shadow-sm fixed w-full top-0 z-50">
-      <nav className="mx-auto flex max-w-full items-center justify-between p-4 px-24" aria-label="Global">
+      <nav className="mx-auto flex max-w-full items-center justify-between p-4 px-4 lg:px-24" aria-label="Global">
         <div className="flex items-center gap-8">
-          <a href="/" className="-m-1.5 p-1.5">
+          <a href="/" className="p-0 m-0">
             <img 
               src={process.env.PUBLIC_URL + "/logo.png"} 
               alt="DemaşTeknoloji Logo" 
@@ -104,7 +105,7 @@ const Header: React.FC<HeaderProps> = ({ language, setLanguage }) => {
                 {item.dropdown ? (
                   <div className="relative" ref={(el) => { dropdownRefs.current[item.name] = el; }}>
                     <button
-                      onClick={() => handleDropdownToggle(item.name)}
+                      onClick={(e) => { e.stopPropagation(); handleDropdownToggle(item.name); }}
                       className="flex items-center gap-x-1 text-sm font-semibold leading-6 text-gray-900 hover:text-primary-600 transition-colors"
                     >
                       {item.name}
@@ -170,9 +171,9 @@ const Header: React.FC<HeaderProps> = ({ language, setLanguage }) => {
       {mobileMenuOpen && (
         <div className="lg:hidden">
           <div className="fixed inset-0 z-50" />
-          <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-            <div className="flex items-center justify-between">
-              <a href="/" className="-m-1.5 p-1.5">
+          <div className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+            <div className="flex items-center justify-between px-4 lg:px-24 py-4">
+              <a href="/" className="p-0 m-0">
                 <img 
                   src={process.env.PUBLIC_URL + "/logo.png"} 
                   alt="DemaşTeknoloji Logo" 
@@ -188,19 +189,19 @@ const Header: React.FC<HeaderProps> = ({ language, setLanguage }) => {
                 <XMarkIcon className="h-6 w-6" aria-hidden="true" />
               </button>
             </div>
-            <div className="mt-6 flow-root">
-              <div className="-my-6 divide-y divide-gray-500/10">
-                <div className="space-y-2 py-6">
+            <div className="mt-10 flow-root">
+              <div className="-my-10 divide-y divide-gray-500/10 pl-6">
+                <div className="space-y-2 py-2">
                   {navigation.map((item) => (
                     <div key={item.name}>
                       {item.dropdown ? (
                         <div>
                           <button
                             onClick={() => handleDropdownToggle(item.name)}
-                            className="flex w-full items-center justify-between rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                            className="block w-full text-left rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 flex items-center justify-between"
                           >
                             {item.name}
-                            <ChevronDownIcon className={`h-4 w-4 transition-transform duration-200 ${openDropdown === item.name ? 'rotate-180' : ''}`} />
+                            <ChevronDownIcon className={`h-4 w-8 transition-transform duration-200 ${openDropdown === item.name ? 'rotate-180' : ''}`} />
                           </button>
                           <div 
                             className={`overflow-hidden transition-all duration-200 ease-in-out ${
@@ -224,7 +225,7 @@ const Header: React.FC<HeaderProps> = ({ language, setLanguage }) => {
                       ) : (
                         <a
                           href={item.href}
-                          className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                          className="block w-full text-left rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                           onClick={() => setMobileMenuOpen(false)}
                         >
                           {item.name}

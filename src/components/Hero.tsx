@@ -16,27 +16,27 @@ const Hero: React.FC<HeroProps> = ({ language }) => {
       {/* Overlay */}
       <div className="absolute inset-0 bg-gradient-to-r from-[#0a2342]/90 via-[#0a2342]/80 to-[#0a2342]/60 z-10" />
       {/* Content */}
-      <div className="relative z-20 max-w-3xl flex flex-col items-start pl-6 md:pl-16 lg:pl-32">
-        <h1 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
+      <div className="relative z-20 max-w-3xl flex flex-col items-start px-4 md:pl-16 lg:pl-32 py-10 md:py-0 w-full">
+        <h1 className="text-2xl md:text-5xl font-bold text-white mb-4 leading-tight">
           {language === 'tr'
             ? 'Yapay Zeka ile Geleceği Şekillendiriyoruz'
             : 'Shaping the Future with Artificial Intelligence'}
         </h1>
-        <p className="text-lg md:text-2xl text-white/90 mb-8 max-w-xl">
+        <p className="text-base md:text-2xl text-white/90 mb-6 max-w-xl">
           {language === 'tr'
             ? 'Demaş Teknoloji, ileri teknoloji yatırımlarıyla yapay zekada çığır açıyor.'
             : 'Demaş Teknoloji is pioneering artificial intelligence with advanced technology investments.'}
         </p>
-        <div className="flex gap-4">
+        <div className="flex flex-row gap-4 w-full">
           <a
             href="#services"
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg shadow transition-colors border border-blue-400"
+            className="flex-1 bg-blue-500 hover:bg-blue-600 text-white font-semibold py-3 rounded-lg shadow transition-colors border border-blue-400 text-base md:text-lg text-center"
           >
             {language === 'tr' ? 'Yatırımlarımızı Keşfedin' : 'Discover Our Investments'}
           </a>
           <a
             href="#contact"
-            className="bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3 rounded-lg border border-white/30 transition-colors"
+            className="flex-1 bg-white/10 hover:bg-white/20 text-white font-semibold py-3 rounded-lg border border-white/30 transition-colors text-base md:text-lg text-center"
           >
             {language === 'tr' ? 'Bize Ulaşın' : 'Contact Us'}
           </a>
