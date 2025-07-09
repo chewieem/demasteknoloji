@@ -124,16 +124,16 @@ const Footer: React.FC<FooterProps> = ({ language }) => {
 
           {/* Legal Information */}
           <div>
-            <h3 className="text-lg font-semibold text-white mb-4">{currentContent.legalInfoTitle}</h3>
-            <ul className="space-y-2 text-gray-300">
+            <h3 className="text-lg font-semibold text-white mb-4 text-left">{currentContent.legalInfoTitle}</h3>
+            <ul className="space-y-2 text-gray-300 text-left">
               {currentContent.legalLinks.map((item) => (
-                <li key={item.label}>
+                <li key={item.label} className="w-full">
                   {item.href === '#' ? (
-                    <button type="button" className="hover:text-white transition-colors">
+                    <button type="button" className="hover:text-white transition-colors text-left w-full">
                       {item.label}
                     </button>
                   ) : (
-                    <a href={item.href} className="hover:text-white transition-colors">
+                    <a href={item.href} className="hover:text-white transition-colors text-left block w-full">
                       {item.label}
                     </a>
                   )}

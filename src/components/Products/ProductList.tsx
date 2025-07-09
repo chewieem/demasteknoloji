@@ -4,49 +4,6 @@ import Banner from './Banner';
 import Footer from '../Footer';
 import { Link, useLocation } from 'react-router-dom';
 
-const products = [
-  {
-    title: 'Skywave Ürün Ailesi',
-    desc: 'Geleceğin Bağlantılı Dünyasını Hazırlayan Çözümler',
-    link: '/tr/products/skywave',
-  },
-  {
-    title: 'PayFlex Ürün Ailesi',
-    desc: 'PayFlex Payment ürünleri ile yenilikçi ödeme çözümleri',
-    link: '/tr/products/payflex',
-  },
-  {
-    title: 'LEGA Ürün Ailesi',
-    desc: 'İdari ve yasal takibi kolaylaştıran hukuk otomasyonu çözümleri',
-    link: '/tr/products/lega',
-  },
-  {
-    title: 'Kiosk Innova Ürün Ailesi',
-    desc: 'Özelleştirilebilir kiosk donanımları, yazılımları ve hizmetleri',
-    link: '/tr/products/kiosk-innova',
-  },
-  {
-    title: 'AvioFlex Ürün Ailesi',
-    desc: 'Havacılık sektörünün tüm süreçleri için etkili teknoloji çözümleri',
-    link: '/tr/products/avioflex',
-  },
-  {
-    title: 'HICAMP Ürün Ailesi',
-    desc: 'Sağlık tesisleri için bilgi yönetim sistemleri ve çözüm platformları',
-    link: '/tr/products/hicamp',
-  },
-  {
-    title: 'Network 360',
-    desc: 'Kullanıcı dostu ve kolay uygulanabilir ağ yönetim sistemi',
-    link: '/tr/products/network360',
-  },
-  {
-    title: 'HERMES',
-    desc: 'Müşteriler ve çalışanlarla etkili iletişim için uçtan uca çözümler',
-    link: '/tr/products/hermes',
-  },
-];
-
 const content = {
   tr: {
     title: 'Ürünlerimiz',
@@ -79,6 +36,34 @@ const ProductList: React.FC = () => {
   const language = location.pathname.startsWith('/en') ? 'en' : 'tr';
   const lang: 'en' | 'tr' = language;
   const page = content[lang];
+
+  const products = [
+    {
+      title: lang === 'tr' ? 'Web Uygulamaları' : 'Web Applications',
+      desc: lang === 'tr' ? 'Sağlık tesisleri için bilgi yönetim sistemleri ve çözüm platformları' : 'Information management systems and solution platforms for healthcare facilities',
+      link: `/${lang}/products/web-applications`,
+    },
+    {
+      title: lang === 'tr' ? 'Mobil Uygulamalar' : 'Mobile Applications',
+      desc: lang === 'tr' ? 'Mobil uygulama geliştirme ve yönetim çözümleri' : 'Mobile application development and management solutions',
+      link: `/${lang}/products/mobile-applications`,
+    },
+    {
+      title: lang === 'tr' ? 'E-Ticaret Platformları' : 'Ecommerce Platforms',
+      desc: lang === 'tr' ? 'E-ticaret çözümleri ve platform yönetimi' : 'Ecommerce solutions and platform management',
+      link: `/${lang}/products/ecommerce-platforms`,
+    },
+    {
+      title: lang === 'tr' ? 'CRM Sistemleri' : 'CRM Systems',
+      desc: lang === 'tr' ? 'Müşteri ilişkileri yönetimi çözümleri' : 'Customer relationship management solutions',
+      link: `/${lang}/products/crm-systems`,
+    },
+    {
+      title: lang === 'tr' ? 'ERP Çözümleri' : 'ERP Solutions',
+      desc: lang === 'tr' ? 'Kurumsal kaynak planlama çözümleri' : 'Enterprise resource planning solutions',
+      link: `/${lang}/products/erp-solutions`,
+    },
+  ];
 
   return (
     <div>

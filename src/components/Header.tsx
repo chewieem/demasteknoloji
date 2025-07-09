@@ -14,50 +14,65 @@ const Header: React.FC<HeaderProps> = ({ language, setLanguage }) => {
 
   const navigation = [
     {
+      name: language === 'tr' ? 'Hakkımızda' : 'About',
+      href: '#about',
+      dropdown: [
+        {
+          name: language === 'tr' ? 'Demaş Teknoloji Hakkında' : 'About Demaş Teknoloji',
+          href: `/${language}/about/company`,
+        },
+        {
+          name: language === 'tr' ? 'Yönetim ve Ekibimiz' : 'Management & Our Team',
+          href: `/${language}/about/team`,
+        },
+        {
+          name: language === 'tr' ? 'Sertifikasyon ve Dökümantasyon' : 'Certification & Documentation',
+          href: `/${language}/about/certification`,
+        },
+        {
+          name: language === 'tr' ? 'Kurumsal Kimlik' : 'Corporate Identity',
+          href: `/${language}/about/identity`,
+        },
+        {
+          name: language === 'tr' ? 'Fatura Bilgileri' : 'Invoice Information',
+          href: `/${language}/about/invoice`,
+        },
+      ]
+    },
+    {
       name: language === 'tr' ? 'Ürünler' : 'Products',
       href: '#products',
       dropdown: [
-        { name: language === 'tr' ? 'Web Uygulamaları' : 'Web Applications', href: `/${language}/products/web-applications` },
-        { name: language === 'tr' ? 'Mobil Uygulamalar' : 'Mobile Applications', href: `/${language}/products/mobile-applications` },
-        { name: language === 'tr' ? 'E-ticaret Platformları' : 'E-commerce Platforms', href: `/${language}/products/ecommerce-platforms` },
-        { name: language === 'tr' ? 'CRM Sistemleri' : 'CRM Systems', href: `/${language}/products/crm-systems` },
-        { name: language === 'tr' ? 'ERP Çözümleri' : 'ERP Solutions', href: `/${language}/products/erp-solutions` },
+        { name: language === 'tr' ? 'Ürün 1' : 'Product 1', href: `/${language}/products/web-applications` },
+        { name: language === 'tr' ? 'Ürün 2' : 'Product 2', href: `/${language}/products/mobile-applications` },
+        { name: language === 'tr' ? 'Ürün 3' : 'Product 3', href: `/${language}/products/ecommerce-platforms` },
+        { name: language === 'tr' ? 'Ürün 4' : 'Product 4', href: `/${language}/products/crm-systems` },
+        { name: language === 'tr' ? 'Ürün 5' : 'Product 5', href: `/${language}/products/erp-solutions` },
       ]
     },
     {
       name: language === 'tr' ? 'Çözümler' : 'Solutions',
-      href: '#solutions',
+      href: `/${language}/solutions`,
       dropdown: [
-        { name: language === 'tr' ? 'Dijital Dönüşüm' : 'Digital Transformation', href: '#digital-transformation' },
-        { name: language === 'tr' ? 'Cloud Migration' : 'Cloud Migration', href: '#cloud-migration' },
-        { name: language === 'tr' ? 'API Entegrasyonu' : 'API Integration', href: '#api-integration' },
-        { name: language === 'tr' ? 'DevOps Çözümleri' : 'DevOps Solutions', href: '#devops' },
-        { name: language === 'tr' ? 'Güvenlik Çözümleri' : 'Security Solutions', href: '#security' },
+        { name: language === 'tr' ? 'Çözüm 1' : 'Solution 1', href: `/${language}/solutions/solution1` },
+        { name: language === 'tr' ? 'Çözüm 2' : 'Solution 2', href: `/${language}/solutions/solution2` },
+        { name: language === 'tr' ? 'Çözüm 3' : 'Solution 3', href: `/${language}/solutions/solution3` },
+        { name: language === 'tr' ? 'Çözüm 4' : 'Solution 4', href: `/${language}/solutions/solution4` },
+        { name: language === 'tr' ? 'Çözüm 5' : 'Solution 5', href: `/${language}/solutions/solution5` },
       ]
     },
     {
       name: language === 'tr' ? 'Hizmetler' : 'Services',
-      href: '#services',
+      href: `/${language}/services`,
       dropdown: [
-        { name: language === 'tr' ? 'Web Geliştirme' : 'Web Development', href: '#web-development' },
-        { name: language === 'tr' ? 'Mobil Geliştirme' : 'Mobile Development', href: '#mobile-development' },
-        { name: language === 'tr' ? 'UI/UX Tasarım' : 'UI/UX Design', href: '#ui-ux-design' },
-        { name: language === 'tr' ? 'Test & QA' : 'Test & QA', href: '#testing' },
-        { name: language === 'tr' ? 'Teknik Destek' : 'Technical Support', href: '#support' },
+        { name: language === 'tr' ? 'Hizmet 1' : 'Service 1', href: `/${language}/services/service1` },
+        { name: language === 'tr' ? 'Hizmet 2' : 'Service 2', href: `/${language}/services/service2` },
+        { name: language === 'tr' ? 'Hizmet 3' : 'Service 3', href: `/${language}/services/service3` },
+        { name: language === 'tr' ? 'Hizmet 4' : 'Service 4', href: `/${language}/services/service4` },
+        { name: language === 'tr' ? 'Hizmet 5' : 'Service 5', href: `/${language}/services/service5` },
       ]
     },
-    {
-      name: language === 'tr' ? 'Hakkımızda' : 'About',
-      href: '#about',
-      dropdown: [
-        { name: language === 'tr' ? 'Şirket Profili' : 'Company Profile', href: '#company-profile' },
-        { name: language === 'tr' ? 'Misyon & Vizyon' : 'Mission & Vision', href: '#mission-vision' },
-        { name: language === 'tr' ? 'Ekibimiz' : 'Our Team', href: '#team' },
-        { name: language === 'tr' ? 'Referanslar' : 'References', href: '#references' },
-        { name: language === 'tr' ? 'İletişim' : 'Contact', href: '#contact' },
-      ]
-    },
-    { name: language === 'tr' ? 'Kariyer' : 'Career', href: '#career' },
+    { name: language === 'tr' ? 'Kariyer' : 'Career', href: `/${language}/career` },
     { name: language === 'tr' ? 'Blog' : 'Blog', href: '#blog' },
   ];
 
