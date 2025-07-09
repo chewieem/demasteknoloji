@@ -170,12 +170,21 @@ const Header: React.FC<HeaderProps> = ({ language, setLanguage }) => {
                         </div>
                       </div>
                     ) : (
-                      <a
-                        href={item.href}
-                        className="text-sm font-semibold leading-6 text-gray-900 hover:text-primary-600 transition-colors"
-                      >
-                        {item.name}
-                      </a>
+                      item.href.startsWith('/') ? (
+                        <Link
+                          to={item.href}
+                          className="text-sm font-semibold leading-6 text-gray-900 hover:text-primary-600 transition-colors"
+                        >
+                          {item.name}
+                        </Link>
+                      ) : (
+                        <a
+                          href={item.href}
+                          className="text-sm font-semibold leading-6 text-gray-900 hover:text-primary-600 transition-colors"
+                        >
+                          {item.name}
+                        </a>
+                      )
                     )}
                   </div>
                 ))}
