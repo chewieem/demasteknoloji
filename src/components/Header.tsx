@@ -297,13 +297,23 @@ const Header: React.FC<HeaderProps> = ({ language, setLanguage }) => {
                       </div>
                     </div>
                   ) : (
-                    <a
-                      href={item.href}
-                      className="block w-full text-left rounded-lg px-3 py-2 text-base font-bold text-white leading-7"
-                      onClick={() => setMobileMenuOpen(false)}
-                    >
-                      {item.name}
-                    </a>
+                    item.href.startsWith('/') ? (
+                      <Link
+                        to={item.href}
+                        className="block w-full text-left rounded-lg px-3 py-2 text-base font-bold text-white leading-7"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        {item.name}
+                      </Link>
+                    ) : (
+                      <a
+                        href={item.href}
+                        className="block w-full text-left rounded-lg px-3 py-2 text-base font-bold text-white leading-7"
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        {item.name}
+                      </a>
+                    )
                   )}
                 </div>
               ))}
