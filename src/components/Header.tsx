@@ -114,15 +114,15 @@ const Header: React.FC<HeaderProps> = ({ language, setLanguage }) => {
         <header className="bg-white shadow-sm fixed w-full top-0 z-50">
           <nav className="mx-auto flex max-w-full items-center justify-between p-4 px-4 lg:px-24" aria-label="Global">
             <div className="flex items-center gap-8">
-              <a href="/" className="p-0 m-0">
+              <Link to={`/${language}`} className="p-0 m-0">
                 <img 
                   src={mobileMenuOpen ? process.env.PUBLIC_URL + "/logo-white.png" : process.env.PUBLIC_URL + "/logo.png"}
                   alt="DemaşTeknoloji Logo" 
                   className="h-10 w-auto"
                 />
-              </a>
+              </Link>
               <div className="hidden lg:flex lg:gap-x-8">
-                <a href="/" className="text-sm font-semibold leading-6 text-gray-900 hover:text-primary-600 transition-colors">{language === 'tr' ? 'Ana Sayfa' : 'Home'}</a>
+                <Link to={`/${language}`} className="text-sm font-semibold leading-6 text-gray-900 hover:text-primary-600 transition-colors">{language === 'tr' ? 'Ana Sayfa' : 'Home'}</Link>
                 {navigation.map((item) => (
                   <div key={item.name} className="relative">
                     {item.dropdown ? (
@@ -193,9 +193,9 @@ const Header: React.FC<HeaderProps> = ({ language, setLanguage }) => {
                 </button>
               </div>
               <div className="flex lg:hidden items-center">
-                <a href="/" className="mr-2 p-2">
+                <Link to={`/${language}`} className="mr-2 p-2">
                   <HomeIcon className={`h-6 w-6 ${mobileMenuOpen ? 'text-white' : 'text-gray-700'}`} />
-                </a>
+                </Link>
                 <button
                   type="button"
                   className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-black"
@@ -215,17 +215,17 @@ const Header: React.FC<HeaderProps> = ({ language, setLanguage }) => {
         style={{ backgroundImage: `url(${process.env.PUBLIC_URL + "/mobile-menu.png"})` }}
       >
         <div className="flex items-center justify-between px-4 lg:px-24 py-4">
-          <a href="/" className="p-0 m-0">
+          <Link to={`/${language}`} className="p-0 m-0">
             <img 
               src={mobileMenuOpen ? process.env.PUBLIC_URL + "/logo-white.png" : process.env.PUBLIC_URL + "/logo.png"}
               alt="DemaşTeknoloji Logo" 
               className="h-10 w-auto"
             />
-          </a>
+          </Link>
           <div className="flex items-center gap-2">
-            <a href="/" className="p-2">
+            <Link to={`/${language}`} className="p-2">
               <HomeIcon className="h-6 w-6 text-white" />
-            </a>
+            </Link>
             <button
               type="button"
               className="-m-2.5 rounded-md p-2.5 text-white"
