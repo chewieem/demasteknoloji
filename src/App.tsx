@@ -34,6 +34,15 @@ const App: React.FC = () => {
   const langFromUrl = pathname.startsWith('/en') ? 'en' : 'tr';
   const [language, setLanguage] = useState<'tr' | 'en'>(langFromUrl as 'tr' | 'en');
 
+  // 404 yönlendirmesinin yapıldığı yer hatırlatma* ---->
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const redirect = params.get('redirect');
+    if (redirect) {
+      navigate(redirect, { replace: true });
+    }
+  }, [navigate]);
+
   const handleSetLanguage = (lang: 'tr' | 'en') => {
     setLanguage(lang);
     if (lang === 'tr') navigate('/tr', { replace: true });
