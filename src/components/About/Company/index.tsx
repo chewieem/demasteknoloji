@@ -3,12 +3,7 @@ import Header from '../../Header';
 import Banner from '../Banner';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Footer from '../../Footer';
-import FeatureCardsSection from '../../TextSections/FeatureCardsSection';
-import TabbedSection from '../../TextSections/TabbedSection';
-import ImageTextSection from '../../TextSections/ImageTextSection';
-import ListSection from '../../TextSections/ListSection';
 import HeroImageTextSection from '../../TextSections/HeroImageTextSection';
-import TwoColumnSection from '../../TextSections/TwoColumnSection';
 import { 
   CpuChipIcon, 
   PuzzlePieceIcon, 

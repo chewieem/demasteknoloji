@@ -3,20 +3,10 @@ import Header from '../../Header';
 import Banner from '../Banner';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Footer from '../../Footer';
-import FeatureCardsSection from '../../TextSections/FeatureCardsSection';
-import TabbedSection from '../../TextSections/TabbedSection';
-import ImageTextSection from '../../TextSections/ImageTextSection';
-import ListSection from '../../TextSections/ListSection';
 import HeroImageTextSection from '../../TextSections/HeroImageTextSection';
-import TwoColumnSection from '../../TextSections/TwoColumnSection';
 import { 
   ShieldCheckIcon, 
   DocumentTextIcon, 
-  CheckCircleIcon, 
-  StarIcon,
-  GlobeAltIcon,
-  CogIcon,
-  AcademicCapIcon,
   ClockIcon
 } from '@heroicons/react/24/outline';
 
@@ -165,16 +155,9 @@ const Certification: React.FC = () => {
                 </div>
                 <div className="text-center">
                   <div className="bg-purple-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                    <GlobeAltIcon className="h-8 w-8 text-purple-600" />
+                    <ClockIcon className="h-8 w-8 text-purple-600" />
                   </div>
-                  <div className="text-3xl font-bold text-purple-600 mb-2">10+</div>
-                  <div className="text-gray-600">{lang === 'tr' ? 'Ülke' : 'Countries'}</div>
-                </div>
-                <div className="text-center">
-                  <div className="bg-orange-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                    <ClockIcon className="h-8 w-8 text-orange-600" />
-                  </div>
-                  <div className="text-3xl font-bold text-orange-600 mb-2">24/7</div>
+                  <div className="text-3xl font-bold text-purple-600 mb-2">24/7</div>
                   <div className="text-gray-600">{lang === 'tr' ? 'Erişim' : 'Access'}</div>
                 </div>
               </div>
