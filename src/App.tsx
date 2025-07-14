@@ -82,6 +82,7 @@ const App: React.FC = () => {
 
   return (
     <Routes>
+      {/* 404 yönlendirmesinin yapıldığı yer hatırlatma* ----> */}
       <Route path="/" element={<Navigate to="/tr" replace />} />
       <Route path=":lang" element={
         <>
@@ -95,7 +96,7 @@ const App: React.FC = () => {
           <Footer language={language} />
         </>
       } />
-      // 404 yönlendirmesinin yapıldığı yer hatırlatma* ----
+      {/* Router yapılandırmaları* ---- */}
       <Route path=":lang/products/web-applications" element={<WebApplications />} />
       <Route path=":lang/products/web-applications/urun" element={<WebApplications />} />
       <Route path=":lang/products/web-applications/urun-lite" element={<WebApplications />} />
