@@ -117,7 +117,7 @@ const Footer: React.FC<FooterProps> = ({ language }) => {
             <h3 className="text-lg font-semibold text-white mb-4">{currentContent.contact}</h3>
             <ul className="space-y-2 text-gray-300">
               <li>info@demasteknoloji.com</li>
-              <li>+90 (212) 555 0123</li>
+              <li>+90 (212) 603 33 88</li>
               <li>{language === 'tr' ? 'İstanbul, Türkiye' : 'Istanbul, Turkey'}</li>
             </ul>
           </div>

@@ -27,10 +27,21 @@ import Service4 from './components/Services/Service4';
 import Service5 from './components/Services/Service5';
 import ServicesList from './components/Services/ServicesList';
 import Career from './components/Career';
+import Company from './components/About/Company';
+import Team from './components/About/Team';
+import Certification from './components/About/Certification';
+import PolicyViewer from './components/About/Certification/PolicyViewer';
+import Invoice from './components/About/Invoice';
+import Cerez from './components/About/Certification/Cerez';
+import GizlilikVeri from './components/About/Certification/GizlilikVeri';
+import KVKKAydinlatma from './components/About/Certification/KVKKAydinlatma';
+import VeriSorumlusuBasvuru from './components/About/Certification/VeriSorumlusuBasvuru';
+import GizlilikKullanim from './components/About/Certification/GizlilikKullanim';
+import BilgiToplumu from './components/About/Certification/BilgiToplumu';
 
 const App: React.FC = () => {
   const navigate = useNavigate();
-  const { pathname } = useLocation();
+  const { pathname, search } = useLocation();
   const langFromUrl = pathname.startsWith('/en') ? 'en' : 'tr';
   const [language, setLanguage] = useState<'tr' | 'en'>(langFromUrl as 'tr' | 'en');
 
@@ -53,6 +64,22 @@ const App: React.FC = () => {
     setLanguage(langFromUrl as 'tr' | 'en');
   }, [langFromUrl]);
 
+  // Contact scroll için effect
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const scroll = params.get('scroll');
+    if (scroll === 'contact') {
+      setTimeout(() => {
+        const el = document.getElementById('contact');
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+          params.delete('scroll');
+          navigate({ search: params.toString() }, { replace: true });
+        }
+      }, 300);
+    }
+  }, [pathname, search, navigate]);
+
   return (
     <Routes>
       <Route path="/" element={<Navigate to="/tr" replace />} />
@@ -68,6 +95,7 @@ const App: React.FC = () => {
           <Footer language={language} />
         </>
       } />
+      // 404 yönlendirmesinin yapıldığı yer hatırlatma* ----
       <Route path=":lang/products/web-applications" element={<WebApplications />} />
       <Route path=":lang/products/web-applications/urun" element={<WebApplications />} />
       <Route path=":lang/products/web-applications/urun-lite" element={<WebApplications />} />
@@ -111,6 +139,24 @@ const App: React.FC = () => {
       <Route path=":lang/career" element={<Career />} />
       <Route path=":lang/career/jobs" element={<Career />} />
       <Route path=":lang/career/internships" element={<Career />} />
+      <Route path=":lang/about/company" element={<Company />} />
+      <Route path=":lang/about/company/mission" element={<Company />} />
+      <Route path=":lang/about/team" element={<Team />} />
+      <Route path=":lang/about/team/management" element={<Team />} />
+      <Route path=":lang/about/team/team" element={<Team />} />
+      <Route path=":lang/about/certification" element={<Certification />} />
+      <Route path=":lang/about/certification/certificates" element={<Certification />} />
+      <Route path=":lang/about/certification/documents" element={<Certification />} />
+      <Route path=":lang/about/certification/policy/:policyName" element={<PolicyViewer />} />
+      <Route path=":lang/about/invoice" element={<Invoice />} />
+      <Route path=":lang/about/invoice/company-info" element={<Invoice />} />
+      <Route path=":lang/about/invoice/bank-info" element={<Invoice />} />
+      <Route path=":lang/about/certification/cerez" element={<Cerez />} />
+      <Route path=":lang/about/certification/gizlilikveri" element={<GizlilikVeri />} />
+      <Route path=":lang/about/certification/kvkkaydinlatma" element={<KVKKAydinlatma />} />
+      <Route path=":lang/about/certification/verisorumlusubasvuru" element={<VeriSorumlusuBasvuru />} />
+      <Route path=":lang/about/certification/gizlilikkullanim" element={<GizlilikKullanim />} />
+      <Route path=":lang/about/certification/bilgitoplumu" element={<BilgiToplumu />} />
       <Route path="*" element={<Navigate to="/tr" replace />} />
     </Routes>
   );

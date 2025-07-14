@@ -5,9 +5,10 @@ interface HeroImageTextSectionProps {
   image?: string; // opsiyonel yaptım
   paragraphs: string[];
   buttonText?: string;
+  style?: React.CSSProperties;
 }
 
-const HeroImageTextSection: React.FC<HeroImageTextSectionProps> = ({ title, image, paragraphs, buttonText }) => {
+const HeroImageTextSection: React.FC<HeroImageTextSectionProps> = ({ title, image, paragraphs, buttonText, style }) => {
   return (
     <section className="py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4">
@@ -28,7 +29,8 @@ const HeroImageTextSection: React.FC<HeroImageTextSectionProps> = ({ title, imag
             {paragraphs.map((p, i) => (
               <p
                 key={i}
-                className="text-lg md:text-xl text-gray-700 mb-6"
+                className="text-lg md:text-xl text-gray-700 mb-6 text-center"
+                style={style}
                 dangerouslySetInnerHTML={{ __html: p }}
               />
             ))}
