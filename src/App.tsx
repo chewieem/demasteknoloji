@@ -38,6 +38,7 @@ import KVKKAydinlatma from './components/About/Certification/KVKKAydinlatma';
 import VeriSorumlusuBasvuru from './components/About/Certification/VeriSorumlusuBasvuru';
 import GizlilikKullanim from './components/About/Certification/GizlilikKullanim';
 import BilgiToplumu from './components/About/Certification/BilgiToplumu';
+import Investments from './components/Investments';
 
 const App: React.FC = () => {
   const navigate = useNavigate();
@@ -158,6 +159,7 @@ const App: React.FC = () => {
       <Route path=":lang/about/certification/verisorumlusubasvuru" element={<VeriSorumlusuBasvuru />} />
       <Route path=":lang/about/certification/gizlilikkullanim" element={<GizlilikKullanim />} />
       <Route path=":lang/about/certification/bilgitoplumu" element={<BilgiToplumu />} />
+      <Route path=":lang/investments" element={<Investments />} />
       <Route path="*" element={<Navigate to="/tr" replace />} />
     </Routes>
   );

@@ -31,11 +31,11 @@ const Header: React.FC<HeaderProps> = ({ language, setLanguage }) => {
     // Ana Sayfa
     { title: language === 'tr' ? 'Ana Sayfa' : 'Home', path: `/${language}`, category: language === 'tr' ? 'Ana Sayfa' : 'Home' },
     
-    // Hakkımızda
-    { title: language === 'tr' ? 'Demaş Teknoloji Hakkında' : 'About Demaş Teknoloji', path: `/${language}/about/company`, category: language === 'tr' ? 'Hakkımızda' : 'About' },
-    { title: language === 'tr' ? 'Yönetim ve Ekibimiz' : 'Management & Our Team', path: `/${language}/about/team`, category: language === 'tr' ? 'Hakkımızda' : 'About' },
-    { title: language === 'tr' ? 'Sertifikasyon ve Dökümantasyon' : 'Certification & Documentation', path: `/${language}/about/certification`, category: language === 'tr' ? 'Hakkımızda' : 'About' },
-    { title: language === 'tr' ? 'Fatura Bilgileri' : 'Invoice Information', path: `/${language}/about/invoice`, category: language === 'tr' ? 'Hakkımızda' : 'About' },
+    // Kurumsal
+    { title: language === 'tr' ? 'Demaş Teknoloji Hakkında' : 'About Demaş Teknoloji', path: `/${language}/about/company`, category: language === 'tr' ? 'Kurumsal' : 'About' },
+    { title: language === 'tr' ? 'Yönetim ve Ekibimiz' : 'Management & Our Team', path: `/${language}/about/team`, category: language === 'tr' ? 'Kurumsal' : 'About' },
+    { title: language === 'tr' ? 'Sertifikasyon ve Dökümantasyon' : 'Certification & Documentation', path: `/${language}/about/certification`, category: language === 'tr' ? 'Kurumsal' : 'About' },
+    { title: language === 'tr' ? 'Fatura Bilgileri' : 'Invoice Information', path: `/${language}/about/invoice`, category: language === 'tr' ? 'Kurumsal' : 'About' },
     
     // Sertifikasyon Alt Sayfaları
     { title: language === 'tr' ? 'Çerez Politikası' : 'Cookie Policy', path: `/${language}/about/certification/cerez`, category: language === 'tr' ? 'Sertifikasyon' : 'Certification' },
@@ -71,11 +71,14 @@ const Header: React.FC<HeaderProps> = ({ language, setLanguage }) => {
     
     // Blog
     { title: language === 'tr' ? 'Blog' : 'Blog', path: '#blog', category: language === 'tr' ? 'Blog' : 'Blog' },
+    
+    // Yatırımlar
+    { title: language === 'tr' ? 'Yatırımlar' : 'Investments', path: `/${language}/investments`, category: language === 'tr' ? 'Yatırımlar' : 'Investments' },
   ];
 
   const navigation = [
     {
-      name: language === 'tr' ? 'Hakkımızda' : 'About',
+      name: language === 'tr' ? 'Kurumsal' : 'About',
       href: '#about',
       dropdown: [
         {
@@ -131,6 +134,7 @@ const Header: React.FC<HeaderProps> = ({ language, setLanguage }) => {
     },
     { name: language === 'tr' ? 'Kariyer' : 'Career', href: `/${language}/career` },
     { name: language === 'tr' ? 'Blog' : 'Blog', href: '#blog' },
+    { name: language === 'tr' ? 'Yatırımlar' : 'Investments', href: `/${language}/investments` },
   ];
 
   // Click outside handler
