@@ -6,90 +6,43 @@ import Footer from '../Footer';
 import HeroImageTextSection from '../TextSections/HeroImageTextSection';
 
 const TABS = [
-  { key: 'overview', tr: 'Kariyer', en: 'Career', path: '' },
-  { key: 'jobs', tr: 'İş İlanları', en: 'Job Postings', path: 'jobs' },
-  { key: 'internships', tr: 'Staj Olanakları', en: 'Internship Opportunities', path: 'internships' },
+  { key: 'overview', tr: 'Başvuru Merkezi', en: 'Application Center', path: '' },
+  { key: 'investors', tr: 'Yatırımcılar', en: 'Investors', path: 'investors' },
+  { key: 'entrepreneurs', tr: 'Girişimciler', en: 'Entrepreneurs', path: 'entrepreneurs' },
+  { key: 'partners', tr: 'Partnerler', en: 'Partners', path: 'partners' },
+  { key: 'press', tr: 'Basın', en: 'Press', path: 'press' },
 ];
 
 const content = {
   tr: {
-    title: 'Kariyer',
-    description: 'Demaş Teknoloji ile geleceğinizi şekillendirin',
+    title: 'Başvuru Merkezi',
+    description: 'Demaş Teknoloji ile işbirliği fırsatlarını keşfedin',
     footerLang: 'tr',
     headerLang: 'tr',
   },
   en: {
-    title: 'Career',
-    description: 'Shape your future with Demaş Technology',
+    title: 'Application Center',
+    description: 'Discover collaboration opportunities with Demaş Technology',
     footerLang: 'en',
     headerLang: 'en',
   },
 };
 
-const WebApplications: React.FC = () => {
+const ApplicationCenter: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const language = location.pathname.startsWith('/en') ? 'en' : 'tr';
   const lang: 'en' | 'tr' = language;
   const page = content[lang];
 
-  const jobPostings = [
-    {
-      title: lang === 'tr' ? 'Senior Frontend Developer' : 'Senior Frontend Developer',
-      department: lang === 'tr' ? 'Yazılım Geliştirme' : 'Software Development',
-      location: lang === 'tr' ? 'İstanbul, Türkiye' : 'Istanbul, Turkey',
-      description: lang === 'tr' ? 'React, TypeScript ve modern web teknolojileri konusunda deneyimli geliştirici arıyoruz.' : 'We are looking for an experienced developer in React, TypeScript and modern web technologies.',
-      type: lang === 'tr' ? 'Tam Zamanlı' : 'Full Time',
-      status: lang === 'tr' ? 'Açık' : 'Open',
-    },
-    {
-      title: lang === 'tr' ? 'Backend Developer' : 'Backend Developer',
-      department: lang === 'tr' ? 'Yazılım Geliştirme' : 'Software Development',
-      location: lang === 'tr' ? 'Ankara, Türkiye' : 'Ankara, Turkey',
-      description: lang === 'tr' ? 'Node.js, Python ve veritabanı yönetimi konusunda deneyimli geliştirici arıyoruz.' : 'We are looking for an experienced developer in Node.js, Python and database management.',
-      type: lang === 'tr' ? 'Tam Zamanlı' : 'Full Time',
-      status: lang === 'tr' ? 'Açık' : 'Open',
-    },
-    {
-      title: lang === 'tr' ? 'UI/UX Designer' : 'UI/UX Designer',
-      department: lang === 'tr' ? 'Tasarım' : 'Design',
-      location: lang === 'tr' ? 'İstanbul, Türkiye' : 'Istanbul, Turkey',
-      description: lang === 'tr' ? 'Kullanıcı deneyimi ve arayüz tasarımı konusunda yaratıcı tasarımcı arıyoruz.' : 'We are looking for a creative designer in user experience and interface design.',
-      type: lang === 'tr' ? 'Tam Zamanlı' : 'Full Time',
-      status: lang === 'tr' ? 'Açık' : 'Open',
-    },
-    {
-      title: lang === 'tr' ? 'DevOps Engineer' : 'DevOps Engineer',
-      department: lang === 'tr' ? 'Sistem Yönetimi' : 'System Administration',
-      location: lang === 'tr' ? 'İzmir, Türkiye' : 'Izmir, Turkey',
-      description: lang === 'tr' ? 'AWS, Docker ve CI/CD süreçleri konusunda deneyimli mühendis arıyoruz.' : 'We are looking for an experienced engineer in AWS, Docker and CI/CD processes.',
-      type: lang === 'tr' ? 'Tam Zamanlı' : 'Full Time',
-      status: lang === 'tr' ? 'Açık' : 'Open',
-    },
-    {
-      title: lang === 'tr' ? 'Mobile Developer' : 'Mobile Developer',
-      department: lang === 'tr' ? 'Mobil Geliştirme' : 'Mobile Development',
-      location: lang === 'tr' ? 'İstanbul, Türkiye' : 'Istanbul, Turkey',
-      description: lang === 'tr' ? 'React Native ve iOS/Android geliştirme konusunda deneyimli geliştirici arıyoruz.' : 'We are looking for an experienced developer in React Native and iOS/Android development.',
-      type: lang === 'tr' ? 'Tam Zamanlı' : 'Full Time',
-      status: lang === 'tr' ? 'Açık' : 'Open',
-    },
-    {
-      title: lang === 'tr' ? 'Data Scientist' : 'Data Scientist',
-      department: lang === 'tr' ? 'Veri Bilimi' : 'Data Science',
-      location: lang === 'tr' ? 'Ankara, Türkiye' : 'Ankara, Turkey',
-      description: lang === 'tr' ? 'Makine öğrenmesi ve veri analizi konusunda uzman arıyoruz.' : 'We are looking for an expert in machine learning and data analysis.',
-      type: lang === 'tr' ? 'Tam Zamanlı' : 'Full Time',
-      status: lang === 'tr' ? 'Açık' : 'Open',
-    },
-  ];
-
   // URL'den aktif sekmeyi belirle
   const pathParts = location.pathname.split('/');
   const tabPath = pathParts[pathParts.length - 1];
   let initialTab = 'overview';
-  if (tabPath === 'jobs') initialTab = 'jobs';
-  else if (tabPath === 'internships') initialTab = 'internships';
+  if (tabPath === 'investors') initialTab = 'investors';
+  else if (tabPath === 'entrepreneurs') initialTab = 'entrepreneurs';
+  else if (tabPath === 'partners') initialTab = 'partners';
+  else if (tabPath === 'press') initialTab = 'press';
   const [selectedTab, setSelectedTab] = useState(initialTab);
 
   // Sekme değişince URL'yi güncelle
@@ -105,8 +58,10 @@ const WebApplications: React.FC = () => {
   useEffect(() => {
     const pathParts = location.pathname.split('/');
     const tabPath = pathParts[pathParts.length - 1];
-    if (tabPath === 'jobs') setSelectedTab('jobs');
-    else if (tabPath === 'internships') setSelectedTab('internships');
+    if (tabPath === 'investors') setSelectedTab('investors');
+    else if (tabPath === 'entrepreneurs') setSelectedTab('entrepreneurs');
+    else if (tabPath === 'partners') setSelectedTab('partners');
+    else if (tabPath === 'press') setSelectedTab('press');
     else setSelectedTab('overview');
   }, [location.pathname]);
 
@@ -115,11 +70,20 @@ const WebApplications: React.FC = () => {
     <div className="mt-1 mb-2 text-sm flex items-center space-x-2">
       <Link to={`/${lang}`} className="text-gray-400 font-bold">{lang === 'tr' ? 'Ana Sayfa' : 'Home'}</Link>
       <span className="text-gray-400 font-bold">/</span>
-      <Link to={`/${lang}/career`} className="text-gray-400 font-bold">{lang === 'tr' ? 'Kariyer' : 'Career'}</Link>
+      <Link to={`/${lang}/career`} className="text-gray-400 font-bold">{lang === 'tr' ? 'Başvuru Merkezi' : 'Application Center'}</Link>
       {selectedTab !== 'overview' && (
         <>
           <span className="text-gray-400 font-bold">/</span>
-          <span className="text-white font-bold">{lang === 'tr' ? (selectedTab === 'jobs' ? 'İş İlanları' : 'Staj Olanakları') : (selectedTab === 'jobs' ? 'Job Postings' : 'Internship Opportunities')}</span>
+          <span className="text-white font-bold">
+            {lang === 'tr' 
+              ? (selectedTab === 'investors' ? 'Yatırımcılar' : 
+                 selectedTab === 'entrepreneurs' ? 'Girişimciler' : 
+                 selectedTab === 'partners' ? 'Partnerler' : 'Basın')
+              : (selectedTab === 'investors' ? 'Investors' : 
+                 selectedTab === 'entrepreneurs' ? 'Entrepreneurs' : 
+                 selectedTab === 'partners' ? 'Partners' : 'Press')
+            }
+          </span>
         </>
       )}
     </div>
@@ -147,107 +111,244 @@ const WebApplications: React.FC = () => {
         selectedTab={selectedTab}
         onTabChange={handleTabChange}
       />
-      {/* Kariyer sekmesi seçiliyse özel section'lar */}
+      
+      {/* Başvuru Merkezi sekmesi seçiliyse özel section'lar */}
       {selectedTab === 'overview' && (
         <>
-          {/* HeroImageTextSection ile özel kariyer metni */}
+          {/* HeroImageTextSection ile özel başvuru merkezi metni */}
           <HeroImageTextSection
-            title={lang === 'tr' ? 'Demaş Teknoloji’de Kariyer' : 'Career at Demaş Teknoloji'}
+            title={lang === 'tr' ? 'Demaş Teknoloji Başvuru Merkezi' : 'Demaş Technology Application Center'}
             paragraphs={[
               lang === 'tr'
-                ? `Demaş Teknoloji, çalışanlarına yalnızca bir iş değil; sürekli öğrenmeye açık bir gelişim ortamı, birlikte başarma duygusunu yaşatan güçlü bir ekip ruhu ve yenilikçi çözümler üreten bir iş kültürü sunar. İnsan odaklı yaklaşımıyla tüm ekip arkadaşlarına dokunan, iş birimleriyle entegre çalışan, teknolojik dönüşümü yakından takip eden ve öğrenmeyi kurum kültürünün merkezine alan bir organizasyondur.`
-                : `Demaş Teknoloji offers its employees not just a job, but a development environment open to continuous learning, a strong team spirit that fosters a sense of achievement together, and a work culture that produces innovative solutions. With its human-centered approach, it touches all team members, works in integration with business units, closely follows technological transformation, and adopts learning as the core of its corporate culture.`
+                ? `Demaş Teknoloji Başvuru Merkezi, yatırımcılardan girişimcilere, partnerlerden basın mensuplarına kadar tüm paydaşlarımız için kapsamlı bir işbirliği platformu sunar. Teknoloji odaklı çözümlerimiz ve yenilikçi yaklaşımımızla, farklı sektörlerden iş ortaklarımızla güçlü bağlar kuruyoruz.`
+                : `Demaş Technology Application Center provides a comprehensive collaboration platform for all our stakeholders, from investors to entrepreneurs, from partners to press representatives. With our technology-focused solutions and innovative approach, we build strong bonds with business partners from different sectors.`
             ]}
           />
-          {/* FeatureCardsSection ile ikinci metin eklenecek */}
+          {/* Başvuru kategorileri */}
           <section className="max-w-6xl mx-auto px-4 py-8">
-            <h2 className="text-2xl font-bold mb-4">
-              {lang === 'tr' ? 'Deneyimle Geleceği Şekillendirme' : 'Shaping the Future with Experience'}
+            <h2 className="text-2xl font-bold mb-6 text-center">
+              {lang === 'tr' ? 'Başvuru Kategorileri' : 'Application Categories'}
             </h2>
-            <p className="text-lg mb-4">
-              {lang === 'tr'
-                ? 'Demaş Teknoloji, yazılım geliştirme, mühendislik, sistem entegrasyonu ve dijital çözümler alanlarında uzmanlaşmış deneyimli kadrosunu; yeni nesil yeteneklerle buluşturarak bilgi birikimini geleceğe taşır.'
-                : 'Demaş Teknoloji carries its knowledge to the future by bringing together its experienced staff specialized in software development, engineering, system integration, and digital solutions with new generation talents.'}
-            </p>
-            <p className="text-lg mb-4">
-              {lang === 'tr'
-                ? 'Gençlerin enerjisi ve yenilikçi bakış açıları, deneyimin stratejik vizyonuyla birleşerek, müşterilerimize fark yaratan çözümler sunmamızı sağlar.'
-                : 'The energy and innovative perspectives of young people combine with the strategic vision of experience, enabling us to offer solutions that make a difference to our customers.'}
-            </p>
-            <p className="text-lg mb-4">
-              <strong>{lang === 'tr' ? 'Derin Uzmanlıkla Teknolojiye Yön Ver' : 'Lead Technology with Deep Expertise'}</strong><br/>
-              {lang === 'tr'
-                ? 'Farklı sektörlere uçtan uca dijital çözümler geliştirirken, çalışanlarına sadece bir pozisyon değil, yeni nesil teknolojilere odaklı derin uzmanlık fırsatları sunar. Yapay zeka, veri analitiği, bulut çözümleri ve daha pek çok alanda uzmanlaşmayı teşvik eden kariyer yolları geliştirir.'
-                : 'While developing end-to-end digital solutions for different sectors, it offers its employees not just a position, but deep expertise opportunities focused on new generation technologies. It develops career paths that encourage specialization in many areas such as artificial intelligence, data analytics, cloud solutions, and more.'}
-            </p>
-            <p className="text-lg mb-4">
-              <strong>{lang === 'tr' ? 'Sürekli Gelişim İçin Eğitim ve Akademi' : 'Continuous Development with Training and Academy'}</strong><br/>
-              {lang === 'tr'
-                ? 'Demaş Teknoloji’de her bireyin potansiyeline ulaşabilmesi için öğrenme kültürü desteklenir. Demaş Akademi çatısı altında sunulan kişisel gelişim ve teknik eğitim programları sayesinde çalışanlar, yalnızca mevcut yetkinliklerini değil, geleceğe dair vizyonlarını da geliştirir.'
-                : 'A learning culture is supported at Demaş Teknoloji so that every individual can reach their potential. Thanks to personal development and technical training programs offered under the Demaş Academy, employees develop not only their current competencies but also their vision for the future.'}
-            </p>
-            <p className="text-lg">
-              {lang === 'tr'
-                ? 'Bu sayede hem bireysel hem kurumsal başarıya katkı sağlayan sürdürülebilir bir gelişim ortamı yaratılır.'
-                : 'In this way, a sustainable development environment is created that contributes to both individual and corporate success.'}
-            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="bg-white rounded-xl shadow p-6 border border-gray-200 hover:shadow-lg transition-shadow">
+                <h3 className="text-xl font-bold mb-3 text-blue-600">{lang === 'tr' ? 'Yatırımcılar' : 'Investors'}</h3>
+                <p className="text-gray-700 mb-4">
+                  {lang === 'tr' 
+                    ? 'Teknoloji odaklı yatırım fırsatları ve stratejik ortaklıklar için başvuru yapın.'
+                    : 'Apply for technology-focused investment opportunities and strategic partnerships.'}
+                </p>
+                <button 
+                  onClick={() => handleTabChange('investors')}
+                  className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors"
+                >
+                  {lang === 'tr' ? 'Detaylı Bilgi' : 'Learn More'}
+                </button>
+              </div>
+              
+              <div className="bg-white rounded-xl shadow p-6 border border-gray-200 hover:shadow-lg transition-shadow">
+                <h3 className="text-xl font-bold mb-3 text-green-600">{lang === 'tr' ? 'Girişimciler' : 'Entrepreneurs'}</h3>
+                <p className="text-gray-700 mb-4">
+                  {lang === 'tr' 
+                    ? 'Yenilikçi projeleriniz için destek ve işbirliği fırsatları arayın.'
+                    : 'Seek support and collaboration opportunities for your innovative projects.'}
+                </p>
+                <button 
+                  onClick={() => handleTabChange('entrepreneurs')}
+                  className="w-full bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition-colors"
+                >
+                  {lang === 'tr' ? 'Detaylı Bilgi' : 'Learn More'}
+                </button>
+              </div>
+              
+              <div className="bg-white rounded-xl shadow p-6 border border-gray-200 hover:shadow-lg transition-shadow">
+                <h3 className="text-xl font-bold mb-3 text-purple-600">{lang === 'tr' ? 'Partnerler' : 'Partners'}</h3>
+                <p className="text-gray-700 mb-4">
+                  {lang === 'tr' 
+                    ? 'Güçlü iş ortaklıkları ve teknoloji çözümleri için başvuru yapın.'
+                    : 'Apply for strong business partnerships and technology solutions.'}
+                </p>
+                <button 
+                  onClick={() => handleTabChange('partners')}
+                  className="w-full bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition-colors"
+                >
+                  {lang === 'tr' ? 'Detaylı Bilgi' : 'Learn More'}
+                </button>
+              </div>
+              
+              <div className="bg-white rounded-xl shadow p-6 border border-gray-200 hover:shadow-lg transition-shadow">
+                <h3 className="text-xl font-bold mb-3 text-orange-600">{lang === 'tr' ? 'Basın' : 'Press'}</h3>
+                <p className="text-gray-700 mb-4">
+                  {lang === 'tr' 
+                    ? 'Medya ilişkileri ve basın bilgileri için iletişime geçin.'
+                    : 'Contact us for media relations and press information.'}
+                </p>
+                <button 
+                  onClick={() => handleTabChange('press')}
+                  className="w-full bg-orange-600 text-white py-2 px-4 rounded-lg hover:bg-orange-700 transition-colors"
+                >
+                  {lang === 'tr' ? 'Detaylı Bilgi' : 'Learn More'}
+                </button>
+              </div>
+            </div>
           </section>
         </>
       )}
-      {/* İş İlanları sekmesi seçiliyse özel section'lar */}
-      {selectedTab === 'jobs' && (
-        <div className="max-w-7xl mx-auto px-4 py-12">
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-            {jobPostings.map((job, idx) => (
-              <div key={idx} className="bg-white rounded-xl shadow p-6 flex flex-col justify-between min-h-[220px] border border-gray-200">
-                <div>
-                  <h3 className="text-2xl font-bold mb-2">{job.title}</h3>
-                  <p className="text-gray-700 mb-2">{job.department}</p>
-                  <p className="text-gray-700 mb-2">{job.location}</p>
-                  <p className="text-gray-700 mb-6">{job.description}</p>
-                </div>
-                <div className="mt-auto">
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="text-sm text-gray-500">{job.type}</span>
-                    <span className="text-sm text-green-600 font-semibold">{job.status}</span>
-                  </div>
-                  <button className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors">
-                    {lang === 'tr' ? 'Başvur' : 'Apply'}
-                  </button>
-                </div>
-              </div>
-            ))}
+
+      {/* Yatırımcılar sekmesi */}
+      {selectedTab === 'investors' && (
+        <div className="max-w-6xl mx-auto px-4 py-12">
+          <h2 className="text-3xl font-bold mb-6 text-center">
+            {lang === 'tr' ? 'Yatırımcılar İçin Fırsatlar' : 'Opportunities for Investors'}
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-white rounded-xl shadow p-6 border border-gray-200">
+              <h3 className="text-2xl font-bold mb-4 text-blue-600">
+                {lang === 'tr' ? 'Teknoloji Yatırımları' : 'Technology Investments'}
+              </h3>
+              <p className="text-gray-700 mb-4">
+                {lang === 'tr'
+                  ? 'Demaş Teknoloji, yenilikçi teknoloji çözümleri geliştiren bir şirket olarak, yatırımcılara büyüme potansiyeli yüksek projeler sunar. Yapay zeka, bulut teknolojileri ve dijital dönüşüm alanlarında uzmanlaşmış ekibimizle, geleceğin teknolojilerini bugünden geliştiriyoruz.'
+                  : 'Demaş Technology, as a company developing innovative technology solutions, offers investors projects with high growth potential. With our team specialized in artificial intelligence, cloud technologies, and digital transformation, we develop tomorrow\'s technologies today.'}
+              </p>
+              <button className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors">
+                {lang === 'tr' ? 'Yatırım Başvurusu' : 'Investment Application'}
+              </button>
+            </div>
+            
+            <div className="bg-white rounded-xl shadow p-6 border border-gray-200">
+              <h3 className="text-2xl font-bold mb-4 text-green-600">
+                {lang === 'tr' ? 'Stratejik Ortaklıklar' : 'Strategic Partnerships'}
+              </h3>
+              <p className="text-gray-700 mb-4">
+                {lang === 'tr'
+                  ? 'Güçlü teknoloji altyapımız ve deneyimli ekibimizle, yatırımcılarla stratejik ortaklıklar kuruyoruz. Bu ortaklıklar sayesinde hem yatırımcılar hem de şirketimiz için sürdürülebilir büyüme fırsatları yaratıyoruz.'
+                  : 'With our strong technology infrastructure and experienced team, we establish strategic partnerships with investors. Through these partnerships, we create sustainable growth opportunities for both investors and our company.'}
+              </p>
+              <button className="w-full bg-green-600 text-white py-3 px-6 rounded-lg hover:bg-green-700 transition-colors">
+                {lang === 'tr' ? 'Ortaklık Başvurusu' : 'Partnership Application'}
+              </button>
+            </div>
           </div>
         </div>
       )}
-      {/* Staj Olanakları sekmesi seçiliyse özel section'lar */}
-      {selectedTab === 'internships' && (
+
+      {/* Girişimciler sekmesi */}
+      {selectedTab === 'entrepreneurs' && (
         <div className="max-w-6xl mx-auto px-4 py-12">
-          <p className="text-lg mb-4">
-            {lang === 'tr'
-              ? 'Demaş Teknoloji Stajyer Programı, üniversitelerin 3. ve 4. sınıf öğrencilerine, zorunlu staj süreçlerinde uygulamalı deneyim kazandırmayı hedefler. Program kapsamında başarılı olan öğrenciler, mezuniyetlerinin ardından Demaş Teknoloji bünyesinde kariyerlerine devam etme fırsatı elde ederler.'
-              : 'The Demaş Teknoloji Internship Program aims to provide hands-on experience to 3rd and 4th year university students during their compulsory internship periods. Successful students in the program have the opportunity to continue their careers at Demaş Teknoloji after graduation.'}
-          </p>
-          <p className="text-lg mb-4">
-            {lang === 'tr'
-              ? 'Staj başvuruları her yıl, ilgili döneme göre Eylül ve Nisan aylarında alınır. Başvuru sürecinin ardından uygun bulunan adaylar, üniversiteleri tarafından belirlenen tarihler arasında stajlarını gerçekleştirirler.'
-              : 'Internship applications are accepted every year in September and April, depending on the relevant period. After the application process, suitable candidates complete their internships within the dates determined by their universities.'}
-          </p>
-          <p className="text-lg mb-4">
-            {lang === 'tr'
-              ? 'Başvurular alındıktan sonra, öğrenciler tercih ettikleri staj alanlarına göre gruplandırılır. İlgili alanlarda teknik sınav uygulanan adaylar, başarılı oldukları takdirde ön görüşmeye davet edilir. Görüşmeler sonrasında staj hakkı kazanan öğrenciler, belirlenen tarihlerde ve uygun bölümlerde görevlerine başlar.'
-              : 'After the applications are received, students are grouped according to their preferred internship fields. Candidates who pass the technical exam in the relevant fields are invited to a preliminary interview. Those who are successful in the interviews start their internships in the appropriate departments and on the specified dates.'}
-          </p>
-          <p className="text-lg">
-            {lang === 'tr'
-              ? <>Başvurularınızı <a href="mailto:isealim@demasteknoloji.com" className="text-blue-600 hover:underline">isealim@demasteknoloji.com</a> mail adresine iletebilirsiniz.</>
-              : <>You can send your applications to <a href="mailto:isealim@demasteknoloji.com" className="text-blue-600 hover:underline">isealim@demasteknoloji.com</a>.</>}
-          </p>
+          <h2 className="text-3xl font-bold mb-6 text-center">
+            {lang === 'tr' ? 'Girişimciler İçin Destek' : 'Support for Entrepreneurs'}
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-white rounded-xl shadow p-6 border border-gray-200">
+              <h3 className="text-2xl font-bold mb-4 text-purple-600">
+                {lang === 'tr' ? 'Teknoloji Mentörlüğü' : 'Technology Mentorship'}
+              </h3>
+              <p className="text-gray-700 mb-4">
+                {lang === 'tr'
+                  ? 'Deneyimli teknoloji uzmanlarımız, girişimcilere projelerini geliştirme ve pazara sunma konusunda mentörlük yapar. Teknik danışmanlık, pazar analizi ve strateji geliştirme konularında destek sağlıyoruz.'
+                  : 'Our experienced technology experts provide mentorship to entrepreneurs in developing and bringing their projects to market. We provide support in technical consulting, market analysis, and strategy development.'}
+              </p>
+              <button className="w-full bg-purple-600 text-white py-3 px-6 rounded-lg hover:bg-purple-700 transition-colors">
+                {lang === 'tr' ? 'Mentörlük Başvurusu' : 'Mentorship Application'}
+              </button>
+            </div>
+            
+            <div className="bg-white rounded-xl shadow p-6 border border-gray-200">
+              <h3 className="text-2xl font-bold mb-4 text-orange-600">
+                {lang === 'tr' ? 'İşbirliği Fırsatları' : 'Collaboration Opportunities'}
+              </h3>
+              <p className="text-gray-700 mb-4">
+                {lang === 'tr'
+                  ? 'Girişimcilerle işbirliği yaparak, yenilikçi projeleri hayata geçiriyoruz. Teknoloji altyapımızı ve uzmanlığımızı paylaşarak, girişimcilerin başarıya ulaşmasına yardımcı oluyoruz.'
+                  : 'We bring innovative projects to life by collaborating with entrepreneurs. We help entrepreneurs achieve success by sharing our technology infrastructure and expertise.'}
+              </p>
+              <button className="w-full bg-orange-600 text-white py-3 px-6 rounded-lg hover:bg-orange-700 transition-colors">
+                {lang === 'tr' ? 'İşbirliği Başvurusu' : 'Collaboration Application'}
+              </button>
+            </div>
+          </div>
         </div>
       )}
+
+      {/* Partnerler sekmesi */}
+      {selectedTab === 'partners' && (
+        <div className="max-w-6xl mx-auto px-4 py-12">
+          <h2 className="text-3xl font-bold mb-6 text-center">
+            {lang === 'tr' ? 'İş Ortaklıkları' : 'Business Partnerships'}
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-white rounded-xl shadow p-6 border border-gray-200">
+              <h3 className="text-2xl font-bold mb-4 text-blue-600">
+                {lang === 'tr' ? 'Teknoloji Çözümleri' : 'Technology Solutions'}
+              </h3>
+              <p className="text-gray-700 mb-4">
+                {lang === 'tr'
+                  ? 'Partnerlerimizle birlikte, müşterilerine en iyi teknoloji çözümlerini sunuyoruz. Ortak geliştirme projeleri, entegrasyon çözümleri ve özel yazılım geliştirme hizmetleri sağlıyoruz.'
+                  : 'Together with our partners, we offer the best technology solutions to our customers. We provide joint development projects, integration solutions, and custom software development services.'}
+              </p>
+              <button className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors">
+                {lang === 'tr' ? 'Partnerlik Başvurusu' : 'Partnership Application'}
+              </button>
+            </div>
+            
+            <div className="bg-white rounded-xl shadow p-6 border border-gray-200">
+              <h3 className="text-2xl font-bold mb-4 text-green-600">
+                {lang === 'tr' ? 'Pazar Erişimi' : 'Market Access'}
+              </h3>
+              <p className="text-gray-700 mb-4">
+                {lang === 'tr'
+                  ? 'Güçlü partner ağımız sayesinde, yeni pazarlara erişim sağlıyoruz. Ortak pazarlama kampanyaları, satış kanalları ve müşteri referansları ile büyüme fırsatları yaratıyoruz.'
+                  : 'Thanks to our strong partner network, we provide access to new markets. We create growth opportunities through joint marketing campaigns, sales channels, and customer referrals.'}
+              </p>
+              <button className="w-full bg-green-600 text-white py-3 px-6 rounded-lg hover:bg-green-700 transition-colors">
+                {lang === 'tr' ? 'Pazar Başvurusu' : 'Market Application'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Basın sekmesi */}
+      {selectedTab === 'press' && (
+        <div className="max-w-6xl mx-auto px-4 py-12">
+          <h2 className="text-3xl font-bold mb-6 text-center">
+            {lang === 'tr' ? 'Basın ve Medya' : 'Press and Media'}
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="bg-white rounded-xl shadow p-6 border border-gray-200">
+              <h3 className="text-2xl font-bold mb-4 text-purple-600">
+                {lang === 'tr' ? 'Basın Bültenleri' : 'Press Releases'}
+              </h3>
+              <p className="text-gray-700 mb-4">
+                {lang === 'tr'
+                  ? 'Şirketimizin en son gelişmeleri, ürün lansmanları ve önemli duyurular hakkında güncel bilgiler alabilirsiniz. Basın bültenlerimizi takip ederek, Demaş Teknoloji\'nin teknoloji dünyasındaki yeniliklerini öğrenebilirsiniz.'
+                  : 'You can get up-to-date information about our company\'s latest developments, product launches, and important announcements. By following our press releases, you can learn about Demaş Technology\'s innovations in the technology world.'}
+              </p>
+              <button className="w-full bg-purple-600 text-white py-3 px-6 rounded-lg hover:bg-purple-700 transition-colors">
+                {lang === 'tr' ? 'Basın Bültenleri' : 'Press Releases'}
+              </button>
+            </div>
+            
+            <div className="bg-white rounded-xl shadow p-6 border border-gray-200">
+              <h3 className="text-2xl font-bold mb-4 text-orange-600">
+                {lang === 'tr' ? 'Medya İletişimi' : 'Media Contact'}
+              </h3>
+              <p className="text-gray-700 mb-4">
+                {lang === 'tr'
+                  ? 'Basın mensupları ve medya temsilcileri için özel iletişim kanallarımız bulunmaktadır. Röportaj talepleri, bilgi istekleri ve medya ilişkileri için bizimle iletişime geçebilirsiniz.'
+                  : 'We have special communication channels for press representatives and media representatives. You can contact us for interview requests, information requests, and media relations.'}
+              </p>
+              <button className="w-full bg-orange-600 text-white py-3 px-6 rounded-lg hover:bg-orange-700 transition-colors">
+                {lang === 'tr' ? 'İletişim Kur' : 'Contact Us'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       <Footer language={lang} />
     </div>
   );
 };
 
-export default WebApplications;
+export default ApplicationCenter;

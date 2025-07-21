@@ -45,29 +45,10 @@ const Header: React.FC<HeaderProps> = ({ language, setLanguage }) => {
     { title: language === 'tr' ? 'Gizlilik Sözleşmesi ve Kullanım Hakları' : 'Privacy Agreement & Usage Rights', path: `/${language}/about/certification/gizlilik-kullanim`, category: language === 'tr' ? 'Sertifikasyon' : 'Certification' },
     { title: language === 'tr' ? 'Bilgi Toplumu Hizmetleri' : 'Information Society Services', path: `/${language}/about/certification/bilgi-toplumu`, category: language === 'tr' ? 'Sertifikasyon' : 'Certification' },
     
-    // Ürünler
-    { title: language === 'tr' ? 'Ürün 1' : 'Product 1', path: `/${language}/products/web-applications`, category: language === 'tr' ? 'Ürünler' : 'Products' },
-    { title: language === 'tr' ? 'Ürün 2' : 'Product 2', path: `/${language}/products/mobile-applications`, category: language === 'tr' ? 'Ürünler' : 'Products' },
-    { title: language === 'tr' ? 'Ürün 3' : 'Product 3', path: `/${language}/products/ecommerce-platforms`, category: language === 'tr' ? 'Ürünler' : 'Products' },
-    { title: language === 'tr' ? 'Ürün 4' : 'Product 4', path: `/${language}/products/crm-systems`, category: language === 'tr' ? 'Ürünler' : 'Products' },
-    { title: language === 'tr' ? 'Ürün 5' : 'Product 5', path: `/${language}/products/erp-solutions`, category: language === 'tr' ? 'Ürünler' : 'Products' },
+
     
-    // Çözümler
-    { title: language === 'tr' ? 'Çözüm 1' : 'Solution 1', path: `/${language}/solutions/solution1`, category: language === 'tr' ? 'Çözümler' : 'Solutions' },
-    { title: language === 'tr' ? 'Çözüm 2' : 'Solution 2', path: `/${language}/solutions/solution2`, category: language === 'tr' ? 'Çözümler' : 'Solutions' },
-    { title: language === 'tr' ? 'Çözüm 3' : 'Solution 3', path: `/${language}/solutions/solution3`, category: language === 'tr' ? 'Çözümler' : 'Solutions' },
-    { title: language === 'tr' ? 'Çözüm 4' : 'Solution 4', path: `/${language}/solutions/solution4`, category: language === 'tr' ? 'Çözümler' : 'Solutions' },
-    { title: language === 'tr' ? 'Çözüm 5' : 'Solution 5', path: `/${language}/solutions/solution5`, category: language === 'tr' ? 'Çözümler' : 'Solutions' },
-    
-    // Hizmetler
-    { title: language === 'tr' ? 'Hizmet 1' : 'Service 1', path: `/${language}/services/service1`, category: language === 'tr' ? 'Hizmetler' : 'Services' },
-    { title: language === 'tr' ? 'Hizmet 2' : 'Service 2', path: `/${language}/services/service2`, category: language === 'tr' ? 'Hizmetler' : 'Services' },
-    { title: language === 'tr' ? 'Hizmet 3' : 'Service 3', path: `/${language}/services/service3`, category: language === 'tr' ? 'Hizmetler' : 'Services' },
-    { title: language === 'tr' ? 'Hizmet 4' : 'Service 4', path: `/${language}/services/service4`, category: language === 'tr' ? 'Hizmetler' : 'Services' },
-    { title: language === 'tr' ? 'Hizmet 5' : 'Service 5', path: `/${language}/services/service5`, category: language === 'tr' ? 'Hizmetler' : 'Services' },
-    
-    // Kariyer
-    { title: language === 'tr' ? 'Kariyer' : 'Career', path: `/${language}/career`, category: language === 'tr' ? 'Kariyer' : 'Career' },
+    // Başvuru Merkezi
+    { title: language === 'tr' ? 'Başvuru Merkezi' : 'Application Center', path: `/${language}/career`, category: language === 'tr' ? 'Başvuru Merkezi' : 'Application Center' },
     
     // Blog
     { title: language === 'tr' ? 'Blog' : 'Blog', path: '#blog', category: language === 'tr' ? 'Blog' : 'Blog' },
@@ -90,6 +71,22 @@ const Header: React.FC<HeaderProps> = ({ language, setLanguage }) => {
           href: `/${language}/about/team`,
         },
         {
+          name: language === 'tr' ? 'İştiraklerimiz' : 'Our Subsidiaries',
+          href: `/${language}/about/subsidiaries`,
+        },
+        {
+          name: language === 'tr' ? 'Sürdürülebilirlik' : 'Sustainability',
+          href: `/${language}/about/sustainability`,
+        },
+        {
+          name: language === 'tr' ? 'İnsan Kaynakları' : 'Human Resources',
+          href: `/${language}/about/hr`,
+        },
+        {
+          name: language === 'tr' ? 'Sosyal Sorumluluk' : 'Social Responsibility',
+          href: `/${language}/about/social-responsibility`,
+        },
+        {
           name: language === 'tr' ? 'Sertifikasyon ve Dökümantasyon' : 'Certification & Documentation',
           href: `/${language}/about/certification`,
         },
@@ -99,42 +96,9 @@ const Header: React.FC<HeaderProps> = ({ language, setLanguage }) => {
         },
       ]
     },
-    {
-      name: language === 'tr' ? 'Ürünler' : 'Products',
-      href: '#products',
-      dropdown: [
-        { name: language === 'tr' ? 'Ürün 1' : 'Product 1', href: `/${language}/products/web-applications` },
-        { name: language === 'tr' ? 'Ürün 2' : 'Product 2', href: `/${language}/products/mobile-applications` },
-        { name: language === 'tr' ? 'Ürün 3' : 'Product 3', href: `/${language}/products/ecommerce-platforms` },
-        { name: language === 'tr' ? 'Ürün 4' : 'Product 4', href: `/${language}/products/crm-systems` },
-        { name: language === 'tr' ? 'Ürün 5' : 'Product 5', href: `/${language}/products/erp-solutions` },
-      ]
-    },
-    {
-      name: language === 'tr' ? 'Çözümler' : 'Solutions',
-      href: `/${language}/solutions`,
-      dropdown: [
-        { name: language === 'tr' ? 'Çözüm 1' : 'Solution 1', href: `/${language}/solutions/solution1` },
-        { name: language === 'tr' ? 'Çözüm 2' : 'Solution 2', href: `/${language}/solutions/solution2` },
-        { name: language === 'tr' ? 'Çözüm 3' : 'Solution 3', href: `/${language}/solutions/solution3` },
-        { name: language === 'tr' ? 'Çözüm 4' : 'Solution 4', href: `/${language}/solutions/solution4` },
-        { name: language === 'tr' ? 'Çözüm 5' : 'Solution 5', href: `/${language}/solutions/solution5` },
-      ]
-    },
-    {
-      name: language === 'tr' ? 'Hizmetler' : 'Services',
-      href: `/${language}/services`,
-      dropdown: [
-        { name: language === 'tr' ? 'Hizmet 1' : 'Service 1', href: `/${language}/services/service1` },
-        { name: language === 'tr' ? 'Hizmet 2' : 'Service 2', href: `/${language}/services/service2` },
-        { name: language === 'tr' ? 'Hizmet 3' : 'Service 3', href: `/${language}/services/service3` },
-        { name: language === 'tr' ? 'Hizmet 4' : 'Service 4', href: `/${language}/services/service4` },
-        { name: language === 'tr' ? 'Hizmet 5' : 'Service 5', href: `/${language}/services/service5` },
-      ]
-    },
-    { name: language === 'tr' ? 'Kariyer' : 'Career', href: `/${language}/career` },
-    { name: language === 'tr' ? 'Blog' : 'Blog', href: '#blog' },
     { name: language === 'tr' ? 'Yatırımlar' : 'Investments', href: `/${language}/investments` },
+    { name: language === 'tr' ? 'Başvuru Merkezi' : 'Application Center', href: `/${language}/career` },
+    { name: language === 'tr' ? 'Blog' : 'Blog', href: `/${language}/blog` },
   ];
 
   // Click outside handler

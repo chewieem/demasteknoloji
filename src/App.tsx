@@ -39,6 +39,12 @@ import VeriSorumlusuBasvuru from './components/About/Certification/VeriSorumlusu
 import GizlilikKullanim from './components/About/Certification/GizlilikKullanim';
 import BilgiToplumu from './components/About/Certification/BilgiToplumu';
 import Investments from './components/Investments';
+import Blog from './components/Blog';
+import BlogDetail from './components/Blog/BlogDetail';
+import Subsidiaries from './components/About/Subsidiaries';
+import Sustainability from './components/About/Sustainability';
+import HR from './components/About/HR';
+import SocialResponsibility from './components/About/SocialResponsibility';
 
 const App: React.FC = () => {
   const navigate = useNavigate();
@@ -139,8 +145,10 @@ const App: React.FC = () => {
       <Route path=":lang/services/service5/urun" element={<Service5 />} />
       <Route path=":lang/services/service5/urun-lite" element={<Service5 />} />
       <Route path=":lang/career" element={<Career />} />
-      <Route path=":lang/career/jobs" element={<Career />} />
-      <Route path=":lang/career/internships" element={<Career />} />
+      <Route path=":lang/career/investors" element={<Career />} />
+      <Route path=":lang/career/entrepreneurs" element={<Career />} />
+      <Route path=":lang/career/partners" element={<Career />} />
+      <Route path=":lang/career/press" element={<Career />} />
       <Route path=":lang/about/company" element={<Company />} />
       <Route path=":lang/about/company/mission" element={<Company />} />
       <Route path=":lang/about/team" element={<Team />} />
@@ -159,7 +167,13 @@ const App: React.FC = () => {
       <Route path=":lang/about/certification/verisorumlusubasvuru" element={<VeriSorumlusuBasvuru />} />
       <Route path=":lang/about/certification/gizlilikkullanim" element={<GizlilikKullanim />} />
       <Route path=":lang/about/certification/bilgitoplumu" element={<BilgiToplumu />} />
+      <Route path=":lang/about/subsidiaries" element={<Subsidiaries />} />
+      <Route path=":lang/about/sustainability" element={<Sustainability />} />
+      <Route path=":lang/about/hr" element={<HR />} />
+      <Route path=":lang/about/social-responsibility" element={<SocialResponsibility />} />
       <Route path=":lang/investments" element={<Investments />} />
+      <Route path=":lang/blog" element={<Blog />} />
+      <Route path=":lang/blog/:blogId" element={<BlogDetail />} />
       <Route path="*" element={<Navigate to="/tr" replace />} />
     </Routes>
   );
