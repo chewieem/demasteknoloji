@@ -4,7 +4,7 @@ import Banner from '../../Products/Banner';
 import Footer from '../../Footer';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { GlobeAltIcon, HeartIcon, LightBulbIcon, CogIcon, ChartBarIcon } from '@heroicons/react/24/outline';
+import { GlobeAltIcon, HeartIcon, ChartBarIcon } from '@heroicons/react/24/outline';
 
 const content = {
   tr: {

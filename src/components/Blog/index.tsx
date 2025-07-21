@@ -4,7 +4,7 @@ import Banner from '../Products/Banner';
 import Footer from '../Footer';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { MagnifyingGlassIcon, CalendarIcon, UserIcon, TagIcon } from '@heroicons/react/24/outline';
+import { MagnifyingGlassIcon, CalendarIcon, UserIcon } from '@heroicons/react/24/outline';
 
 const content = {
   tr: {

@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Header from '../Header';
 import Banner from '../Products/Banner';
 import Footer from '../Footer';
 import { Link, useLocation, useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { CalendarIcon, UserIcon, ClockIcon, TagIcon } from '@heroicons/react/24/outline';
+import { CalendarIcon, UserIcon, ClockIcon } from '@heroicons/react/24/outline';
 
 const content = {
   tr: {
