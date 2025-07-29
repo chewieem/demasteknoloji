@@ -5,14 +5,6 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Footer from '../../Footer';
 import HeroImageTextSection from '../../TextSections/HeroImageTextSection';
 import { 
-  UserGroupIcon, 
-  AcademicCapIcon, 
-  ChartBarIcon, 
-  CogIcon,
-  LightBulbIcon,
-  HeartIcon,
-  GlobeAltIcon,
-  ClockIcon,
   EnvelopeIcon,
   PhoneIcon,
   UserIcon

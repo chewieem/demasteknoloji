@@ -6,8 +6,7 @@ import Footer from '../../Footer';
 import HeroImageTextSection from '../../TextSections/HeroImageTextSection';
 import { 
   ShieldCheckIcon, 
-  DocumentTextIcon, 
-  ClockIcon
+  DocumentTextIcon
 } from '@heroicons/react/24/outline';
 
 const TABS = [
