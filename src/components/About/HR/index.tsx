@@ -4,7 +4,7 @@ import Banner from '../../Products/Banner';
 import Footer from '../../Footer';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { UserGroupIcon, AcademicCapIcon, BriefcaseIcon, HeartIcon, CogIcon, ChartBarIcon } from '@heroicons/react/24/outline';
+import { UserGroupIcon, AcademicCapIcon } from '@heroicons/react/24/outline';
 
 const content = {
   tr: {
@@ -60,23 +60,7 @@ const HR: React.FC = () => {
         { tr: 'Online öğrenme platformları', en: 'Online learning platforms' }
       ]
     },
-    {
-      id: 3,
-      icon: HeartIcon,
-      title: { tr: 'Çalışan Refahı', en: 'Employee Wellbeing' },
-      description: { 
-        tr: 'Çalışanlarımızın fiziksel ve zihinsel sağlığını destekleyen kapsamlı refah programları sunuyoruz.',
-        en: 'We offer comprehensive wellness programs that support the physical and mental health of our employees.'
-      },
-      color: 'text-red-600',
-      bgColor: 'bg-red-100',
-      items: [
-        { tr: 'Sağlık sigortası', en: 'Health insurance' },
-        { tr: 'Esnek çalışma saatleri', en: 'Flexible working hours' },
-        { tr: 'Uzaktan çalışma imkanı', en: 'Remote work opportunity' },
-        { tr: 'Sosyal aktiviteler', en: 'Social activities' }
-      ]
-    }
+
   ];
 
   const careerOpportunities = [
@@ -118,39 +102,7 @@ const HR: React.FC = () => {
     }
   ];
 
-  const benefits = [
-    {
-      id: 1,
-      icon: BriefcaseIcon,
-      title: { tr: 'Kariyer Gelişimi', en: 'Career Development' },
-      description: { tr: 'Sürekli öğrenme ve kariyer gelişimi fırsatları', en: 'Continuous learning and career development opportunities' }
-    },
-    {
-      id: 2,
-      icon: HeartIcon,
-      title: { tr: 'Sağlık ve Refah', en: 'Health & Wellness' },
-      description: { tr: 'Kapsamlı sağlık sigortası ve refah programları', en: 'Comprehensive health insurance and wellness programs' }
-    },
-    {
-      id: 3,
-      icon: CogIcon,
-      title: { tr: 'Esnek Çalışma', en: 'Flexible Work' },
-      description: { tr: 'Uzaktan çalışma ve esnek çalışma saatleri', en: 'Remote work and flexible working hours' }
-    },
-    {
-      id: 4,
-      icon: ChartBarIcon,
-      title: { tr: 'Performans Ödülleri', en: 'Performance Rewards' },
-      description: { tr: 'Performans bazlı ödül ve tanınma sistemleri', en: 'Performance-based reward and recognition systems' }
-    }
-  ];
 
-  const stats = [
-    { number: '500+', label: { tr: 'Çalışan', en: 'Employees' } },
-    { number: '50+', label: { tr: 'Açık Pozisyon', en: 'Open Positions' } },
-    { number: '95%', label: { tr: 'Çalışan Memnuniyeti', en: 'Employee Satisfaction' } },
-    { number: '25+', label: { tr: 'Eğitim Programı', en: 'Training Programs' } }
-  ];
 
   const breadcrumb = (
     <div className="mt-1 mb-2 text-sm flex items-center space-x-2">
@@ -299,106 +251,7 @@ const HR: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* Çalışan Faydaları */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="mb-16"
-        >
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              {lang === 'tr' ? 'Çalışan Faydaları' : 'Employee Benefits'}
-            </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              {lang === 'tr' 
-                ? 'Çalışanlarımızın refahı ve mutluluğu için sunduğumuz kapsamlı faydalar.'
-                : 'Comprehensive benefits we offer for the wellbeing and happiness of our employees.'
-              }
-            </p>
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {benefits.map((benefit, idx) => (
-              <motion.div
-                key={benefit.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 1.0 + idx * 0.1 }}
-                className="bg-white rounded-xl shadow-lg p-6 text-center hover:shadow-xl transition-all duration-300"
-              >
-                <div className="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-4">
-                  <benefit.icon className="w-8 h-8 text-blue-600" />
-                </div>
-                
-                <h3 className="text-lg font-bold text-gray-900 mb-3">
-                  {benefit.title[lang]}
-                </h3>
-                
-                <p className="text-gray-600 text-sm">
-                  {benefit.description[lang]}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* İstatistikler */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 1.2 }}
-          className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl p-8 text-white"
-        >
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold mb-4">
-              {lang === 'tr' ? 'İnsan Kaynakları Rakamlarımız' : 'Our HR Numbers'}
-            </h2>
-            <p className="text-blue-100">
-              {lang === 'tr' 
-                ? 'Çalışanlarımız ve kariyer fırsatlarımız hakkında istatistikler'
-                : 'Statistics about our employees and career opportunities'
-              }
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {stats.map((stat, idx) => (
-              <div key={idx} className="text-center">
-                <div className="text-3xl font-bold mb-2">{stat.number}</div>
-                <div className="text-blue-100">{stat.label[lang]}</div>
-              </div>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Başvuru CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 1.4 }}
-          className="mt-16 text-center"
-        >
-          <div className="bg-white rounded-xl shadow-lg p-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              {lang === 'tr' ? 'Ekibimize Katılın' : 'Join Our Team'}
-            </h2>
-            <p className="text-lg text-gray-600 mb-6 max-w-2xl mx-auto">
-              {lang === 'tr' 
-                ? 'Teknoloji alanında kariyer yapmak ve yenilikçi projelerde yer almak istiyorsanız, başvurunuzu bekliyoruz.'
-                : 'If you want to build a career in technology and be part of innovative projects, we are waiting for your application.'
-              }
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition-colors font-medium">
-                {lang === 'tr' ? 'Pozisyonları Görüntüle' : 'View Positions'}
-              </button>
-              <button className="bg-gray-100 text-gray-700 px-8 py-3 rounded-lg hover:bg-gray-200 transition-colors font-medium">
-                {lang === 'tr' ? 'CV Gönder' : 'Send CV'}
-              </button>
-            </div>
-          </div>
-        </motion.div>
       </div>
 
       <Footer language={lang} />

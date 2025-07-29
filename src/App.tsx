@@ -14,18 +14,6 @@ import EcommercePlatforms from './components/Products/Product3';
 import CRMSystems from './components/Products/Product4';
 import ERPSolutions from './components/Products/Product5';
 import ProductList from './components/Products/ProductList';
-import Solution1 from './components/Solutions/Solution1';
-import Solution2 from './components/Solutions/Solution2';
-import Solution3 from './components/Solutions/Solution3';
-import Solution4 from './components/Solutions/Solution4';
-import Solution5 from './components/Solutions/Solution5';
-import SolutionsList from './components/Solutions/SolutionsList';
-import Service1 from './components/Services/Service1';
-import Service2 from './components/Services/Service2';
-import Service3 from './components/Services/Service3';
-import Service4 from './components/Services/Service4';
-import Service5 from './components/Services/Service5';
-import ServicesList from './components/Services/ServicesList';
 import Career from './components/Career';
 import Company from './components/About/Company';
 import Team from './components/About/Team';
@@ -45,6 +33,7 @@ import Subsidiaries from './components/About/Subsidiaries';
 import Sustainability from './components/About/Sustainability';
 import HR from './components/About/HR';
 import SocialResponsibility from './components/About/SocialResponsibility';
+import BlogPost from './components/About/SocialResponsibility/BlogPost';
 
 const App: React.FC = () => {
   const navigate = useNavigate();
@@ -112,38 +101,38 @@ const App: React.FC = () => {
       <Route path=":lang/products/ecommerce-platforms" element={<EcommercePlatforms />} />
       <Route path=":lang/products/mobile-applications" element={<MobileApplications />} />
       <Route path=":lang/products" element={<ProductList />} />
-      <Route path=":lang/solutions" element={<SolutionsList />} />
-      <Route path=":lang/solutions/solution1" element={<Solution1 />} />
-      <Route path=":lang/solutions/solution1/urun" element={<Solution1 />} />
-      <Route path=":lang/solutions/solution1/urun-lite" element={<Solution1 />} />
-      <Route path=":lang/solutions/solution2" element={<Solution2 />} />
-      <Route path=":lang/solutions/solution2/urun" element={<Solution2 />} />
-      <Route path=":lang/solutions/solution2/urun-lite" element={<Solution2 />} />
-      <Route path=":lang/solutions/solution3" element={<Solution3 />} />
-      <Route path=":lang/solutions/solution3/urun" element={<Solution3 />} />
-      <Route path=":lang/solutions/solution3/urun-lite" element={<Solution3 />} />
-      <Route path=":lang/solutions/solution4" element={<Solution4 />} />
-      <Route path=":lang/solutions/solution4/urun" element={<Solution4 />} />
-      <Route path=":lang/solutions/solution4/urun-lite" element={<Solution4 />} />
-      <Route path=":lang/solutions/solution5" element={<Solution5 />} />
-      <Route path=":lang/solutions/solution5/urun" element={<Solution5 />} />
-      <Route path=":lang/solutions/solution5/urun-lite" element={<Solution5 />} />
-      <Route path=":lang/services" element={<ServicesList />} />
-      <Route path=":lang/services/service1" element={<Service1 />} />
-      <Route path=":lang/services/service1/urun" element={<Service1 />} />
-      <Route path=":lang/services/service1/urun-lite" element={<Service1 />} />
-      <Route path=":lang/services/service2" element={<Service2 />} />
-      <Route path=":lang/services/service2/urun" element={<Service2 />} />
-      <Route path=":lang/services/service2/urun-lite" element={<Service2 />} />
-      <Route path=":lang/services/service3" element={<Service3 />} />
-      <Route path=":lang/services/service3/urun" element={<Service3 />} />
-      <Route path=":lang/services/service3/urun-lite" element={<Service3 />} />
-      <Route path=":lang/services/service4" element={<Service4 />} />
-      <Route path=":lang/services/service4/urun" element={<Service4 />} />
-      <Route path=":lang/services/service4/urun-lite" element={<Service4 />} />
-      <Route path=":lang/services/service5" element={<Service5 />} />
-      <Route path=":lang/services/service5/urun" element={<Service5 />} />
-      <Route path=":lang/services/service5/urun-lite" element={<Service5 />} />
+      <Route path=":lang/solutions" element={<Solutions language={language} />} />
+      <Route path=":lang/solutions/solution1" element={<Solutions language={language} />} />
+      <Route path=":lang/solutions/solution1/urun" element={<Solutions language={language} />} />
+      <Route path=":lang/solutions/solution1/urun-lite" element={<Solutions language={language} />} />
+      <Route path=":lang/solutions/solution2" element={<Solutions language={language} />} />
+      <Route path=":lang/solutions/solution2/urun" element={<Solutions language={language} />} />
+      <Route path=":lang/solutions/solution2/urun-lite" element={<Solutions language={language} />} />
+      <Route path=":lang/solutions/solution3" element={<Solutions language={language} />} />
+      <Route path=":lang/solutions/solution3/urun" element={<Solutions language={language} />} />
+      <Route path=":lang/solutions/solution3/urun-lite" element={<Solutions language={language} />} />
+      <Route path=":lang/solutions/solution4" element={<Solutions language={language} />} />
+      <Route path=":lang/solutions/solution4/urun" element={<Solutions language={language} />} />
+      <Route path=":lang/solutions/solution4/urun-lite" element={<Solutions language={language} />} />
+      <Route path=":lang/solutions/solution5" element={<Solutions language={language} />} />
+      <Route path=":lang/solutions/solution5/urun" element={<Solutions language={language} />} />
+      <Route path=":lang/solutions/solution5/urun-lite" element={<Solutions language={language} />} />
+      <Route path=":lang/services" element={<ServicesCards language={language} />} />
+      <Route path=":lang/services/service1" element={<ServicesCards language={language} />} />
+      <Route path=":lang/services/service1/urun" element={<ServicesCards language={language} />} />
+      <Route path=":lang/services/service1/urun-lite" element={<ServicesCards language={language} />} />
+      <Route path=":lang/services/service2" element={<ServicesCards language={language} />} />
+      <Route path=":lang/services/service2/urun" element={<ServicesCards language={language} />} />
+      <Route path=":lang/services/service2/urun-lite" element={<ServicesCards language={language} />} />
+      <Route path=":lang/services/service3" element={<ServicesCards language={language} />} />
+      <Route path=":lang/services/service3/urun" element={<ServicesCards language={language} />} />
+      <Route path=":lang/services/service3/urun-lite" element={<ServicesCards language={language} />} />
+      <Route path=":lang/services/service4" element={<ServicesCards language={language} />} />
+      <Route path=":lang/services/service4/urun" element={<ServicesCards language={language} />} />
+      <Route path=":lang/services/service4/urun-lite" element={<ServicesCards language={language} />} />
+      <Route path=":lang/services/service5" element={<ServicesCards language={language} />} />
+      <Route path=":lang/services/service5/urun" element={<ServicesCards language={language} />} />
+      <Route path=":lang/services/service5/urun-lite" element={<ServicesCards language={language} />} />
       <Route path=":lang/career" element={<Career />} />
       <Route path=":lang/career/investors" element={<Career />} />
       <Route path=":lang/career/entrepreneurs" element={<Career />} />
@@ -171,7 +160,17 @@ const App: React.FC = () => {
       <Route path=":lang/about/sustainability" element={<Sustainability />} />
       <Route path=":lang/about/hr" element={<HR />} />
       <Route path=":lang/about/social-responsibility" element={<SocialResponsibility />} />
+      <Route path=":lang/about/social-responsibility/:slug" element={<BlogPost />} />
       <Route path=":lang/investments" element={<Investments />} />
+      <Route path=":lang/investment/uyumtakip" element={<WebApplications />} />
+      <Route path=":lang/investment/uyumtakip/urun" element={<WebApplications />} />
+      <Route path=":lang/investment/uyumtakip/urun-lite" element={<WebApplications />} />
+      <Route path=":lang/investment/fiyat-borsasi" element={<MobileApplications />} />
+      <Route path=":lang/investment/fiyat-borsasi/urun" element={<MobileApplications />} />
+      <Route path=":lang/investment/fiyat-borsasi/urun-lite" element={<MobileApplications />} />
+      <Route path=":lang/investment/dijital-rafineri" element={<EcommercePlatforms />} />
+      <Route path=":lang/investment/dijital-rafineri/urun" element={<EcommercePlatforms />} />
+      <Route path=":lang/investment/dijital-rafineri/urun-lite" element={<EcommercePlatforms />} />
       <Route path=":lang/blog" element={<Blog />} />
       <Route path=":lang/blog/:blogId" element={<BlogDetail />} />
       <Route path="*" element={<Navigate to="/tr" replace />} />

@@ -132,37 +132,7 @@ const Certification: React.FC = () => {
             ]}
           />
           
-          {/* İstatistikler */}
-          <section className="py-16 bg-white">
-            <div className="max-w-7xl mx-auto px-4">
-              <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">
-                {lang === 'tr' ? 'Sertifikasyon İstatistiklerimiz' : 'Our Certification Statistics'}
-              </h2>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-                <div className="text-center">
-                  <div className="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                    <ShieldCheckIcon className="h-8 w-8 text-blue-600" />
-                  </div>
-                  <div className="text-3xl font-bold text-blue-600 mb-2">15+</div>
-                  <div className="text-gray-600">{lang === 'tr' ? 'Aktif Sertifika' : 'Active Certificates'}</div>
-                </div>
-                <div className="text-center">
-                  <div className="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                    <DocumentTextIcon className="h-8 w-8 text-green-600" />
-                  </div>
-                  <div className="text-3xl font-bold text-green-600 mb-2">500+</div>
-                  <div className="text-gray-600">{lang === 'tr' ? 'Döküman' : 'Documents'}</div>
-                </div>
-                <div className="text-center">
-                  <div className="bg-purple-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                    <ClockIcon className="h-8 w-8 text-purple-600" />
-                  </div>
-                  <div className="text-3xl font-bold text-purple-600 mb-2">24/7</div>
-                  <div className="text-gray-600">{lang === 'tr' ? 'Erişim' : 'Access'}</div>
-                </div>
-              </div>
-            </div>
-          </section>
+
         </>
       )}
       

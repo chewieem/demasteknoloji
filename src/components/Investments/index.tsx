@@ -3,7 +3,6 @@ import Header from '../Header';
 import Banner from '../Products/Banner';
 import Footer from '../Footer';
 import { Link, useLocation } from 'react-router-dom';
-import { Cog6ToothIcon, BuildingOffice2Icon, Squares2X2Icon, DevicePhoneMobileIcon } from '@heroicons/react/24/outline';
 import { motion } from 'framer-motion';
 
 const content = {
@@ -39,102 +38,27 @@ const Investments: React.FC = () => {
   const lang: 'en' | 'tr' = language;
   const page = content[lang];
 
-  const products = [
+  const investments = [
     {
-      title: lang === 'tr' ? 'Web Uygulamaları' : 'Web Applications',
+      title: lang === 'tr' ? 'UyumTakip' : 'UyumTakip',
       desc: lang === 'tr' ? 'Sağlık tesisleri için bilgi yönetim sistemleri ve çözüm platformları' : 'Information management systems and solution platforms for healthcare facilities',
-      link: `/${lang}/products/web-applications`,
+      link: `/${lang}/investment/uyumtakip`,
+      image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop',
+      category: lang === 'tr' ? 'Web Geliştirme' : 'Web Development'
     },
     {
-      title: lang === 'tr' ? 'Mobil Uygulamalar' : 'Mobile Applications',
+      title: lang === 'tr' ? 'Fiyat Borsası' : 'Fiyat Borsası',
       desc: lang === 'tr' ? 'Mobil uygulama geliştirme ve yönetim çözümleri' : 'Mobile application development and management solutions',
-      link: `/${lang}/products/mobile-applications`,
+      link: `/${lang}/investment/fiyat-borsasi`,
+      image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=400&fit=crop',
+      category: lang === 'tr' ? 'Mobil Teknoloji' : 'Mobile Technology'
     },
     {
-      title: lang === 'tr' ? 'E-Ticaret Platformları' : 'Ecommerce Platforms',
+      title: lang === 'tr' ? 'Dijital Rafineri' : 'Dijital Rafineri',
       desc: lang === 'tr' ? 'E-ticaret çözümleri ve platform yönetimi' : 'Ecommerce solutions and platform management',
-      link: `/${lang}/products/ecommerce-platforms`,
-    },
-    {
-      title: lang === 'tr' ? 'CRM Sistemleri' : 'CRM Systems',
-      desc: lang === 'tr' ? 'Müşteri ilişkileri yönetimi çözümleri' : 'Customer relationship management solutions',
-      link: `/${lang}/products/crm-systems`,
-    },
-    {
-      title: lang === 'tr' ? 'ERP Çözümleri' : 'ERP Solutions',
-      desc: lang === 'tr' ? 'Kurumsal kaynak planlama çözümleri' : 'Enterprise resource planning solutions',
-      link: `/${lang}/products/erp-solutions`,
-    },
-  ];
-
-  const solutions = [
-    {
-      key: 'integration',
-      icon: <Cog6ToothIcon className="h-7 w-7 md:h-8 md:w-8 mr-2 text-blue-500" />,
-      bigIcon: <Cog6ToothIcon className="h-16 w-16 text-blue-500 mx-auto" />,
-      title: { tr: 'Sistem Entegrasyon Çözümleri', en: 'System Integration Solutions' },
-      desc: {
-        tr: 'Sistem entegrasyon alanında, yazılım ve donanım katmanında en yüksek başarıya sahip ürünleri bir araya getirerek, tüm kurumsal iş süreçlerinde gerçek verimi yakalayan uçtan uca ve eksiksiz çözümler sağlıyoruz.',
-        en: 'In the field of system integration, we provide end-to-end and complete solutions that bring together the most successful products in software and hardware layers, achieving real efficiency in all corporate business processes.'
-      }
-    },
-    {
-      key: 'corporate',
-      icon: <BuildingOffice2Icon className="h-7 w-7 md:h-8 md:w-8 mr-2 text-blue-500" />,
-      bigIcon: <BuildingOffice2Icon className="h-16 w-16 text-blue-500 mx-auto" />,
-      title: { tr: 'Kurumsal Çözümler', en: 'Corporate Solutions' },
-      desc: {
-        tr: 'Kurumsal süreçlerinizi dijitalleştirerek verimliliği artıran, özelleştirilebilir ve entegre çözümler sunuyoruz.',
-        en: 'We offer customizable and integrated solutions that digitize your corporate processes and increase efficiency.'
-      }
-    },
-    {
-      key: 'sap',
-      icon: <Squares2X2Icon className="h-7 w-7 md:h-8 md:w-8 mr-2 text-blue-500" />,
-      bigIcon: <Squares2X2Icon className="h-16 w-16 text-blue-500 mx-auto" />,
-      title: { tr: 'SAP Çözümleri', en: 'SAP Solutions' },
-      desc: {
-        tr: 'SAP danışmanlığı ve entegrasyonu ile iş süreçlerinizi optimize ediyor, rekabette öne çıkmanızı sağlıyoruz.',
-        en: 'We optimize your business processes with SAP consultancy and integration, helping you stand out in competition.'
-      }
-    },
-    {
-      key: 'telecom',
-      icon: <DevicePhoneMobileIcon className="h-7 w-7 md:h-8 md:w-8 mr-2 text-blue-500" />,
-      bigIcon: <DevicePhoneMobileIcon className="h-16 w-16 text-blue-500 mx-auto" />,
-      title: { tr: 'Telekom Çözümleri', en: 'Telecom Solutions' },
-      desc: {
-        tr: 'Telekom sektörüne özel, güvenilir ve ölçeklenebilir çözümler geliştiriyoruz.',
-        en: 'We develop reliable and scalable solutions tailored for the telecom sector.'
-      }
-    },
-  ];
-
-  const services = [
-    {
-      title: lang === 'tr' ? 'Hizmet 1' : 'Service 1',
-      desc: lang === 'tr' ? 'Birinci hizmet açıklaması ve detayları' : 'First service description and details',
-      link: `/${lang}/services/service1`,
-    },
-    {
-      title: lang === 'tr' ? 'Hizmet 2' : 'Service 2',
-      desc: lang === 'tr' ? 'İkinci hizmet açıklaması ve detayları' : 'Second service description and details',
-      link: `/${lang}/services/service2`,
-    },
-    {
-      title: lang === 'tr' ? 'Hizmet 3' : 'Service 3',
-      desc: lang === 'tr' ? 'Üçüncü hizmet açıklaması ve detayları' : 'Third service description and details',
-      link: `/${lang}/services/service3`,
-    },
-    {
-      title: lang === 'tr' ? 'Hizmet 4' : 'Service 4',
-      desc: lang === 'tr' ? 'Dördüncü hizmet açıklaması ve detayları' : 'Fourth service description and details',
-      link: `/${lang}/services/service4`,
-    },
-    {
-      title: lang === 'tr' ? 'Hizmet 5' : 'Service 5',
-      desc: lang === 'tr' ? 'Beşinci hizmet açıklaması ve detayları' : 'Fifth service description and details',
-      link: `/${lang}/services/service5`,
+      link: `/${lang}/investment/dijital-rafineri`,
+      image: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop',
+      category: lang === 'tr' ? 'E-Ticaret' : 'E-commerce'
     },
   ];
 
@@ -148,7 +72,7 @@ const Investments: React.FC = () => {
         breadcrumb={page.breadcrumb}
       />
       
-      {/* Ürünler Bölümü */}
+      {/* Yatırımlarımız Bölümü */}
       <motion.section
         className="py-16 bg-gray-50"
         initial={{ opacity: 0, y: 40 }}
@@ -158,88 +82,57 @@ const Investments: React.FC = () => {
       >
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-gray-900 mb-4 text-center">
-            {lang === 'tr' ? 'Ürünlerimiz' : 'Our Products'}
+            {lang === 'tr' ? 'Yatırımlarımız' : 'Our Investments'}
           </h2>
           <p className="text-lg text-gray-700 mb-12 text-center max-w-4xl mx-auto">
             {lang === 'tr'
               ? 'Gelişmiş teknoloji çözümleri ile işinizi büyütün'
               : 'Grow your business with advanced technology solutions'}
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-            {products.map((product, idx) => (
-              <div key={idx} className="bg-white rounded-xl shadow p-6 flex flex-col justify-between min-h-[220px] border border-gray-200 hover:shadow-lg transition-shadow">
-                <div>
-                  <h3 className="text-2xl font-bold mb-2">{product.title}</h3>
-                  <p className="text-gray-700 mb-6">{product.desc}</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
+            {investments.map((investment, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="w-full max-w-sm bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden flex flex-col"
+              >
+                {/* Fotoğraf Bölümü */}
+                <div className="relative h-48 overflow-hidden bg-gray-200">
+                  <img 
+                    src={investment.image} 
+                    alt={investment.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                  <div className="absolute bottom-3 left-3">
+                    <span className="inline-block bg-blue-600 text-white text-xs px-2 py-1 rounded-full font-medium">
+                      {investment.category}
+                    </span>
+                  </div>
                 </div>
-                <Link to={product.link} className="text-blue-600 font-semibold flex items-center gap-1 hover:underline mt-auto">
-                  {lang === 'tr' ? 'Detaylı Bilgi' : 'More Info'} <span aria-hidden>→</span>
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
-      </motion.section>
-
-      {/* Çözümler Bölümü */}
-      <motion.section
-        className="py-16 bg-white"
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, ease: 'easeOut' }}
-        viewport={{ once: false, amount: 0.2 }}
-      >
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4 text-center">
-            {lang === 'tr' ? 'Çözümlerimiz' : 'Our Solutions'}
-          </h2>
-          <p className="text-lg text-gray-700 mb-12 text-center max-w-4xl mx-auto">
-            {lang === 'tr'
-              ? 'Geliştirdiğimiz çözümler ile dört ayrı ana alanda inovasyonun desteği sizinle!'
-              : 'With our solutions, you have innovation support in four main areas!'}
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {solutions.map((solution, idx) => (
-              <div key={solution.key} className="bg-white rounded-xl shadow p-6 border border-gray-200 hover:shadow-lg transition-shadow">
-                <div className="flex items-center mb-4">
-                  {solution.icon}
-                  <h3 className="text-xl font-bold text-gray-900">{solution.title[lang]}</h3>
+                
+                {/* İçerik Bölümü */}
+                <div className="p-6 flex flex-col flex-1">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">{investment.title}</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed flex-1">{investment.desc}</p>
                 </div>
-                <p className="text-gray-700 text-sm leading-relaxed">{solution.desc[lang]}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </motion.section>
-
-      {/* Hizmetler Bölümü */}
-      <motion.section
-        className="py-16 bg-gray-50"
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, ease: 'easeOut' }}
-        viewport={{ once: false, amount: 0.2 }}
-      >
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4 text-center">
-            {lang === 'tr' ? 'Hizmetlerimiz' : 'Our Services'}
-          </h2>
-          <p className="text-lg text-gray-700 mb-12 text-center max-w-4xl mx-auto">
-            {lang === 'tr'
-              ? 'Tüm hizmet ailelerimizi ve çözümlerimizi keşfedin'
-              : 'Discover all our service families and solutions'}
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-            {services.map((service, idx) => (
-              <div key={idx} className="bg-white rounded-xl shadow p-6 flex flex-col justify-between min-h-[220px] border border-gray-200 hover:shadow-lg transition-shadow">
-                <div>
-                  <h3 className="text-2xl font-bold mb-2">{service.title}</h3>
-                  <p className="text-gray-700 mb-6">{service.desc}</p>
+                
+                {/* Buton - Kartın içinde en altta */}
+                <div className="px-6 pb-6">
+                  <Link
+                    to={investment.link}
+                    className="inline-flex items-center justify-center px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors duration-200 w-full"
+                  >
+                    {lang === 'tr' ? 'Detaylı Bilgi' : 'Learn More'}
+                    <svg className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </Link>
                 </div>
-                <Link to={service.link} className="text-blue-600 font-semibold flex items-center gap-1 hover:underline mt-auto">
-                  {lang === 'tr' ? 'Detaylı Bilgi' : 'More Info'} <span aria-hidden>→</span>
-                </Link>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

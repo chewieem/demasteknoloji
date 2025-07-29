@@ -130,61 +130,61 @@ const ApplicationCenter: React.FC = () => {
               {lang === 'tr' ? 'Başvuru Kategorileri' : 'Application Categories'}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              <div className="bg-white rounded-xl shadow p-6 border border-gray-200 hover:shadow-lg transition-shadow">
+              <div className="bg-white rounded-xl shadow p-6 border border-gray-200 hover:shadow-lg transition-shadow flex flex-col">
                 <h3 className="text-xl font-bold mb-3 text-blue-600">{lang === 'tr' ? 'Yatırımcılar' : 'Investors'}</h3>
-                <p className="text-gray-700 mb-4">
+                <p className="text-gray-700 mb-4 flex-grow">
                   {lang === 'tr' 
                     ? 'Teknoloji odaklı yatırım fırsatları ve stratejik ortaklıklar için başvuru yapın.'
                     : 'Apply for technology-focused investment opportunities and strategic partnerships.'}
                 </p>
                 <button 
                   onClick={() => handleTabChange('investors')}
-                  className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors"
+                  className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors mt-auto"
                 >
                   {lang === 'tr' ? 'Detaylı Bilgi' : 'Learn More'}
                 </button>
               </div>
               
-              <div className="bg-white rounded-xl shadow p-6 border border-gray-200 hover:shadow-lg transition-shadow">
+              <div className="bg-white rounded-xl shadow p-6 border border-gray-200 hover:shadow-lg transition-shadow flex flex-col">
                 <h3 className="text-xl font-bold mb-3 text-green-600">{lang === 'tr' ? 'Girişimciler' : 'Entrepreneurs'}</h3>
-                <p className="text-gray-700 mb-4">
+                <p className="text-gray-700 mb-4 flex-grow">
                   {lang === 'tr' 
                     ? 'Yenilikçi projeleriniz için destek ve işbirliği fırsatları arayın.'
                     : 'Seek support and collaboration opportunities for your innovative projects.'}
                 </p>
                 <button 
                   onClick={() => handleTabChange('entrepreneurs')}
-                  className="w-full bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition-colors"
+                  className="w-full bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition-colors mt-auto"
                 >
                   {lang === 'tr' ? 'Detaylı Bilgi' : 'Learn More'}
                 </button>
               </div>
               
-              <div className="bg-white rounded-xl shadow p-6 border border-gray-200 hover:shadow-lg transition-shadow">
+              <div className="bg-white rounded-xl shadow p-6 border border-gray-200 hover:shadow-lg transition-shadow flex flex-col">
                 <h3 className="text-xl font-bold mb-3 text-purple-600">{lang === 'tr' ? 'Partnerler' : 'Partners'}</h3>
-                <p className="text-gray-700 mb-4">
+                <p className="text-gray-700 mb-4 flex-grow">
                   {lang === 'tr' 
                     ? 'Güçlü iş ortaklıkları ve teknoloji çözümleri için başvuru yapın.'
                     : 'Apply for strong business partnerships and technology solutions.'}
                 </p>
                 <button 
                   onClick={() => handleTabChange('partners')}
-                  className="w-full bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition-colors"
+                  className="w-full bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition-colors mt-auto"
                 >
                   {lang === 'tr' ? 'Detaylı Bilgi' : 'Learn More'}
                 </button>
               </div>
               
-              <div className="bg-white rounded-xl shadow p-6 border border-gray-200 hover:shadow-lg transition-shadow">
+              <div className="bg-white rounded-xl shadow p-6 border border-gray-200 hover:shadow-lg transition-shadow flex flex-col">
                 <h3 className="text-xl font-bold mb-3 text-orange-600">{lang === 'tr' ? 'Basın' : 'Press'}</h3>
-                <p className="text-gray-700 mb-4">
+                <p className="text-gray-700 mb-4 flex-grow">
                   {lang === 'tr' 
                     ? 'Medya ilişkileri ve basın bilgileri için iletişime geçin.'
                     : 'Contact us for media relations and press information.'}
                 </p>
                 <button 
                   onClick={() => handleTabChange('press')}
-                  className="w-full bg-orange-600 text-white py-2 px-4 rounded-lg hover:bg-orange-700 transition-colors"
+                  className="w-full bg-orange-600 text-white py-2 px-4 rounded-lg hover:bg-orange-700 transition-colors mt-auto"
                 >
                   {lang === 'tr' ? 'Detaylı Bilgi' : 'Learn More'}
                 </button>
@@ -196,152 +196,450 @@ const ApplicationCenter: React.FC = () => {
 
       {/* Yatırımcılar sekmesi */}
       {selectedTab === 'investors' && (
-        <div className="max-w-6xl mx-auto px-4 py-12">
+        <div className="max-w-4xl mx-auto px-4 py-12">
           <h2 className="text-3xl font-bold mb-6 text-center">
-            {lang === 'tr' ? 'Yatırımcılar İçin Fırsatlar' : 'Opportunities for Investors'}
+            {lang === 'tr' ? 'Yatırımcı Başvuru Formu' : 'Investor Application Form'}
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-white rounded-xl shadow p-6 border border-gray-200">
-              <h3 className="text-2xl font-bold mb-4 text-blue-600">
-                {lang === 'tr' ? 'Teknoloji Yatırımları' : 'Technology Investments'}
-              </h3>
-              <p className="text-gray-700 mb-4">
-                {lang === 'tr'
-                  ? 'Demaş Teknoloji, yenilikçi teknoloji çözümleri geliştiren bir şirket olarak, yatırımcılara büyüme potansiyeli yüksek projeler sunar. Yapay zeka, bulut teknolojileri ve dijital dönüşüm alanlarında uzmanlaşmış ekibimizle, geleceğin teknolojilerini bugünden geliştiriyoruz.'
-                  : 'Demaş Technology, as a company developing innovative technology solutions, offers investors projects with high growth potential. With our team specialized in artificial intelligence, cloud technologies, and digital transformation, we develop tomorrow\'s technologies today.'}
-              </p>
-              <button className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors">
-                {lang === 'tr' ? 'Yatırım Başvurusu' : 'Investment Application'}
-              </button>
+          <div className="bg-white rounded-xl shadow-lg p-8 border border-gray-200">
+            <form className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    {lang === 'tr' ? 'Ad Soyad' : 'Full Name'}
+                  </label>
+                  <input
+                    type="text"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    placeholder={lang === 'tr' ? 'Adınız ve soyadınız' : 'Your full name'}
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    {lang === 'tr' ? 'E-posta' : 'Email'}
+                  </label>
+                  <input
+                    type="email"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    placeholder={lang === 'tr' ? 'ornek@email.com' : 'example@email.com'}
+                  />
+                </div>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    {lang === 'tr' ? 'Telefon' : 'Phone'}
+                  </label>
+                  <input
+                    type="tel"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    placeholder={lang === 'tr' ? '+90 5XX XXX XX XX' : '+90 5XX XXX XX XX'}
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    {lang === 'tr' ? 'Şirket Adı' : 'Company Name'}
+                  </label>
+                  <input
+                    type="text"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    placeholder={lang === 'tr' ? 'Şirketinizin adı' : 'Your company name'}
+                  />
+                </div>
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  {lang === 'tr' ? 'Yatırım Alanı' : 'Investment Area'}
+                </label>
+                <select className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                  <option value="">{lang === 'tr' ? 'Seçiniz' : 'Select'}</option>
+                  <option value="ai">{lang === 'tr' ? 'Yapay Zeka' : 'Artificial Intelligence'}</option>
+                  <option value="cloud">{lang === 'tr' ? 'Bulut Teknolojileri' : 'Cloud Technologies'}</option>
+                  <option value="mobile">{lang === 'tr' ? 'Mobil Teknolojiler' : 'Mobile Technologies'}</option>
+                  <option value="digital">{lang === 'tr' ? 'Dijital Dönüşüm' : 'Digital Transformation'}</option>
+                </select>
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  {lang === 'tr' ? 'Yatırım Miktarı' : 'Investment Amount'}
+                </label>
+                <select className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                  <option value="">{lang === 'tr' ? 'Seçiniz' : 'Select'}</option>
+                  <option value="100k-500k">{lang === 'tr' ? '100K - 500K TL' : '100K - 500K TL'}</option>
+                  <option value="500k-1m">{lang === 'tr' ? '500K - 1M TL' : '500K - 1M TL'}</option>
+                  <option value="1m-5m">{lang === 'tr' ? '1M - 5M TL' : '1M - 5M TL'}</option>
+                  <option value="5m+">{lang === 'tr' ? '5M+ TL' : '5M+ TL'}</option>
+                </select>
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  {lang === 'tr' ? 'Mesaj' : 'Message'}
+                </label>
+                <textarea
+                  rows={4}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  placeholder={lang === 'tr' ? 'Yatırım beklentileriniz ve sorularınız...' : 'Your investment expectations and questions...'}
+                ></textarea>
             </div>
             
-            <div className="bg-white rounded-xl shadow p-6 border border-gray-200">
-              <h3 className="text-2xl font-bold mb-4 text-green-600">
-                {lang === 'tr' ? 'Stratejik Ortaklıklar' : 'Strategic Partnerships'}
-              </h3>
-              <p className="text-gray-700 mb-4">
-                {lang === 'tr'
-                  ? 'Güçlü teknoloji altyapımız ve deneyimli ekibimizle, yatırımcılarla stratejik ortaklıklar kuruyoruz. Bu ortaklıklar sayesinde hem yatırımcılar hem de şirketimiz için sürdürülebilir büyüme fırsatları yaratıyoruz.'
-                  : 'With our strong technology infrastructure and experienced team, we establish strategic partnerships with investors. Through these partnerships, we create sustainable growth opportunities for both investors and our company.'}
-              </p>
-              <button className="w-full bg-green-600 text-white py-3 px-6 rounded-lg hover:bg-green-700 transition-colors">
-                {lang === 'tr' ? 'Ortaklık Başvurusu' : 'Partnership Application'}
+              <button
+                type="submit"
+                className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors font-medium"
+              >
+                {lang === 'tr' ? 'Başvuru Gönder' : 'Submit Application'}
               </button>
-            </div>
+            </form>
           </div>
         </div>
       )}
 
       {/* Girişimciler sekmesi */}
       {selectedTab === 'entrepreneurs' && (
-        <div className="max-w-6xl mx-auto px-4 py-12">
+        <div className="max-w-4xl mx-auto px-4 py-12">
           <h2 className="text-3xl font-bold mb-6 text-center">
-            {lang === 'tr' ? 'Girişimciler İçin Destek' : 'Support for Entrepreneurs'}
+            {lang === 'tr' ? 'Girişimci Başvuru Formu' : 'Entrepreneur Application Form'}
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-white rounded-xl shadow p-6 border border-gray-200">
-              <h3 className="text-2xl font-bold mb-4 text-purple-600">
-                {lang === 'tr' ? 'Teknoloji Mentörlüğü' : 'Technology Mentorship'}
-              </h3>
-              <p className="text-gray-700 mb-4">
-                {lang === 'tr'
-                  ? 'Deneyimli teknoloji uzmanlarımız, girişimcilere projelerini geliştirme ve pazara sunma konusunda mentörlük yapar. Teknik danışmanlık, pazar analizi ve strateji geliştirme konularında destek sağlıyoruz.'
-                  : 'Our experienced technology experts provide mentorship to entrepreneurs in developing and bringing their projects to market. We provide support in technical consulting, market analysis, and strategy development.'}
-              </p>
-              <button className="w-full bg-purple-600 text-white py-3 px-6 rounded-lg hover:bg-purple-700 transition-colors">
-                {lang === 'tr' ? 'Mentörlük Başvurusu' : 'Mentorship Application'}
-              </button>
+          <div className="bg-white rounded-xl shadow-lg p-8 border border-gray-200">
+            <form className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    {lang === 'tr' ? 'Ad Soyad' : 'Full Name'}
+                  </label>
+                  <input
+                    type="text"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    placeholder={lang === 'tr' ? 'Adınız ve soyadınız' : 'Your full name'}
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    {lang === 'tr' ? 'E-posta' : 'Email'}
+                  </label>
+                  <input
+                    type="email"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    placeholder={lang === 'tr' ? 'ornek@email.com' : 'example@email.com'}
+                  />
+                </div>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    {lang === 'tr' ? 'Telefon' : 'Phone'}
+                  </label>
+                  <input
+                    type="tel"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    placeholder={lang === 'tr' ? '+90 5XX XXX XX XX' : '+90 5XX XXX XX XX'}
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    {lang === 'tr' ? 'Girişim Adı' : 'Startup Name'}
+                  </label>
+                  <input
+                    type="text"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                    placeholder={lang === 'tr' ? 'Girişiminizin adı' : 'Your startup name'}
+                  />
+                </div>
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  {lang === 'tr' ? 'Proje Kategorisi' : 'Project Category'}
+                </label>
+                <select className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                  <option value="">{lang === 'tr' ? 'Seçiniz' : 'Select'}</option>
+                  <option value="fintech">{lang === 'tr' ? 'Fintech' : 'Fintech'}</option>
+                  <option value="healthtech">{lang === 'tr' ? 'Healthtech' : 'Healthtech'}</option>
+                  <option value="edutech">{lang === 'tr' ? 'Edutech' : 'Edutech'}</option>
+                  <option value="ecommerce">{lang === 'tr' ? 'E-ticaret' : 'E-commerce'}</option>
+                  <option value="ai">{lang === 'tr' ? 'Yapay Zeka' : 'Artificial Intelligence'}</option>
+                  <option value="other">{lang === 'tr' ? 'Diğer' : 'Other'}</option>
+                </select>
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  {lang === 'tr' ? 'Geliştirme Aşaması' : 'Development Stage'}
+                </label>
+                <select className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent">
+                  <option value="">{lang === 'tr' ? 'Seçiniz' : 'Select'}</option>
+                  <option value="idea">{lang === 'tr' ? 'Fikir Aşaması' : 'Idea Stage'}</option>
+                  <option value="prototype">{lang === 'tr' ? 'Prototip' : 'Prototype'}</option>
+                  <option value="mvp">{lang === 'tr' ? 'MVP' : 'MVP'}</option>
+                  <option value="market">{lang === 'tr' ? 'Pazarda' : 'In Market'}</option>
+                  <option value="scaling">{lang === 'tr' ? 'Ölçeklendirme' : 'Scaling'}</option>
+                </select>
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  {lang === 'tr' ? 'Proje Açıklaması' : 'Project Description'}
+                </label>
+                <textarea
+                  rows={4}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent"
+                  placeholder={lang === 'tr' ? 'Projenizi detaylı olarak açıklayın...' : 'Describe your project in detail...'}
+                ></textarea>
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  {lang === 'tr' ? 'İhtiyaç Duyduğunuz Destek' : 'Support You Need'}
+                </label>
+                <div className="space-y-2">
+                  <label className="flex items-center">
+                    <input type="checkbox" className="mr-2" />
+                    <span className="text-sm">{lang === 'tr' ? 'Teknik Danışmanlık' : 'Technical Consulting'}</span>
+                  </label>
+                  <label className="flex items-center">
+                    <input type="checkbox" className="mr-2" />
+                    <span className="text-sm">{lang === 'tr' ? 'Mentörlük' : 'Mentorship'}</span>
+                  </label>
+                  <label className="flex items-center">
+                    <input type="checkbox" className="mr-2" />
+                    <span className="text-sm">{lang === 'tr' ? 'Yatırım' : 'Investment'}</span>
+                  </label>
+                  <label className="flex items-center">
+                    <input type="checkbox" className="mr-2" />
+                    <span className="text-sm">{lang === 'tr' ? 'Pazar Erişimi' : 'Market Access'}</span>
+                  </label>
+                </div>
             </div>
             
-            <div className="bg-white rounded-xl shadow p-6 border border-gray-200">
-              <h3 className="text-2xl font-bold mb-4 text-orange-600">
-                {lang === 'tr' ? 'İşbirliği Fırsatları' : 'Collaboration Opportunities'}
-              </h3>
-              <p className="text-gray-700 mb-4">
-                {lang === 'tr'
-                  ? 'Girişimcilerle işbirliği yaparak, yenilikçi projeleri hayata geçiriyoruz. Teknoloji altyapımızı ve uzmanlığımızı paylaşarak, girişimcilerin başarıya ulaşmasına yardımcı oluyoruz.'
-                  : 'We bring innovative projects to life by collaborating with entrepreneurs. We help entrepreneurs achieve success by sharing our technology infrastructure and expertise.'}
-              </p>
-              <button className="w-full bg-orange-600 text-white py-3 px-6 rounded-lg hover:bg-orange-700 transition-colors">
-                {lang === 'tr' ? 'İşbirliği Başvurusu' : 'Collaboration Application'}
+              <button
+                type="submit"
+                className="w-full bg-green-600 text-white py-3 px-6 rounded-lg hover:bg-green-700 transition-colors font-medium"
+              >
+                {lang === 'tr' ? 'Başvuru Gönder' : 'Submit Application'}
               </button>
-            </div>
+            </form>
           </div>
         </div>
       )}
 
       {/* Partnerler sekmesi */}
       {selectedTab === 'partners' && (
-        <div className="max-w-6xl mx-auto px-4 py-12">
+        <div className="max-w-4xl mx-auto px-4 py-12">
           <h2 className="text-3xl font-bold mb-6 text-center">
-            {lang === 'tr' ? 'İş Ortaklıkları' : 'Business Partnerships'}
+            {lang === 'tr' ? 'Partner Başvuru Formu' : 'Partner Application Form'}
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-white rounded-xl shadow p-6 border border-gray-200">
-              <h3 className="text-2xl font-bold mb-4 text-blue-600">
-                {lang === 'tr' ? 'Teknoloji Çözümleri' : 'Technology Solutions'}
-              </h3>
-              <p className="text-gray-700 mb-4">
-                {lang === 'tr'
-                  ? 'Partnerlerimizle birlikte, müşterilerine en iyi teknoloji çözümlerini sunuyoruz. Ortak geliştirme projeleri, entegrasyon çözümleri ve özel yazılım geliştirme hizmetleri sağlıyoruz.'
-                  : 'Together with our partners, we offer the best technology solutions to our customers. We provide joint development projects, integration solutions, and custom software development services.'}
-              </p>
-              <button className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors">
-                {lang === 'tr' ? 'Partnerlik Başvurusu' : 'Partnership Application'}
-              </button>
+          <div className="bg-white rounded-xl shadow-lg p-8 border border-gray-200">
+            <form className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    {lang === 'tr' ? 'Ad Soyad' : 'Full Name'}
+                  </label>
+                  <input
+                    type="text"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                    placeholder={lang === 'tr' ? 'Adınız ve soyadınız' : 'Your full name'}
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    {lang === 'tr' ? 'E-posta' : 'Email'}
+                  </label>
+                  <input
+                    type="email"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                    placeholder={lang === 'tr' ? 'ornek@email.com' : 'example@email.com'}
+                  />
+                </div>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    {lang === 'tr' ? 'Telefon' : 'Phone'}
+                  </label>
+                  <input
+                    type="tel"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                    placeholder={lang === 'tr' ? '+90 5XX XXX XX XX' : '+90 5XX XXX XX XX'}
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    {lang === 'tr' ? 'Şirket Adı' : 'Company Name'}
+                  </label>
+                  <input
+                    type="text"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                    placeholder={lang === 'tr' ? 'Şirketinizin adı' : 'Your company name'}
+                  />
+                </div>
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  {lang === 'tr' ? 'Şirket Türü' : 'Company Type'}
+                </label>
+                <select className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+                  <option value="">{lang === 'tr' ? 'Seçiniz' : 'Select'}</option>
+                  <option value="technology">{lang === 'tr' ? 'Teknoloji Şirketi' : 'Technology Company'}</option>
+                  <option value="consulting">{lang === 'tr' ? 'Danışmanlık Şirketi' : 'Consulting Company'}</option>
+                  <option value="service">{lang === 'tr' ? 'Hizmet Şirketi' : 'Service Company'}</option>
+                  <option value="manufacturing">{lang === 'tr' ? 'Üretim Şirketi' : 'Manufacturing Company'}</option>
+                  <option value="other">{lang === 'tr' ? 'Diğer' : 'Other'}</option>
+                </select>
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  {lang === 'tr' ? 'İşbirliği Alanı' : 'Collaboration Area'}
+                </label>
+                <div className="space-y-2">
+                  <label className="flex items-center">
+                    <input type="checkbox" className="mr-2" />
+                    <span className="text-sm">{lang === 'tr' ? 'Yazılım Geliştirme' : 'Software Development'}</span>
+                  </label>
+                  <label className="flex items-center">
+                    <input type="checkbox" className="mr-2" />
+                    <span className="text-sm">{lang === 'tr' ? 'Sistem Entegrasyonu' : 'System Integration'}</span>
+                  </label>
+                  <label className="flex items-center">
+                    <input type="checkbox" className="mr-2" />
+                    <span className="text-sm">{lang === 'tr' ? 'Danışmanlık Hizmetleri' : 'Consulting Services'}</span>
+                  </label>
+                  <label className="flex items-center">
+                    <input type="checkbox" className="mr-2" />
+                    <span className="text-sm">{lang === 'tr' ? 'Pazarlama ve Satış' : 'Marketing and Sales'}</span>
+                  </label>
+                  <label className="flex items-center">
+                    <input type="checkbox" className="mr-2" />
+                    <span className="text-sm">{lang === 'tr' ? 'Eğitim ve Destek' : 'Training and Support'}</span>
+                  </label>
+                </div>
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  {lang === 'tr' ? 'Şirket Açıklaması' : 'Company Description'}
+                </label>
+                <textarea
+                  rows={4}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  placeholder={lang === 'tr' ? 'Şirketinizi ve işbirliği beklentilerinizi açıklayın...' : 'Describe your company and collaboration expectations...'}
+                ></textarea>
             </div>
             
-            <div className="bg-white rounded-xl shadow p-6 border border-gray-200">
-              <h3 className="text-2xl font-bold mb-4 text-green-600">
-                {lang === 'tr' ? 'Pazar Erişimi' : 'Market Access'}
-              </h3>
-              <p className="text-gray-700 mb-4">
-                {lang === 'tr'
-                  ? 'Güçlü partner ağımız sayesinde, yeni pazarlara erişim sağlıyoruz. Ortak pazarlama kampanyaları, satış kanalları ve müşteri referansları ile büyüme fırsatları yaratıyoruz.'
-                  : 'Thanks to our strong partner network, we provide access to new markets. We create growth opportunities through joint marketing campaigns, sales channels, and customer referrals.'}
-              </p>
-              <button className="w-full bg-green-600 text-white py-3 px-6 rounded-lg hover:bg-green-700 transition-colors">
-                {lang === 'tr' ? 'Pazar Başvurusu' : 'Market Application'}
+              <button
+                type="submit"
+                className="w-full bg-purple-600 text-white py-3 px-6 rounded-lg hover:bg-purple-700 transition-colors font-medium"
+              >
+                {lang === 'tr' ? 'Başvuru Gönder' : 'Submit Application'}
               </button>
-            </div>
+            </form>
           </div>
         </div>
       )}
 
       {/* Basın sekmesi */}
       {selectedTab === 'press' && (
-        <div className="max-w-6xl mx-auto px-4 py-12">
+        <div className="max-w-4xl mx-auto px-4 py-12">
           <h2 className="text-3xl font-bold mb-6 text-center">
-            {lang === 'tr' ? 'Basın ve Medya' : 'Press and Media'}
+            {lang === 'tr' ? 'Basın İletişim Formu' : 'Press Contact Form'}
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-white rounded-xl shadow p-6 border border-gray-200">
-              <h3 className="text-2xl font-bold mb-4 text-purple-600">
-                {lang === 'tr' ? 'Basın Bültenleri' : 'Press Releases'}
-              </h3>
-              <p className="text-gray-700 mb-4">
-                {lang === 'tr'
-                  ? 'Şirketimizin en son gelişmeleri, ürün lansmanları ve önemli duyurular hakkında güncel bilgiler alabilirsiniz. Basın bültenlerimizi takip ederek, Demaş Teknoloji\'nin teknoloji dünyasındaki yeniliklerini öğrenebilirsiniz.'
-                  : 'You can get up-to-date information about our company\'s latest developments, product launches, and important announcements. By following our press releases, you can learn about Demaş Technology\'s innovations in the technology world.'}
-              </p>
-              <button className="w-full bg-purple-600 text-white py-3 px-6 rounded-lg hover:bg-purple-700 transition-colors">
-                {lang === 'tr' ? 'Basın Bültenleri' : 'Press Releases'}
-              </button>
+          <div className="bg-white rounded-xl shadow-lg p-8 border border-gray-200">
+            <form className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    {lang === 'tr' ? 'Ad Soyad' : 'Full Name'}
+                  </label>
+                  <input
+                    type="text"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                    placeholder={lang === 'tr' ? 'Adınız ve soyadınız' : 'Your full name'}
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    {lang === 'tr' ? 'E-posta' : 'Email'}
+                  </label>
+                  <input
+                    type="email"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                    placeholder={lang === 'tr' ? 'ornek@email.com' : 'example@email.com'}
+                  />
+                </div>
+              </div>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    {lang === 'tr' ? 'Telefon' : 'Phone'}
+                  </label>
+                  <input
+                    type="tel"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                    placeholder={lang === 'tr' ? '+90 5XX XXX XX XX' : '+90 5XX XXX XX XX'}
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    {lang === 'tr' ? 'Medya Kurumu' : 'Media Organization'}
+                  </label>
+                  <input
+                    type="text"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                    placeholder={lang === 'tr' ? 'Çalıştığınız medya kurumu' : 'Your media organization'}
+                  />
+                </div>
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  {lang === 'tr' ? 'İletişim Türü' : 'Contact Type'}
+                </label>
+                <select className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent">
+                  <option value="">{lang === 'tr' ? 'Seçiniz' : 'Select'}</option>
+                  <option value="interview">{lang === 'tr' ? 'Röportaj Talebi' : 'Interview Request'}</option>
+                  <option value="press-release">{lang === 'tr' ? 'Basın Bülteni' : 'Press Release'}</option>
+                  <option value="information">{lang === 'tr' ? 'Bilgi Talebi' : 'Information Request'}</option>
+                  <option value="event">{lang === 'tr' ? 'Etkinlik Daveti' : 'Event Invitation'}</option>
+                  <option value="other">{lang === 'tr' ? 'Diğer' : 'Other'}</option>
+                </select>
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  {lang === 'tr' ? 'Konu' : 'Subject'}
+                </label>
+                <input
+                  type="text"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                  placeholder={lang === 'tr' ? 'İletişim konunuz' : 'Your contact subject'}
+                />
+              </div>
+              
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  {lang === 'tr' ? 'Mesaj' : 'Message'}
+                </label>
+                <textarea
+                  rows={4}
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                  placeholder={lang === 'tr' ? 'Detaylı mesajınız...' : 'Your detailed message...'}
+                ></textarea>
             </div>
             
-            <div className="bg-white rounded-xl shadow p-6 border border-gray-200">
-              <h3 className="text-2xl font-bold mb-4 text-orange-600">
-                {lang === 'tr' ? 'Medya İletişimi' : 'Media Contact'}
-              </h3>
-              <p className="text-gray-700 mb-4">
-                {lang === 'tr'
-                  ? 'Basın mensupları ve medya temsilcileri için özel iletişim kanallarımız bulunmaktadır. Röportaj talepleri, bilgi istekleri ve medya ilişkileri için bizimle iletişime geçebilirsiniz.'
-                  : 'We have special communication channels for press representatives and media representatives. You can contact us for interview requests, information requests, and media relations.'}
-              </p>
-              <button className="w-full bg-orange-600 text-white py-3 px-6 rounded-lg hover:bg-orange-700 transition-colors">
-                {lang === 'tr' ? 'İletişim Kur' : 'Contact Us'}
+              <button
+                type="submit"
+                className="w-full bg-orange-600 text-white py-3 px-6 rounded-lg hover:bg-orange-700 transition-colors font-medium"
+              >
+                {lang === 'tr' ? 'Mesaj Gönder' : 'Send Message'}
               </button>
-            </div>
+            </form>
           </div>
         </div>
       )}

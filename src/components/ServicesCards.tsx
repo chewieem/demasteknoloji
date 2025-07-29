@@ -14,8 +14,8 @@ const services = [
       en: 'Consultancy Services',
     },
     desc: {
-      tr: 'Bilgi güvenliği, iş sürekliliği, kişisel veri yönetimi, BT servis yönetimleri gibi birçok alanda hizmet etmek için buradayız.',
-      en: 'We are here to serve in many areas such as information security, business continuity, personal data management, and IT service management.',
+      tr: 'Bilgi güvenliği, iş sürekliliği, KVKK uyumu ve BT hizmet yönetimi konularında danışmanlık veriyoruz.',
+      en: 'We provide consultancy in information security, business continuity, GDPR compliance and IT service management.',
     },
     link: '#consultancy',
   },
@@ -26,20 +26,20 @@ const services = [
       en: 'Professional Services',
     },
     desc: {
-      tr: 'Müşteri memnuniyetini esas alarak kalite standartlarına yönelik hizmet sunuyoruz.',
-      en: 'We provide services focused on customer satisfaction and quality standards.',
+      tr: 'İhtiyacınıza özel geliştirilen çözümlerle, kalite ve müşteri memnuniyetini temel alarak hizmet sağlıyoruz.',
+      en: 'We provide services based on quality and customer satisfaction with solutions developed specifically for your needs.',
     },
     link: '#professional',
   },
   {
     icon: <DevicePhoneMobileIcon className="h-10 w-10 text-blue-600" />,
     title: {
-      tr: 'Uygulama Geliştirme Hizmeti',
-      en: 'Application Development Service',
+      tr: 'Uygulama Geliştirme Hizmetleri',
+      en: 'Application Development Services',
     },
     desc: {
-      tr: 'Android, iOS gibi en çok kullanılan mobil platformlar üzerinde her türlü ihtiyaca özel akıllı telefon uygulamaları sunuyoruz.',
-      en: 'We offer custom smartphone applications for all needs on popular mobile platforms such as Android and iOS.',
+      tr: 'iOS ve Android için akıllı telefon uygulamaları geliştiriyor, kullanıcı deneyimini yapay zeka destekli analizlerle en üst düzeye çıkarıyoruz.',
+      en: 'We develop smartphone applications for iOS and Android, maximizing user experience with AI-powered analytics.',
     },
     link: '#appdev',
   },

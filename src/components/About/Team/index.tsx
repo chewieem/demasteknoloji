@@ -14,7 +14,8 @@ import {
   GlobeAltIcon,
   ClockIcon,
   EnvelopeIcon,
-  PhoneIcon
+  PhoneIcon,
+  UserIcon
 } from '@heroicons/react/24/outline';
 
 const TABS = [
@@ -50,7 +51,8 @@ const Team: React.FC = () => {
   const tabPath = pathParts[pathParts.length - 1];
   let initialTab = 'overview';
   if (tabPath === 'management') initialTab = 'management';
-  else if (tabPath === 'team') initialTab = 'team';
+  else if (tabPath === 'team' && pathParts.length > 4) initialTab = 'team';
+  else initialTab = 'overview';
   const [selectedTab, setSelectedTab] = useState(initialTab);
 
   // Sekme değişince URL'yi güncelle
@@ -58,7 +60,7 @@ const Team: React.FC = () => {
     setSelectedTab(key);
     const tabObj = TABS.find(t => t.key === key);
     let base = `/${lang}/about/team`;
-    if (tabObj && tabObj.path) base += `/${tabObj.path}`;
+    if (tabObj && tabObj.path && tabObj.path !== '') base += `/${tabObj.path}`;
     navigate(base, { replace: true });
   };
 
@@ -67,7 +69,7 @@ const Team: React.FC = () => {
     const pathParts = location.pathname.split('/');
     const tabPath = pathParts[pathParts.length - 1];
     if (tabPath === 'management') setSelectedTab('management');
-    else if (tabPath === 'team') setSelectedTab('team');
+    else if (tabPath === 'team' && pathParts.length > 4) setSelectedTab('team');
     else setSelectedTab('overview');
   }, [location.pathname]);
 
@@ -112,60 +114,23 @@ const Team: React.FC = () => {
       {selectedTab === 'overview' && (
         <>
           <HeroImageTextSection
-            title={lang === 'tr' ? 'Yönetim ve Ekibimiz' : 'Management & Our Team'}
+            title={lang === 'tr' ? 'Ekibimiz' : 'Our Team'}
             style={{ textAlign: 'justify' }}
             paragraphs={[
               lang === 'tr'
-                ? 'Demaş Teknoloji A.Ş., sadece yenilikçi teknolojileriyle değil, aynı zamanda alanında uzman, vizyoner ve tutkulu ekibiyle fark yaratır.'
-                : 'Demaş Technology Inc. makes a difference not only with its innovative technologies, but also with its expert, visionary and passionate team.',
+                ? 'Demaş Teknoloji A.Ş., yalnızca geliştirdiği yenilikçi teknolojilerle değil; aynı zamanda alanında uzman, vizyon sahibi ve tutkulu ekibiyle de fark yaratmaktadır.'
+                : 'Demaş Technology Inc. makes a difference not only with the innovative technologies it develops; but also with its expert, visionary and passionate team.',
               lang === 'tr'
-                ? 'Her biri kendi alanında derin bilgiye ve deneyime sahip olan kadromuz, yapay zeka destekli çözümlerle işletmelere katma değer sağlamak için çalışmaktadır.'
-                : 'Our staff, each with deep knowledge and experience in their own field, works to provide added value to businesses with AI-powered solutions.',
+                ? 'Her biri kendi uzmanlık alanında derin bilgi ve deneyime sahip kadromuz, yapay zeka destekli çözümler geliştirerek işletmelere katma değer sağlamak amacıyla çalışır.'
+                : 'Our staff, each with deep knowledge and experience in their own field of expertise, works to provide added value to businesses by developing AI-powered solutions.',
               lang === 'tr'
-                ? 'Biz, teknolojinin arkasında insan gücünün olduğunu biliyor; ekip kültürümüzü güven, iş birliği ve sürekli gelişim üzerine inşa ediyoruz.'
-                : 'We know that there is human power behind technology; we build our team culture on trust, collaboration and continuous development.',
+                ? 'Biz teknolojinin arkasında insanın gücünün olduğuna inanıyoruz. Bu nedenle ekip kültürümüzü güven, iş birliği ve sürekli gelişim ilkeleri üzerine inşa ediyoruz.'
+                : 'We believe in the power of people behind technology. That\'s why we build our team culture on the principles of trust, collaboration and continuous improvement.',
               lang === 'tr'
-                ? 'Takım çalışması, sürekli öğrenme ve inovasyon kültürümüzle, her projede mükemmelliği hedefliyoruz. Uzmanlık alanlarımız yapay zeka, makine öğrenimi, web geliştirme ve mobil teknolojiler olmak üzere geniş bir yelpazeyi kapsamaktadır.'
-                : 'With our culture of teamwork, continuous learning and innovation, we aim for excellence in every project. Our areas of expertise cover a wide range including artificial intelligence, machine learning, web development and mobile technologies.'
+                ? 'Takım çalışması, öğrenme ve inovasyon kültürümüz sayesinde her projede mükemmelliği hedefliyoruz. Uzmanlık alanlarımız; yapay zeka, makine öğrenimi, web geliştirme, mobil teknolojiler ve daha fazlasını kapsayan geniş bir yelpazeye yayılmış durumdadır.'
+                : 'Thanks to our culture of teamwork, learning and innovation, we aim for excellence in every project. Our areas of expertise are spread across a wide range covering artificial intelligence, machine learning, web development, mobile technologies and more.'
             ]}
           />
-          <section className="py-16 bg-white">
-            <div className="max-w-7xl mx-auto px-4">
-              <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">
-                {lang === 'tr' ? 'Ekip İstatistiklerimiz' : 'Our Team Statistics'}
-              </h2>
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-                <div className="text-center">
-                  <div className="bg-blue-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                    <UserGroupIcon className="h-8 w-8 text-blue-600" />
-                  </div>
-                  <div className="text-3xl font-bold text-blue-600 mb-2">50+</div>
-                  <div className="text-gray-600">{lang === 'tr' ? 'Profesyonel' : 'Professionals'}</div>
-                </div>
-                <div className="text-center">
-                  <div className="bg-green-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                    <AcademicCapIcon className="h-8 w-8 text-green-600" />
-                  </div>
-                  <div className="text-3xl font-bold text-green-600 mb-2">8+</div>
-                  <div className="text-gray-600">{lang === 'tr' ? 'Ortalama Deneyim' : 'Avg. Experience'}</div>
-                </div>
-                <div className="text-center">
-                  <div className="bg-purple-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                    <GlobeAltIcon className="h-8 w-8 text-purple-600" />
-                  </div>
-                  <div className="text-3xl font-bold text-purple-600 mb-2">15+</div>
-                  <div className="text-gray-600">{lang === 'tr' ? 'Ülke' : 'Countries'}</div>
-                </div>
-                <div className="text-center">
-                  <div className="bg-orange-100 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                    <ClockIcon className="h-8 w-8 text-orange-600" />
-                  </div>
-                  <div className="text-3xl font-bold text-orange-600 mb-2">24/7</div>
-                  <div className="text-gray-600">{lang === 'tr' ? 'Destek' : 'Support'}</div>
-                </div>
-              </div>
-            </div>
-          </section>
         </>
       )}
       {/* Yönetim sekmesi seçiliyse özel section'lar */}
@@ -176,20 +141,14 @@ const Team: React.FC = () => {
             style={{ textAlign: 'justify' }}
             paragraphs={[
               lang === 'tr'
-                ? 'Demaş Teknoloji A.Ş.\'nin başarısının arkasında, alanında uzman, vizyon sahibi ve dinamik bir yönetim kadrosu bulunmaktadır.'
-                : 'Behind the success of Demaş Technology Inc. lies an expert, visionary and dynamic management team.',
+                ? 'Demaş Teknoloji A.Ş.\'nin başarısının temelinde, teknolojiyi stratejik vizyonla buluşturan, deneyimli ve dinamik bir yönetim kadrosu yer almaktadır.'
+                : 'At the foundation of Demaş Technology Inc.\'s success lies an experienced and dynamic management team that brings together technology with strategic vision.',
               lang === 'tr'
-                ? 'Her biri kendi uzmanlık alanında uzun yıllara dayanan deneyime sahip olan yöneticilerimiz, şirketimizin stratejik hedeflerine yön verirken; teknolojiyi, verimliliği ve sürdürülebilir büyümeyi merkeze alır.'
-                : 'Our managers, each with years of experience in their own areas of expertise, center technology, efficiency and sustainable growth while guiding our company\'s strategic goals.',
+                ? 'Her biri kendi alanında uzun yıllara dayanan birikime sahip yöneticilerimiz; şirketimizin stratejik hedeflerini belirlerken, verimlilik, teknolojik liderlik ve sürdürülebilir büyüme ilkeleri doğrultusunda hareket eder.'
+                : 'Our managers, each with years of accumulation in their own fields; act in line with the principles of efficiency, technological leadership and sustainable growth while determining our company\'s strategic goals.',
               lang === 'tr'
-                ? 'Yapay zeka destekli yazılım çözümleri üretme vizyonumuz doğrultusunda; yönetim ekibimiz, yenilikçi düşünce yapısıyla sadece bugünü değil, geleceği de inşa etmeyi hedeflemektedir.'
-                : 'In line with our vision of producing AI-powered software solutions; our management team aims to build not only today but also the future with its innovative thinking structure.',
-              lang === 'tr'
-                ? 'Şeffaflık, etik değerler ve takım ruhu ilkeleriyle hareket eden lider kadromuz, hem çalışanlarımıza hem de iş ortaklarımıza ilham veren bir yönetim anlayışını benimsemektedir.'
-                : 'Our leadership team, acting with the principles of transparency, ethical values and team spirit, adopts a management approach that inspires both our employees and business partners.',
-              lang === 'tr'
-                ? 'Demaş Teknoloji A.Ş., güçlü yönetim kadrosuyla teknoloji dünyasında fark yaratmaya ve dijital dönüşüme öncülük etmeye devam ediyor.'
-                : 'Demaş Technology Inc. continues to make a difference in the technology world and lead digital transformation with its strong management team.'
+                ? 'Yönetim kadromuz; şeffaflık, etik değerler ve takım ruhunu esas alarak, yalnızca bugünün değil, geleceğin teknolojisini şekillendirme hedefiyle ilerlemektedir.'
+                : 'Our management team; proceeds with the goal of shaping not only today\'s but also tomorrow\'s technology, based on transparency, ethical values and team spirit.'
             ]}
           />
           <section className="py-16 bg-gray-50">
@@ -210,8 +169,8 @@ const Team: React.FC = () => {
                   <div className="group-hover:hidden">
                     <p className="text-xs md:text-sm text-gray-600 leading-relaxed">
                       {lang === 'tr' 
-                        ? 'Ahmet Cumhur Kitiş, teknoloji sektöründe uzun yıllara dayanan deneyimiyle Demaş Teknoloji A.Ş.\'nin vizyoner lideridir. Yapay zeka ve dijital dönüşüm alanlarında öncü çalışmalarıyla sektöre yön veren Kitiş, şirketin stratejik büyüme hedeflerini belirlemekte ve teknoloji odaklı çözümler geliştirilmesinde kritik rol oynamaktadır.'
-                        : 'Ahmet Cumhur Kitis is the visionary leader of Demaş Technology Inc. with his long-standing experience in the technology sector. Kitis, who leads the industry with his pioneering work in artificial intelligence and digital transformation, plays a critical role in determining the company\'s strategic growth goals and developing technology-focused solutions.'
+                        ? 'Ahmet Cumhur Kitiş, teknoloji sektöründe uzun yıllara dayanan tecrübesiyle Demaş Teknoloji A.Ş.\'nin vizyoner lideridir. Yapay zeka ve dijital dönüşüm konularındaki öncü yaklaşımlarıyla, şirketin stratejik büyüme hedeflerini şekillendirmekte ve teknoloji tabanlı çözümlerin geliştirilmesinde aktif rol üstlenmektedir.'
+                        : 'Ahmet Cumhur Kitis is the visionary leader of Demaş Technology Inc. with his long-standing experience in the technology sector. With his pioneering approaches in artificial intelligence and digital transformation, he shapes the company\'s strategic growth goals and takes an active role in developing technology-based solutions.'
                       }
                     </p>
                   </div>
@@ -273,8 +232,8 @@ const Team: React.FC = () => {
                   <div className="group-hover:hidden">
                     <p className="text-xs md:text-sm text-gray-600 leading-relaxed">
                       {lang === 'tr' 
-                        ? 'D. Yüksel Sinangil, yazılım geliştirme ve şirket yönetimi konularındaki derin bilgisiyle Demaş Teknoloji A.Ş.\'nin operasyonel mükemmelliğini sağlamaktadır. Müşteri odaklı yaklaşımı ve yenilikçi çözümler geliştirme konusundaki uzmanlığıyla, şirketin günlük operasyonlarını yönetmekte ve sürdürülebilir büyüme stratejilerini uygulamaktadır.'
-                        : 'D. Yuksel Sinangil ensures the operational excellence of Demaş Technology Inc. with his deep knowledge in software development and company management. With his customer-focused approach and expertise in developing innovative solutions, he manages the company\'s daily operations and implements sustainable growth strategies.'
+                        ? 'D. Yüksel Sinangil, yazılım geliştirme ve şirket yönetimi konularındaki derin uzmanlığıyla, Demaş Teknoloji A.Ş.\'nin operasyonel mükemmelliğini sağlamaktadır. Müşteri odaklı yaklaşımı ve yenilikçi çözüm anlayışı sayesinde, şirketin günlük operasyonlarını etkin biçimde yönetmekte ve sürdürülebilir büyüme stratejilerini başarıyla uygulamaktadır.'
+                        : 'D. Yuksel Sinangil ensures the operational excellence of Demaş Technology Inc. with his deep expertise in software development and company management. Thanks to his customer-focused approach and innovative solution understanding, he effectively manages the company\'s daily operations and successfully implements sustainable growth strategies.'
                       }
                     </p>
                   </div>
@@ -329,68 +288,240 @@ const Team: React.FC = () => {
       {/* Ekibimiz sekmesi seçiliyse özel section'lar */}
       {selectedTab === 'team' && (
         <>
-          <HeroImageTextSection
-            title={lang === 'tr' ? 'Ekibimiz' : 'Our Team'}
-            style={{ textAlign: 'justify' }}
-            paragraphs={[
-              lang === 'tr'
-                ? 'Uzman ekibimizle müşterilerimizin ihtiyaçlarını en iyi şekilde karşılıyoruz. Yapay zeka, makine öğrenimi, web geliştirme ve mobil teknolojiler alanlarında uzmanlaşmış 50+ profesyonelden oluşan ekibimiz, her projede mükemmelliği hedefliyor.'
-                : 'We meet our customers needs in the best way with our expert team. Our team of 50+ professionals specialized in artificial intelligence, machine learning, web development and mobile technologies aims for excellence in every project.'
-            ]}
-          />
           <section className="py-16 bg-white">
             <div className="max-w-7xl mx-auto px-4">
               <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">
-                {lang === 'tr' ? 'Departmanlarımız' : 'Our Departments'}
+                {lang === 'tr' ? 'Ekibimiz' : 'Our Team'}
               </h2>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-6">
-                  <div className="flex items-center mb-4">
-                    <CogIcon className="h-8 w-8 text-blue-600 mr-3" />
-                    <h3 className="text-xl font-bold text-gray-900">{lang === 'tr' ? 'Yazılım Geliştirme' : 'Software Development'}</h3>
+                {/* Kişi 1 */}
+                <div className="bg-white rounded-xl shadow-lg p-6 text-center transition-all duration-300 hover:shadow-xl hover:scale-105 group overflow-visible relative hover:z-10">
+                  <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden">
+                    <img 
+                      src={process.env.PUBLIC_URL + '/ack.png'} 
+                      alt="Ahmet Cumhur Kitiş" 
+                      className="w-full h-full object-cover"
+                    />
                   </div>
-                  <p className="text-gray-600 mb-4">{lang === 'tr' ? '25+ geliştirici ile modern teknolojiler kullanarak yenilikçi çözümler geliştiriyoruz.' : 'We develop innovative solutions using modern technologies with 25+ developers.'}</p>
-                  <div className="text-sm text-blue-600 font-semibold">{lang === 'tr' ? 'React, Node.js, Python, AI/ML' : 'React, Node.js, Python, AI/ML'}</div>
+                  <h3 className="text-lg font-bold mb-2 text-gray-900">{lang === 'tr' ? 'Ahmet Cumhur Kitiş' : 'Ahmet Cumhur Kitis'}</h3>
+                  <p className="text-blue-600 font-semibold mb-3">{lang === 'tr' ? 'Yönetim Kurulu Başkanı' : 'Chairman of the Board'}</p>
+                  
+                  {/* Normal durumda gösterilen metin */}
+                  <div className="group-hover:hidden">
+                    <p className="text-sm text-gray-600 leading-relaxed">
+                      {lang === 'tr' 
+                        ? 'Teknoloji sektöründe uzun yıllara dayanan tecrübesiyle vizyoner lider.'
+                        : 'Visionary leader with long-standing experience in the technology sector.'
+                      }
+                    </p>
+                  </div>
+
+                  {/* Hover durumunda gösterilen iletişim bilgileri */}
+                  <div className="hidden group-hover:block">
+                    <div className="space-y-2">
+                      <div className="flex items-center justify-center">
+                        <EnvelopeIcon className="h-4 w-4 text-gray-500 mr-2" />
+                        <a href="mailto:ack@demasteknoloji.com" className="text-sm text-blue-600 hover:text-blue-800 transition-colors">
+                          ack@demasteknoloji.com
+                        </a>
+                      </div>
+                      <div className="flex items-center justify-center">
+                        <PhoneIcon className="h-4 w-4 text-gray-500 mr-2" />
+                        <a href="tel:+902121234567" className="text-sm text-blue-600 hover:text-blue-800 transition-colors">
+                          +90 (212) 123 45 67
+                        </a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-6">
-                  <div className="flex items-center mb-4">
-                    <HeartIcon className="h-8 w-8 text-green-600 mr-3" />
-                    <h3 className="text-xl font-bold text-gray-900">{lang === 'tr' ? 'Tasarım & UX' : 'Design & UX'}</h3>
+
+                {/* Kişi 2 */}
+                <div className="bg-white rounded-xl shadow-lg p-6 text-center transition-all duration-300 hover:shadow-xl hover:scale-105 group overflow-visible relative hover:z-10">
+                  <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden">
+                    <img 
+                      src={process.env.PUBLIC_URL + '/dys.png'} 
+                      alt="D. Yüksel Sinangil" 
+                      className="w-full h-full object-cover"
+                    />
                   </div>
-                  <p className="text-gray-600 mb-4">{lang === 'tr' ? 'Kullanıcı deneyimini merkeze alan tasarım ekibimizle kullanıcı dostu arayüzler oluşturuyoruz.' : 'We create user-friendly interfaces with our design team that centers user experience.'}</p>
-                  <div className="text-sm text-green-600 font-semibold">{lang === 'tr' ? 'Figma, Adobe XD, UI/UX' : 'Figma, Adobe XD, UI/UX'}</div>
+                  <h3 className="text-lg font-bold mb-2 text-gray-900">{lang === 'tr' ? 'D. Yüksel Sinangil' : 'D. Yuksel Sinangil'}</h3>
+                  <p className="text-blue-600 font-semibold mb-3">{lang === 'tr' ? 'Genel Müdür' : 'General Manager'}</p>
+                  
+                  {/* Normal durumda gösterilen metin */}
+                  <div className="group-hover:hidden">
+                    <p className="text-sm text-gray-600 leading-relaxed">
+                      {lang === 'tr' 
+                        ? 'Yazılım geliştirme ve şirket yönetimi konularında derin uzmanlık.'
+                        : 'Deep expertise in software development and company management.'
+                      }
+                    </p>
+                  </div>
+
+                  {/* Hover durumunda gösterilen iletişim bilgileri */}
+                  <div className="hidden group-hover:block">
+                    <div className="space-y-2">
+                      <div className="flex items-center justify-center">
+                        <EnvelopeIcon className="h-4 w-4 text-gray-500 mr-2" />
+                        <a href="mailto:dys@demasteknoloji.com" className="text-sm text-blue-600 hover:text-blue-800 transition-colors">
+                          dys@demasteknoloji.com
+                        </a>
+                      </div>
+                      <div className="flex items-center justify-center">
+                        <PhoneIcon className="h-4 w-4 text-gray-500 mr-2" />
+                        <a href="tel:+902121234568" className="text-sm text-blue-600 hover:text-blue-800 transition-colors">
+                          +90 (212) 123 45 68
+                        </a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-xl p-6">
-                  <div className="flex items-center mb-4">
-                    <ChartBarIcon className="h-8 w-8 text-purple-600 mr-3" />
-                    <h3 className="text-xl font-bold text-gray-900">{lang === 'tr' ? 'Proje Yönetimi' : 'Project Management'}</h3>
+
+                {/* Kişi 3 */}
+                <div className="bg-white rounded-xl shadow-lg p-6 text-center transition-all duration-300 hover:shadow-xl hover:scale-105 group overflow-visible relative hover:z-10">
+                  <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden bg-gray-200 flex items-center justify-center">
+                    <UserIcon className="h-12 w-12 text-gray-400" />
                   </div>
-                  <p className="text-gray-600 mb-4">{lang === 'tr' ? 'Agile metodolojiler ile projeleri zamanında ve bütçe dahilinde tamamlıyoruz.' : 'We complete projects on time and within budget using Agile methodologies.'}</p>
-                  <div className="text-sm text-purple-600 font-semibold">{lang === 'tr' ? 'Scrum, Kanban, Jira' : 'Scrum, Kanban, Jira'}</div>
+                  <h3 className="text-lg font-bold mb-2 text-gray-900">{lang === 'tr' ? 'Mehmet Yılmaz' : 'Mehmet Yilmaz'}</h3>
+                  <p className="text-blue-600 font-semibold mb-3">{lang === 'tr' ? 'Teknoloji Direktörü' : 'Technology Director'}</p>
+                  
+                  {/* Normal durumda gösterilen metin */}
+                  <div className="group-hover:hidden">
+                    <p className="text-sm text-gray-600 leading-relaxed">
+                      {lang === 'tr' 
+                        ? 'Yapay zeka ve makine öğrenimi konularında uzman teknoloji lideri.'
+                        : 'Expert technology leader in artificial intelligence and machine learning.'
+                      }
+                    </p>
+                  </div>
+
+                  {/* Hover durumunda gösterilen iletişim bilgileri */}
+                  <div className="hidden group-hover:block">
+                    <div className="space-y-2">
+                      <div className="flex items-center justify-center">
+                        <EnvelopeIcon className="h-4 w-4 text-gray-500 mr-2" />
+                        <a href="mailto:my@demasteknoloji.com" className="text-sm text-blue-600 hover:text-blue-800 transition-colors">
+                          my@demasteknoloji.com
+                        </a>
+                      </div>
+                      <div className="flex items-center justify-center">
+                        <PhoneIcon className="h-4 w-4 text-gray-500 mr-2" />
+                        <a href="tel:+902121234569" className="text-sm text-blue-600 hover:text-blue-800 transition-colors">
+                          +90 (212) 123 45 69
+                        </a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div className="bg-gradient-to-br from-orange-50 to-orange-100 rounded-xl p-6">
-                  <div className="flex items-center mb-4">
-                    <GlobeAltIcon className="h-8 w-8 text-orange-600 mr-3" />
-                    <h3 className="text-xl font-bold text-gray-900">{lang === 'tr' ? 'Satış & Pazarlama' : 'Sales & Marketing'}</h3>
+
+                {/* Kişi 4 */}
+                <div className="bg-white rounded-xl shadow-lg p-6 text-center transition-all duration-300 hover:shadow-xl hover:scale-105 group overflow-visible relative hover:z-10">
+                  <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden bg-gray-200 flex items-center justify-center">
+                    <UserIcon className="h-12 w-12 text-gray-400" />
                   </div>
-                  <p className="text-gray-600 mb-4">{lang === 'tr' ? 'Müşteri ihtiyaçlarını anlayarak en uygun çözümleri sunuyoruz.' : 'We offer the most suitable solutions by understanding customer needs.'}</p>
-                  <div className="text-sm text-orange-600 font-semibold">{lang === 'tr' ? 'CRM, Digital Marketing' : 'CRM, Digital Marketing'}</div>
+                  <h3 className="text-lg font-bold mb-2 text-gray-900">{lang === 'tr' ? 'Ayşe Demir' : 'Ayse Demir'}</h3>
+                  <p className="text-blue-600 font-semibold mb-3">{lang === 'tr' ? 'Tasarım Direktörü' : 'Design Director'}</p>
+                  
+                  {/* Normal durumda gösterilen metin */}
+                  <div className="group-hover:hidden">
+                    <p className="text-sm text-gray-600 leading-relaxed">
+                      {lang === 'tr' 
+                        ? 'Kullanıcı deneyimi ve arayüz tasarımı konularında uzman.'
+                        : 'Expert in user experience and interface design.'
+                      }
+                    </p>
+                  </div>
+
+                  {/* Hover durumunda gösterilen iletişim bilgileri */}
+                  <div className="hidden group-hover:block">
+                    <div className="space-y-2">
+                      <div className="flex items-center justify-center">
+                        <EnvelopeIcon className="h-4 w-4 text-gray-500 mr-2" />
+                        <a href="mailto:ad@demasteknoloji.com" className="text-sm text-blue-600 hover:text-blue-800 transition-colors">
+                          ad@demasteknoloji.com
+                        </a>
+                      </div>
+                      <div className="flex items-center justify-center">
+                        <PhoneIcon className="h-4 w-4 text-gray-500 mr-2" />
+                        <a href="tel:+902121234570" className="text-sm text-blue-600 hover:text-blue-800 transition-colors">
+                          +90 (212) 123 45 70
+                        </a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div className="bg-gradient-to-br from-red-50 to-red-100 rounded-xl p-6">
-                  <div className="flex items-center mb-4">
-                    <AcademicCapIcon className="h-8 w-8 text-red-600 mr-3" />
-                    <h3 className="text-xl font-bold text-gray-900">{lang === 'tr' ? 'İnsan Kaynakları' : 'Human Resources'}</h3>
+
+                {/* Kişi 5 */}
+                <div className="bg-white rounded-xl shadow-lg p-6 text-center transition-all duration-300 hover:shadow-xl hover:scale-105 group overflow-visible relative hover:z-10">
+                  <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden bg-gray-200 flex items-center justify-center">
+                    <UserIcon className="h-12 w-12 text-gray-400" />
                   </div>
-                  <p className="text-gray-600 mb-4">{lang === 'tr' ? 'En yetenekli profesyonelleri ekibimize katıyor ve gelişimlerini destekliyoruz.' : 'We bring the most talented professionals to our team and support their development.'}</p>
-                  <div className="text-sm text-red-600 font-semibold">{lang === 'tr' ? 'Recruitment, Training' : 'Recruitment, Training'}</div>
+                  <h3 className="text-lg font-bold mb-2 text-gray-900">{lang === 'tr' ? 'Can Özkan' : 'Can Ozkan'}</h3>
+                  <p className="text-blue-600 font-semibold mb-3">{lang === 'tr' ? 'Proje Yöneticisi' : 'Project Manager'}</p>
+                  
+                  {/* Normal durumda gösterilen metin */}
+                  <div className="group-hover:hidden">
+                    <p className="text-sm text-gray-600 leading-relaxed">
+                      {lang === 'tr' 
+                        ? 'Çevik proje yönetimi ve ekip liderliği konularında deneyimli.'
+                        : 'Experienced in agile project management and team leadership.'
+                      }
+                    </p>
+                  </div>
+
+                  {/* Hover durumunda gösterilen iletişim bilgileri */}
+                  <div className="hidden group-hover:block">
+                    <div className="space-y-2">
+                      <div className="flex items-center justify-center">
+                        <EnvelopeIcon className="h-4 w-4 text-gray-500 mr-2" />
+                        <a href="mailto:co@demasteknoloji.com" className="text-sm text-blue-600 hover:text-blue-800 transition-colors">
+                          co@demasteknoloji.com
+                        </a>
+                      </div>
+                      <div className="flex items-center justify-center">
+                        <PhoneIcon className="h-4 w-4 text-gray-500 mr-2" />
+                        <a href="tel:+902121234571" className="text-sm text-blue-600 hover:text-blue-800 transition-colors">
+                          +90 (212) 123 45 71
+                        </a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div className="bg-gradient-to-br from-indigo-50 to-indigo-100 rounded-xl p-6">
-                  <div className="flex items-center mb-4">
-                    <LightBulbIcon className="h-8 w-8 text-indigo-600 mr-3" />
-                    <h3 className="text-xl font-bold text-gray-900">{lang === 'tr' ? 'Ar-Ge & İnovasyon' : 'R&D & Innovation'}</h3>
+
+                {/* Kişi 6 */}
+                <div className="bg-white rounded-xl shadow-lg p-6 text-center transition-all duration-300 hover:shadow-xl hover:scale-105 group overflow-visible relative hover:z-10">
+                  <div className="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden bg-gray-200 flex items-center justify-center">
+                    <UserIcon className="h-12 w-12 text-gray-400" />
                   </div>
-                  <p className="text-gray-600 mb-4">{lang === 'tr' ? 'Yenilikçi teknolojiler geliştirerek sektöre öncülük ediyoruz.' : 'We lead the industry by developing innovative technologies.'}</p>
-                  <div className="text-sm text-indigo-600 font-semibold">{lang === 'tr' ? 'AI Research, Innovation' : 'AI Research, Innovation'}</div>
+                  <h3 className="text-lg font-bold mb-2 text-gray-900">{lang === 'tr' ? 'Zeynep Kaya' : 'Zeynep Kaya'}</h3>
+                  <p className="text-blue-600 font-semibold mb-3">{lang === 'tr' ? 'İnsan Kaynakları Müdürü' : 'HR Manager'}</p>
+                  
+                  {/* Normal durumda gösterilen metin */}
+                  <div className="group-hover:hidden">
+                    <p className="text-sm text-gray-600 leading-relaxed">
+                      {lang === 'tr' 
+                        ? 'Yetenek yönetimi ve organizasyonel gelişim konularında uzman.'
+                        : 'Expert in talent management and organizational development.'
+                      }
+                    </p>
+                  </div>
+
+                  {/* Hover durumunda gösterilen iletişim bilgileri */}
+                  <div className="hidden group-hover:block">
+                    <div className="space-y-2">
+                      <div className="flex items-center justify-center">
+                        <EnvelopeIcon className="h-4 w-4 text-gray-500 mr-2" />
+                        <a href="mailto:zk@demasteknoloji.com" className="text-sm text-blue-600 hover:text-blue-800 transition-colors">
+                          zk@demasteknoloji.com
+                        </a>
+                      </div>
+                      <div className="flex items-center justify-center">
+                        <PhoneIcon className="h-4 w-4 text-gray-500 mr-2" />
+                        <a href="tel:+902121234572" className="text-sm text-blue-600 hover:text-blue-800 transition-colors">
+                          +90 (212) 123 45 72
+                        </a>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

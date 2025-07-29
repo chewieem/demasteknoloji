@@ -18,13 +18,13 @@ const TABS = [
 
 const content = {
   tr: {
-    title: 'Mobil Uygulamalar',
+    title: 'Fiyat Borsası',
     description: 'Mobil uygulama geliştirme ve yönetim çözümleri',
     footerLang: 'tr',
     headerLang: 'tr',
   },
   en: {
-    title: 'Mobile Applications',
+    title: 'Fiyat Borsası',
     description: 'Mobile application development and management solutions',
     footerLang: 'en',
     headerLang: 'en',
@@ -50,7 +50,7 @@ const WebApplications: React.FC = () => {
   const handleTabChange = (key: string) => {
     setSelectedTab(key);
     const tabObj = TABS.find(t => t.key === key);
-    let base = `/${lang}/products/web-applications`;
+    let base = `/${lang}/investment/fiyat-borsasi`;
     if (tabObj && tabObj.path) base += `/${tabObj.path}`;
     navigate(base, { replace: true });
   };
@@ -69,9 +69,9 @@ const WebApplications: React.FC = () => {
     <div className="mt-1 mb-2 text-sm flex items-center space-x-2">
       <Link to={`/${lang}`} className="text-gray-400 font-bold">{lang === 'tr' ? 'Ana Sayfa' : 'Home'}</Link>
       <span className="text-gray-400 font-bold">/</span>
-      <Link to={`/${lang}/products`} className="text-gray-400 font-bold">{lang === 'tr' ? 'Ürünler' : 'Products'}</Link>
+      <Link to={`/${lang}/investments`} className="text-gray-400 font-bold">{lang === 'tr' ? 'Yatırımlarımız' : 'Our Investments'}</Link>
       <span className="text-gray-400 font-bold">/</span>
-      <Link to={`/${lang}/products/web-applications`} className="text-gray-400 font-bold">{lang === 'tr' ? 'Web Uygulamaları' : 'Web Applications'}</Link>
+      <Link to={`/${lang}/investment/fiyat-borsasi`} className="text-gray-400 font-bold">{lang === 'tr' ? 'Fiyat Borsası' : 'Fiyat Borsası'}</Link>
       {selectedTab !== 'overview' && (
         <>
           <span className="text-gray-400 font-bold">/</span>

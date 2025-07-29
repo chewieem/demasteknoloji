@@ -107,17 +107,20 @@ const Company: React.FC = () => {
             style={{ textAlign: 'justify' }}
             paragraphs={[
               lang === 'tr'
-                ? 'Demaş Teknoloji, yapay zeka alanında ve yapay zeka destekli yazılım çözümleri konusunda uzmanlaşmış, yenilikçi bir teknoloji şirketidir. 2025 yılının 3. çeyreğinde Boğaziçi Teknopark\'ta faaliyetlerine başlayacak olan şirketimiz, Türkiye\'nin teknoloji ekosisteminde önemli bir rol üstlenmeye hazırlanmaktadır.'
-                : 'Demaş Technology is an innovative technology company specialized in artificial intelligence and AI-powered software solutions. Our company, which will start operations at Boğaziçi Technopark in the 3rd quarter of 2025, is preparing to play an important role in Turkey\'s technology ecosystem.',
+                ? 'Demaş Teknoloji, yapay zeka ve yapay zeka destekli yazılım çözümleri alanında uzmanlaşmış, yenilikçi bir teknoloji şirketidir. 2025 yılının 3. çeyreğinde Boğaziçi Teknopark\'ta faaliyetlerine başlayacak olan firmamız, Türkiye\'nin teknoloji ekosisteminde stratejik bir oyuncu olmayı hedeflemektedir.'
+                : 'Demaş Technology is an innovative technology company specialized in artificial intelligence and AI-powered software solutions. Our company, which will start operations at Boğaziçi Technopark in the 3rd quarter of 2025, aims to become a strategic player in Turkey\'s technology ecosystem.',
               lang === 'tr'
-                ? 'Kurucu ekibimiz, yapay zeka, makine öğrenimi, doğal dil işleme ve yazılım geliştirme alanlarında derin deneyime sahip uzmanlardan oluşmaktadır. Bu deneyim, şirketimizin yeni kurulmasına rağmen, sektörde güvenilir ve yetkin bir partner olarak konumlanmasını sağlamaktadır.'
-                : 'Our founding team consists of experts with deep experience in artificial intelligence, machine learning, natural language processing and software development. This experience ensures that our company is positioned as a reliable and competent partner in the sector, despite being newly established.',
+                ? 'Kurucu ekibimiz; yapay zeka, makine öğrenimi, doğal dil işleme ve yazılım geliştirme konularında derin uzmanlığa sahip mühendis ve danışmanlardan oluşmaktadır. Bu güçlü teknik altyapı, Demaş Teknoloji\'nin henüz yeni bir girişim olmasına rağmen güvenilir ve yetkin bir iş ortağı olarak konumlanmasını sağlamaktadır.'
+                : 'Our founding team consists of engineers and consultants with deep expertise in artificial intelligence, machine learning, natural language processing and software development. This strong technical infrastructure ensures that Demaş Technology is positioned as a reliable and competent business partner despite being a new venture.',
               lang === 'tr'
-                ? 'Yapay zeka destekli yazılım çözümlerimizle, işletmelerin dijital dönüşüm süreçlerini hızlandırıyor, operasyonel verimliliği artırıyor ve karar alma süreçlerini akıllı sistemlerle güçlendiriyoruz. Müşterilerimize sadece teknoloji değil, stratejik bir iş ortağı olarak değer katıyoruz.'
-                : 'With our AI-powered software solutions, we accelerate businesses digital transformation processes, increase operational efficiency and strengthen decision-making processes with intelligent systems. We add value to our customers not only as technology, but as a strategic business partner.',
+                ? 'Yapay zeka destekli çözümlerimizle; işletmelerin dijital dönüşümünü hızlandırıyor, operasyonel verimliliklerini artırıyor, veriye dayalı akıllı karar sistemleriyle iş süreçlerini yeniden şekillendiriyoruz.'
+                : 'With our AI-powered solutions; we accelerate businesses digital transformation, increase their operational efficiency, and reshape business processes with data-driven intelligent decision systems.',
               lang === 'tr'
-                ? 'Boğaziçi Teknopark\'ın prestijli ortamında faaliyet gösterecek olmamız, hem akademik işbirlikleri hem de endüstriyel ortaklıklar açısından büyük avantajlar sağlamaktadır. Bu konum, şirketimizin Ar-Ge faaliyetlerini destekleyecek ve yenilikçi çözümler geliştirmemize katkı sağlayacaktır.'
-                : 'Operating in the prestigious environment of Boğaziçi Technopark provides great advantages both in terms of academic collaborations and industrial partnerships. This location will support our company\'s R&D activities and contribute to developing innovative solutions.'
+                ? 'Sunduğumuz çözümler, yalnızca bir yazılım hizmetinden ibaret değil; müşterilerimizle kurduğumuz stratejik ortaklık anlayışının bir yansımasıdır.'
+                : 'The solutions we offer are not just a software service; they are a reflection of the strategic partnership approach we establish with our customers.',
+              lang === 'tr'
+                ? 'Boğaziçi Teknopark\'ta yer alacak olmamız; akademik iş birlikleri, Ar-Ge faaliyetleri ve sanayiyle entegrasyon açısından önemli avantajlar sunmaktadır. Bu güçlü konum, inovasyona dayalı sürdürülebilir teknolojiler geliştirmemize olanak sağlayacaktır.'
+                : 'Our presence at Boğaziçi Technopark provides significant advantages in terms of academic collaborations, R&D activities and industry integration. This strong position will enable us to develop sustainable technologies based on innovation.'
             ]}
           />
         </>
@@ -130,11 +133,11 @@ const Company: React.FC = () => {
             style={{ textAlign: 'justify' }}
             paragraphs={[
               lang === 'tr'
-                ? 'Türkiye\'nin önde gelen yapay zeka teknolojileri şirketi olmak ve global pazarda söz sahibi bir teknoloji markası haline gelmek.'
-                : 'To become Turkey\'s leading artificial intelligence technology company and a technology brand with a say in the global market.',
+                ? 'Türkiye\'nin lider yapay zeka teknolojileri şirketi olmak ve global pazarda söz sahibi, rekabetçi bir teknoloji markasına dönüşmek.'
+                : 'To become Turkey\'s leading artificial intelligence technology company and transform into a competitive technology brand with a say in the global market.',
               lang === 'tr'
-                ? 'Yapay zeka alanında yenilikçi çözümler geliştirerek, iş dünyasının dijital dönüşümüne öncülük etmek ve sürdürülebilir teknolojik değer yaratmak.'
-                : 'To lead the digital transformation of the business world and create sustainable technological value by developing innovative solutions in the field of artificial intelligence.'
+                ? 'İş dünyasının dijital dönüşümüne yön verecek yenilikçi çözümler geliştirerek, sürdürülebilir teknolojik değer yaratmak.'
+                : 'To create sustainable technological value by developing innovative solutions that will guide the digital transformation of the business world.'
             ]}
           />
           <section className="py-16 bg-gray-50">
@@ -150,8 +153,8 @@ const Company: React.FC = () => {
                   <div>
                     <p className="text-lg text-gray-700 text-center">
                       {lang === 'tr'
-                        ? 'Yapay zeka ve makine öğrenimi teknolojileriyle işletmelerin verimliliğini artıran, akıllı ve ölçeklenebilir yazılım çözümleri geliştirmek,'
-                        : 'To develop intelligent and scalable software solutions that increase business efficiency with artificial intelligence and machine learning technologies,'}
+                        ? 'Yapay zeka ve makine öğrenimi teknolojileriyle işletmelere akıllı, esnek ve ölçeklenebilir çözümler sunmak.'
+                        : 'To provide businesses with intelligent, flexible and scalable solutions using artificial intelligence and machine learning technologies.'}
                     </p>
                   </div>
                 </div>
@@ -162,8 +165,8 @@ const Company: React.FC = () => {
                   <div>
                     <p className="text-lg text-gray-700 text-center">
                       {lang === 'tr'
-                        ? 'Sektörel ihtiyaçlara özel, esnek ve entegre yapay zeka çözümleri sunmak,'
-                        : 'To offer sector-specific, flexible and integrated artificial intelligence solutions,'}
+                        ? 'Sektörel ihtiyaçlara özel entegre yazılım sistemleri geliştirmek.'
+                        : 'To develop integrated software systems tailored to sectoral needs.'}
                     </p>
                   </div>
                 </div>
@@ -174,8 +177,8 @@ const Company: React.FC = () => {
                   <div>
                     <p className="text-lg text-gray-700 text-center">
                       {lang === 'tr'
-                        ? 'Müşteri odaklı yaklaşımımızla, kolay uygulanabilir ve değer yaratan sistemler geliştirmek,'
-                        : 'To develop easy-to-implement and value-creating systems with our customer-focused approach,'}
+                        ? 'Müşteri odaklı yaklaşım ile kolay uygulanabilir, yüksek katma değer sağlayan sistemler üretmek.'
+                        : 'To produce easy-to-implement, high-value-added systems with a customer-focused approach.'}
                     </p>
                   </div>
                 </div>

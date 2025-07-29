@@ -13,8 +13,8 @@ const solutions = [
     bigIcon: <Cog6ToothIcon className="h-16 w-16 text-blue-500 mx-auto" />,
     title: { tr: 'Sistem Entegrasyon Çözümleri', en: 'System Integration Solutions' },
     desc: {
-      tr: 'Sistem entegrasyon alanında, yazılım ve donanım katmanında en yüksek başarıya sahip ürünleri bir araya getirerek, tüm kurumsal iş süreçlerinde gerçek verimi yakalayan uçtan uca ve eksiksiz çözümler sağlıyoruz.',
-      en: 'In the field of system integration, we provide end-to-end and complete solutions that bring together the most successful products in software and hardware layers, achieving real efficiency in all corporate business processes.'
+      tr: 'Kurumsal süreçlerinizi kolaylaştırmak için yazılım ve donanımı en iyi şekilde entegre ediyor, uçtan uca eksiksiz çözümler sunuyoruz.',
+      en: 'We integrate software and hardware in the best way to facilitate your corporate processes, offering end-to-end complete solutions.'
     }
   },
   {
@@ -23,8 +23,8 @@ const solutions = [
     bigIcon: <BuildingOffice2Icon className="h-16 w-16 text-blue-500 mx-auto" />,
     title: { tr: 'Kurumsal Çözümler', en: 'Corporate Solutions' },
     desc: {
-      tr: 'Kurumsal süreçlerinizi dijitalleştirerek verimliliği artıran, özelleştirilebilir ve entegre çözümler sunuyoruz.',
-      en: 'We offer customizable and integrated solutions that digitize your corporate processes and increase efficiency.'
+      tr: 'İş süreçlerinizi dijitalleştirerek verimliliğinizi artıran, özelleştirilebilir yapıda yazılım çözümleri geliştiriyoruz.',
+      en: 'We develop software solutions in customizable structure that increase your efficiency by digitizing your business processes.'
     }
   },
   {
@@ -33,8 +33,8 @@ const solutions = [
     bigIcon: <Squares2X2Icon className="h-16 w-16 text-blue-500 mx-auto" />,
     title: { tr: 'SAP Çözümleri', en: 'SAP Solutions' },
     desc: {
-      tr: 'SAP danışmanlığı ve entegrasyonu ile iş süreçlerinizi optimize ediyor, rekabette öne çıkmanızı sağlıyoruz.',
-      en: 'We optimize your business processes with SAP consultancy and integration, helping you stand out in competition.'
+      tr: 'SAP danışmanlığı ve sistem entegrasyonu ile süreçlerinizi optimize ediyor, operasyonel mükemmellik sağlıyoruz.',
+      en: 'We optimize your processes with SAP consultancy and system integration, ensuring operational excellence.'
     }
   },
   {
@@ -43,8 +43,8 @@ const solutions = [
     bigIcon: <DevicePhoneMobileIcon className="h-16 w-16 text-blue-500 mx-auto" />,
     title: { tr: 'Telekom Çözümleri', en: 'Telecom Solutions' },
     desc: {
-      tr: 'Telekom sektörüne özel, güvenilir ve ölçeklenebilir çözümler geliştiriyoruz.',
-      en: 'We develop reliable and scalable solutions tailored for the telecom sector.'
+      tr: 'Telekom sektörüne özel, yüksek performanslı ve güvenilir yazılım çözümleri sunuyoruz.',
+      en: 'We offer high-performance and reliable software solutions specifically designed for the telecom sector.'
     }
   },
 ];
