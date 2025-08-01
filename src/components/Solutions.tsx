@@ -8,43 +8,43 @@ interface SolutionsProps {
 
 const solutions = [
   {
-    key: 'integration',
+    key: 'software',
     icon: <Cog6ToothIcon className="h-7 w-7 md:h-8 md:w-8 mr-2 text-blue-500" />,
     bigIcon: <Cog6ToothIcon className="h-16 w-16 text-blue-500 mx-auto" />,
-    title: { tr: 'Sistem Entegrasyon Çözümleri', en: 'System Integration Solutions' },
+    title: { tr: 'Yazılım', en: 'Software' },
     desc: {
-      tr: 'Kurumsal süreçlerinizi kolaylaştırmak için yazılım ve donanımı en iyi şekilde entegre ediyor, uçtan uca eksiksiz çözümler sunuyoruz.',
-      en: 'We integrate software and hardware in the best way to facilitate your corporate processes, offering end-to-end complete solutions.'
+      tr: 'Modern teknolojiler kullanarak özel yazılım çözümleri geliştiriyor, iş süreçlerinizi dijitalleştiriyor ve verimliliğinizi artırıyoruz.',
+      en: 'We develop custom software solutions using modern technologies, digitizing your business processes and increasing your efficiency.'
     }
   },
   {
-    key: 'corporate',
+    key: 'marketing',
     icon: <BuildingOffice2Icon className="h-7 w-7 md:h-8 md:w-8 mr-2 text-blue-500" />,
     bigIcon: <BuildingOffice2Icon className="h-16 w-16 text-blue-500 mx-auto" />,
-    title: { tr: 'Kurumsal Çözümler', en: 'Corporate Solutions' },
+    title: { tr: 'Pazarlama', en: 'Marketing' },
     desc: {
-      tr: 'İş süreçlerinizi dijitalleştirerek verimliliğinizi artıran, özelleştirilebilir yapıda yazılım çözümleri geliştiriyoruz.',
-      en: 'We develop software solutions in customizable structure that increase your efficiency by digitizing your business processes.'
+      tr: 'Dijital pazarlama stratejileri ile markanızı güçlendiriyor, hedef kitlenize ulaşmanızı sağlıyor ve satışlarınızı artırıyoruz.',
+      en: 'We strengthen your brand with digital marketing strategies, help you reach your target audience and increase your sales.'
     }
   },
   {
-    key: 'sap',
+    key: 'operations',
     icon: <Squares2X2Icon className="h-7 w-7 md:h-8 md:w-8 mr-2 text-blue-500" />,
     bigIcon: <Squares2X2Icon className="h-16 w-16 text-blue-500 mx-auto" />,
-    title: { tr: 'SAP Çözümleri', en: 'SAP Solutions' },
+    title: { tr: 'Operasyon', en: 'Operations' },
     desc: {
-      tr: 'SAP danışmanlığı ve sistem entegrasyonu ile süreçlerinizi optimize ediyor, operasyonel mükemmellik sağlıyoruz.',
-      en: 'We optimize your processes with SAP consultancy and system integration, ensuring operational excellence.'
+      tr: 'Operasyonel süreçlerinizi optimize ediyor, maliyetleri düşürüyor ve iş akışlarınızı daha verimli hale getiriyoruz.',
+      en: 'We optimize your operational processes, reduce costs and make your workflows more efficient.'
     }
   },
   {
-    key: 'telecom',
+    key: 'funding',
     icon: <DevicePhoneMobileIcon className="h-7 w-7 md:h-8 md:w-8 mr-2 text-blue-500" />,
     bigIcon: <DevicePhoneMobileIcon className="h-16 w-16 text-blue-500 mx-auto" />,
-    title: { tr: 'Telekom Çözümleri', en: 'Telecom Solutions' },
+    title: { tr: 'Fonlama', en: 'Funding' },
     desc: {
-      tr: 'Telekom sektörüne özel, yüksek performanslı ve güvenilir yazılım çözümleri sunuyoruz.',
-      en: 'We offer high-performance and reliable software solutions specifically designed for the telecom sector.'
+      tr: 'Projeleriniz için uygun fonlama kaynaklarını buluyor, yatırım stratejileri geliştiriyor ve finansal büyümenizi destekliyoruz.',
+      en: 'We find suitable funding sources for your projects, develop investment strategies and support your financial growth.'
     }
   },
 ];
@@ -67,8 +67,8 @@ const Solutions: React.FC<SolutionsProps> = ({ language }) => {
         </h2>
         <p className="text-lg text-gray-700 mb-12 text-left max-w-4xl">
           {language === 'tr'
-            ? 'Geliştirdiğimiz çözümler ile dört ayrı ana alanda inovasyonun desteği sizinle! Sistem entegrasyon, telekom, SAP ve kurumsal çözümlerimiz ile tüm fırsatları yakalayın.'
-            : 'With our solutions, you have innovation support in four main areas! Discover all the opportunities with our system integration, telecom, SAP, and corporate solutions.'}
+            ? 'Geliştirdiğimiz çözümler ile dört ayrı ana alanda inovasyonun desteği sizinle! Yazılım, pazarlama, operasyon ve fonlama çözümlerimiz ile tüm fırsatları yakalayın.'
+            : 'With our solutions, you have innovation support in four main areas! Discover all the opportunities with our software, marketing, operations, and funding solutions.'}
         </p>
         <div className="flex flex-col md:flex-row gap-8 md:gap-0 items-stretch">
           {/* Left: Vertical Menu */}

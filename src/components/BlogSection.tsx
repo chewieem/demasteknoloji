@@ -16,7 +16,7 @@ const blogs = [
       tr: 'Yapay zeka teknolojileri iş dünyasında nasıl devrim yaratıyor? En yeni trendler ve uygulama alanları...',
       en: 'How is artificial intelligence revolutionizing the business world? Latest trends and applications...',
     },
-    link: '#blog1',
+    link: 'yapay-zeka-dijital-donusum',
   },
   {
     image: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=600&q=80',
@@ -28,7 +28,7 @@ const blogs = [
       tr: 'Bulut altyapısında veri güvenliği için dikkat edilmesi gerekenler ve en iyi uygulamalar.',
       en: 'Best practices and key points for data security in cloud infrastructure.',
     },
-    link: '#blog2',
+    link: 'bulut-bilisimde-guvenlik',
   },
   {
     image: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=600&q=80',
@@ -40,7 +40,7 @@ const blogs = [
       tr: '2024 yılında mobil uygulama geliştirmede öne çıkan teknolojiler ve kullanıcı beklentileri.',
       en: 'Key technologies and user expectations in mobile app development for 2024.',
     },
-    link: '#blog3',
+    link: 'mobil-uygulama-gelistirme-trendleri',
   },
 ];
 
@@ -75,7 +75,7 @@ const BlogSection: React.FC<BlogSectionProps> = ({ language }) => {
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">{blog.title[language]}</h3>
                 <p className="text-gray-700 mb-6 flex-1">{blog.desc[language]}</p>
                 <a
-                  href={blog.link}
+                  href={`/demasteknoloji/${language === 'tr' ? 'tr' : 'en'}/blog/${blog.link}`}
                   className="mt-auto text-blue-700 font-medium flex items-center gap-1 hover:underline"
                 >
                   {language === 'tr' ? 'Devamını Oku' : 'Read More'}

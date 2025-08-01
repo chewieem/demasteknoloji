@@ -38,7 +38,7 @@ const Contact: React.FC<ContactProps> = ({ language }) => {
         quickResponse: 'Hızlı Yanıt',
         workingHoursText: [
           'Pazartesi - Cuma: 09:00 - 18:00',
-          'Cumartesi: 10:00 - 14:00',
+          'Cumartesi: Kapalı',
           'Pazar: Kapalı'
         ],
         quickResponseText: 'Mesajınızı aldıktan sonra 24 saat içinde size geri dönüş yapacağız. Acil projeler için telefon ile iletişime geçebilirsiniz.'
@@ -96,13 +96,13 @@ const Contact: React.FC<ContactProps> = ({ language }) => {
     },
     {
       name: 'Phone',
-      value: '+90 (212) 555 0123',
+      value: '+90 (212) 603 33 88',
       icon: PhoneIcon,
-      href: 'tel:+902125550123'
+      href: 'tel:+902126033388'
     },
     {
       name: language === 'tr' ? 'Adres' : 'Address',
-      value: language === 'tr' ? 'İstanbul, Türkiye' : 'Istanbul, Turkey',
+      value: language === 'tr' ? 'Yenibosna Merkez Mah. Kuyumcukent Sok. Kuyumcukent AVM No:4M/Z265 İstanbul, Türkiye' : 'Yenibosna Merkez Mah. Kuyumcukent Sok. Kuyumcukent AVM No:4M/Z265 Istanbul, Türkiye',
       icon: MapPinIcon,
       href: '#'
     }

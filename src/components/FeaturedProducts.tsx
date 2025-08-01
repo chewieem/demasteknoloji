@@ -13,65 +13,33 @@ interface FeaturedProductsProps {
 const products = [
   {
     image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80',
-    title: { tr: 'RPA', en: 'RPA' },
+    title: { tr: 'UyumTakip', en: 'UyumTakip' },
     desc: {
       tr: 'Hızlı ve hatasız çalışan robotik iş gücü çözümleri',
       en: 'Fast and error-free robotic workforce solutions',
     },
     detail: { tr: 'Detaylı Bilgi', en: 'More Info' },
-    link: '#rpa',
+    link: 'http://localhost:3000/demasteknoloji/tr/investment/uyumtakip',
   },
   {
     image: 'https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=800&q=80',
-    title: { tr: 'NOVA', en: 'NOVA' },
+    title: { tr: 'Fiyat Borsası', en: 'Fiyat Borsası' },
     desc: {
       tr: 'Otomatik optimizasyon kabiliyetli hizmet kalitesi yönetimi aracı',
       en: 'Service quality management tool with automatic optimization capability',
     },
     detail: { tr: 'Detaylı Bilgi', en: 'More Info' },
-    link: '#nova',
+    link: 'http://localhost:3000/demasteknoloji/tr/investment/fiyat-borsasi',
   },
   {
     image: 'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=800&q=80',
-    title: { tr: 'Network 360', en: 'Network 360' },
+    title: { tr: 'Dijital Rafineri', en: 'Dijital Rafineri' },
     desc: {
       tr: 'Kullanıcı dostu ve kolay uygulanabilir ağ yönetim sistemi',
       en: 'User-friendly and easy-to-implement network management system',
     },
     detail: { tr: 'Detaylı Bilgi', en: 'More Info' },
-    link: '#network360',
-    contact: { tr: 'Bize Ulaşın', en: 'Contact Us' },
-    contactLink: '#contact',
-  },
-  {
-    image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80',
-    title: { tr: 'DataSense', en: 'DataSense' },
-    desc: {
-      tr: 'Gelişmiş veri analitiği ve raporlama platformu',
-      en: 'Advanced data analytics and reporting platform',
-    },
-    detail: { tr: 'Detaylı Bilgi', en: 'More Info' },
-    link: '#datasense',
-  },
-  {
-    image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80',
-    title: { tr: 'SecureAI', en: 'SecureAI' },
-    desc: {
-      tr: 'Yapay zeka destekli güvenlik çözümleri',
-      en: 'AI-powered security solutions',
-    },
-    detail: { tr: 'Detaylı Bilgi', en: 'More Info' },
-    link: '#secureai',
-  },
-  {
-    image: 'https://images.unsplash.com/photo-1468779060412-f5b0904f65b0?auto=format&fit=crop&w=800&q=80',
-    title: { tr: 'CloudOps', en: 'CloudOps' },
-    desc: {
-      tr: 'Bulut tabanlı operasyon ve otomasyon platformu',
-      en: 'Cloud-based operations and automation platform',
-    },
-    detail: { tr: 'Detaylı Bilgi', en: 'More Info' },
-    link: '#cloudops',
+    link: 'http://localhost:3000/demasteknoloji/tr/investment/dijital-rafineri',
   },
 ];
 
@@ -122,14 +90,6 @@ const FeaturedProducts: React.FC<FeaturedProductsProps> = ({ language }) => {
                     >
                       {product.detail[language]}
                     </a>
-                    {product.contact && (
-                      <a
-                        href={product.contactLink}
-                        className="bg-white/20 hover:bg-white/30 text-white font-semibold px-5 py-2 rounded border border-white/40 transition-colors"
-                      >
-                        {product.contact[language]}
-                      </a>
-                    )}
                   </div>
                 </div>
               </div>

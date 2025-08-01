@@ -235,10 +235,10 @@ const Blog: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-gray-100"
+              className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-gray-100 flex flex-col h-full"
             >
               {/* Blog Resmi */}
-              <div className="relative">
+              <div className="relative flex-shrink-0">
                 <img
                   src={blog.image}
                   alt={blog.title[lang]}
@@ -252,11 +252,11 @@ const Blog: React.FC = () => {
               </div>
 
               {/* Blog İçeriği */}
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2">
+              <div className="p-6 flex flex-col flex-1">
+                <h3 className="text-xl font-bold text-gray-900 mb-3 line-clamp-2 min-h-[3rem]">
                   {blog.title[lang]}
                 </h3>
-                <p className="text-gray-600 mb-4 line-clamp-3">
+                <p className="text-gray-600 mb-4 line-clamp-3 flex-1">
                   {blog.desc[lang]}
                 </p>
 
@@ -278,7 +278,7 @@ const Blog: React.FC = () => {
                 </div>
 
                 {/* Etiketler */}
-                <div className="flex flex-wrap gap-2 mb-4">
+                <div className="flex flex-wrap gap-2 mb-4 min-h-[2rem]">
                   {blog.tags.slice(0, 3).map((tag, tagIdx) => (
                     <span
                       key={tagIdx}
@@ -292,7 +292,7 @@ const Blog: React.FC = () => {
                 {/* Devamını Oku Butonu */}
                 <Link 
                   to={`/${lang}/blog/${blog.id}`}
-                  className="w-full bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors font-medium block text-center"
+                  className="w-full bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors font-medium block text-center mt-auto"
                 >
                   {lang === 'tr' ? 'Devamını Oku' : 'Read More'}
                 </Link>

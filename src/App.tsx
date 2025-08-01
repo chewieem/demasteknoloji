@@ -86,7 +86,6 @@ const App: React.FC = () => {
           <Hero language={language} />
           <FeaturedProducts language={language} />
           <Solutions language={language} />
-          <ServicesCards language={language} />
           <BlogSection language={language} />
           <Contact language={language} />
           <Footer language={language} />

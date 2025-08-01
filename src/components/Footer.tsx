@@ -10,14 +10,12 @@ const Footer: React.FC<FooterProps> = ({ language }) => {
   const content = {
     tr: {
       description: 'Modern teknolojiler ile işinizi büyütün. Web geliştirme, mobil uygulama ve dijital çözümler ile markanızı dijital dünyada öne çıkarın.',
-      services: 'Hizmetler',
+      services: 'Yatırımlarımız',
       contact: 'İletişim',
       servicesList: [
-        'Web Geliştirme',
-        'Mobil Uygulama',
-        'Cloud Çözümleri',
-        'Sistem Entegrasyonu',
-        'Güvenlik'
+        'UyumTakip',
+        'Fiyat Borsası',
+        'Dijital Rafineri'
       ],
       copyright: '© {year} DemaşTeknoloji. Tüm hakları saklıdır.',
       legal: {
@@ -37,14 +35,12 @@ const Footer: React.FC<FooterProps> = ({ language }) => {
     },
     en: {
       description: 'Grow your business with modern technologies. Stand out in the digital world with web development, mobile applications and digital solutions.',
-      services: 'Services',
+      services: 'Our Investments',
       contact: 'Contact',
       servicesList: [
-        'Web Development',
-        'Mobile Applications',
-        'Cloud Solutions',
-        'System Integration',
-        'Security'
+        'UyumTakip',
+        'Fiyat Borsası',
+        'Dijital Rafineri'
       ],
       copyright: '© {year} DemaşTeknoloji. All rights reserved.',
       legal: {
@@ -102,13 +98,23 @@ const Footer: React.FC<FooterProps> = ({ language }) => {
           <div>
             <h3 className="text-lg font-semibold text-white mb-4">{currentContent.services}</h3>
             <ul className="space-y-2 text-gray-300">
-              {currentContent.servicesList.map((service) => (
-                <li key={service}>
-                  <a href="#services" className="hover:text-white transition-colors">
-                    {service}
-                  </a>
-                </li>
-              ))}
+              {currentContent.servicesList.map((service) => {
+                let href = '#';
+                if (service === 'UyumTakip') {
+                  href = language === 'tr' ? '/demasteknoloji/tr/investment/uyumtakip' : '/demasteknoloji/en/investment/uyumtakip';
+                } else if (service === 'Fiyat Borsası') {
+                  href = language === 'tr' ? '/demasteknoloji/tr/investment/fiyat-borsasi' : '/demasteknoloji/en/investment/fiyat-borsasi';
+                } else if (service === 'Dijital Rafineri') {
+                  href = language === 'tr' ? '/demasteknoloji/tr/investment/dijital-rafineri' : '/demasteknoloji/en/investment/dijital-rafineri';
+                }
+                return (
+                  <li key={service}>
+                    <a href={href} className="hover:text-white transition-colors">
+                      {service}
+                    </a>
+                  </li>
+                );
+              })}
             </ul>
           </div>
 
